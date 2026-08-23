@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://dhobp57idycfs"]
 
-[node name="Test" type="Node3D" unique_id=1832594762]
+[ext_resource type="Script" uid="uid://c7v8ocgie0fkl" path="res://test/test.gd" id="1_syuel"]
+[ext_resource type="Script" uid="uid://bk8idjtsfakoj" path="res://test/clase_compuesta_C.gd" id="2_8a8pi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yr2l0"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_syuel"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="Node3D" type="StaticBody3D" unique_id=1677424006 node_paths=PackedStringArray("file_clase_a_implementar")]
+script = ExtResource("1_syuel")
+file_clase_a_implementar = NodePath("Node")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=824251576]
+mesh = SubResource("BoxMesh_yr2l0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1520086946]
+shape = SubResource("ConvexPolygonShape3D_syuel")
+
+[node name="Node" type="Node" parent="." unique_id=138083943]
+script = ExtResource("2_8a8pi")
