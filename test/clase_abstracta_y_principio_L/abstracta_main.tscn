@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ct43guwr4a3o"]
+
+[ext_resource type="Script" uid="uid://c7v8ocgie0fkl" path="res://test/clase_abstracta_y_principio_L/test.gd" id="1_fiwcp"]
+[ext_resource type="Script" uid="uid://ddo7vb1m62ele" path="res://test/clase_abstracta_y_principio_L/clase_base_A.gd" id="2_nyvqc"]
+[ext_resource type="Script" uid="uid://dixknb8j2h4pb" path="res://test/clase_abstracta_y_principio_L/clase_compuesta_B.gd" id="3_yjtal"]
+[ext_resource type="Script" uid="uid://bk8idjtsfakoj" path="res://test/clase_abstracta_y_principio_L/clase_compuesta_C.gd" id="4_spbsw"]
+[ext_resource type="Script" uid="uid://cbkg731x1hawa" path="res://test/clase_abstracta_y_principio_L/clase_compuesta_D.gd" id="5_hmkj7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fiwcp"]
+font_size = 50
+
+[node name="Node2D" type="Control" unique_id=1437421267 node_paths=PackedStringArray("clase_a_implementar", "etiqueta")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fiwcp")
+clase_a_implementar = NodePath("Clase_Compuesta_C")
+etiqueta = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=514890013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_fiwcp")
+
+[node name="Clase_Base_A" type="Node" parent="." unique_id=583123447]
+script = ExtResource("2_nyvqc")
+
+[node name="Clae_Compuesta_B" type="Node" parent="." unique_id=94337431]
+script = ExtResource("3_yjtal")
+
+[node name="Clase_Compuesta_C" type="Node" parent="." unique_id=132316442]
+script = ExtResource("4_spbsw")
+
+[node name="Clase_Compuesta_D" type="Node" parent="." unique_id=874677400]
+script = ExtResource("5_hmkj7")

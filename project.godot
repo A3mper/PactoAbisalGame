@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="PactoAbisalGameJamBAGD"
-run/main_scene="uid://dhobp57idycfs"
+run/main_scene="uid://ct43guwr4a3o"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bwd2w6vs3vm4c"
 
 [autoload]
 
-ClaseAbstractaA="*uid://cxfsu573ri31h"
+ClaseBaseA="*uid://ddo7vb1m62ele"
 
 [dotnet]
 

@@ -1,7 +1,7 @@
-extends StaticBody3D
+extends Control
 
-@export var file_clase_a_implementar : clase_abstracta_A
-
+@export var clase_a_implementar : clase_base_A
+@export var etiqueta : Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,5 +10,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	file_clase_a_implementar.algo()
+	etiqueta.text = clase_a_implementar.algo()
+	
 	
