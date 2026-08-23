@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://p0g3w8p768x4"]
+
+[ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://icon.svg" id="1_pkt81"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jjaep"]
+radius = 2.5
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pkt81"]
+radius = 3.0
+height = 12.0
+
+[node name="pool_class_example_obj" type="RigidBody2D" unique_id=1794169128]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1985348904]
+scale = Vector2(10, 10)
+mesh = SubResource("CapsuleMesh_jjaep")
+texture = ExtResource("1_pkt81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=425709185]
+scale = Vector2(10, 10)
+shape = SubResource("CapsuleShape2D_pkt81")

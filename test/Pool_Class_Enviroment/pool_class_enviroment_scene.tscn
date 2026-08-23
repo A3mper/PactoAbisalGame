@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ksadkkc7onb1"]
+
+[ext_resource type="Texture2D" uid="uid://bwd2w6vs3vm4c" path="res://assets/Pacto_Abisal2x.png" id="1_japed"]
+[ext_resource type="Script" uid="uid://6r1ygxhe2icv" path="res://test/Pool_Class_Enviroment/obj_shooter.gd" id="2_awfds"]
+[ext_resource type="PackedScene" uid="uid://p0g3w8p768x4" path="res://test/Pool_Class_Enviroment/pool_class_example_obj.tscn" id="3_poqb8"]
+
+[node name="Pool_Class_Enviroment" type="Node2D" unique_id=856429783]
+
+[node name="PactoAbisal2x" type="Sprite2D" parent="." unique_id=114701441 node_paths=PackedStringArray("SalidaObj")]
+position = Vector2(557, 325.00003)
+scale = Vector2(0.38123515, 0.38123515)
+texture = ExtResource("1_japed")
+script = ExtResource("2_awfds")
+Obj_disparar = ExtResource("3_poqb8")
+SalidaObj = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="PactoAbisal2x" unique_id=1103490992]
+position = Vector2(0, -215.09044)
