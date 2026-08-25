@@ -17,7 +17,7 @@ config/icon="uid://bwd2w6vs3vm4c"
 
 [autoload]
 
-ClaseBaseA="*uid://ddo7vb1m62ele"
+PoolInterface="*uid://b8xnk18o67mjv"
 
 [dotnet]
 
