@@ -2,6 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://icon.svg" id="1_pkt81"]
 
+[sub_resource type="GDScript" id="GDScript_pkt81"]
+script/source = "extends Node
+
+@export var prefabs: Dictionary[String, PackedScene] = {}
+
+var pools: Dictionary[String, IPooleable]
+
+func GetItem(id: String): 
+	if pools.has(id):
+		pools[id].getID()
+		
+"
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jjaep"]
 radius = 2.5
 height = 10.0
@@ -11,6 +24,7 @@ radius = 3.0
 height = 12.0
 
 [node name="pool_class_example_obj" type="RigidBody2D" unique_id=1794169128]
+script = SubResource("GDScript_pkt81")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1985348904]
 scale = Vector2(10, 10)

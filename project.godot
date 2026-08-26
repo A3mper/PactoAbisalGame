@@ -17,12 +17,8 @@ config/icon="uid://bwd2w6vs3vm4c"
 
 [autoload]
 
-PoolInterface="*uid://b8xnk18o67mjv"
-
-[display]
-
-window/size/viewport_width=1024
-window/size/viewport_height=600
+ClaseBaseA="*uid://ddo7vb1m62ele"
+PoolManager="*uid://3ctkbvqbo7bf"
 
 [dotnet]
 
