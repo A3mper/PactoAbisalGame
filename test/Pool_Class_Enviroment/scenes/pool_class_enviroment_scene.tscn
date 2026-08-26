@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ksadkkc7onb1"]
 
 [ext_resource type="Texture2D" uid="uid://bwd2w6vs3vm4c" path="res://assets/Pacto_Abisal2x.png" id="1_japed"]
-[ext_resource type="Script" uid="uid://6r1ygxhe2icv" path="res://test/Pool_Class_Enviroment/obj_shooter.gd" id="2_awfds"]
-[ext_resource type="PackedScene" uid="uid://p0g3w8p768x4" path="res://test/Pool_Class_Enviroment/pool_class_example_obj.tscn" id="3_poqb8"]
+[ext_resource type="Script" uid="uid://6r1ygxhe2icv" path="res://test/Pool_Class_Enviroment/scripts/obj_shooter.gd" id="2_awfds"]
+[ext_resource type="PackedScene" uid="uid://p0g3w8p768x4" path="res://test/Pool_Class_Enviroment/scenes/pool_class_example_obj.tscn" id="3_poqb8"]
 
 [node name="Pool_Class_Enviroment" type="Node2D" unique_id=856429783]
 
