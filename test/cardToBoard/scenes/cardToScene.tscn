@@ -15,7 +15,7 @@ font_size = 50
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_623cq"]
-size = Vector2(20, 100)
+size = Vector2(10, 100)
 
 [sub_resource type="QuadMesh" id="QuadMesh_41egw"]
 size = Vector2(30, 115)
@@ -52,7 +52,7 @@ TorreParent = NodePath("../../Torres")
 
 [node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
 
-[node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830 node_paths=PackedStringArray("HighLightArea")]
+[node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830 node_paths=PackedStringArray("HighLightArea") groups=["TowerEnableZone"]]
 position = Vector2(288, 318)
 rotation = 1.5707964
 collision_layer = 16
@@ -61,6 +61,7 @@ script = ExtResource("5_aigdk")
 HighLightArea = NodePath("MeshInstance2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaTorres/TowerEnableZone" unique_id=1114771057]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_623cq")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="ZonaTorres/TowerEnableZone" unique_id=1315919461]
@@ -68,7 +69,10 @@ self_modulate = Color(1, 1, 1, 0.63529414)
 mesh = SubResource("QuadMesh_41egw")
 texture = ExtResource("2_ffs83")
 
-[connection signal="TorreSelected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_carta_templeate_torre_selected"]
+[connection signal="_on_torre_de_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_de_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_selected"]
+[connection signal="_on_torre_zone_entered" from="ZonaTorres/TowerEnableZone" to="Cartas/CartaTempleate" method="__on_torre_zone_entered"]
+[connection signal="_on_torre_zone_exited" from="ZonaTorres/TowerEnableZone" to="Cartas/CartaTempleate" method="__on_torre_zone_exited"]
 [connection signal="body_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_body_entered"]
 [connection signal="mouse_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_exited"]

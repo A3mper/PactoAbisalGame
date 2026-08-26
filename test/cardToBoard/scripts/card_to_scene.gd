@@ -10,5 +10,3 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 '''
-func ColocarTorre()->void:
-	pass
