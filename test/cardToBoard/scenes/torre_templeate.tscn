@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dqfsaitnf2g88"]
+
+[ext_resource type="Script" uid="uid://dti5hue1gcdek" path="res://test/cardToBoard/scripts/torre_templeate.gd" id="1_fymdk"]
+[ext_resource type="Texture2D" uid="uid://bwd2w6vs3vm4c" path="res://assets/Pacto_Abisal2x.png" id="1_yoyqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoyqw"]
+size = Vector2(25, 25)
+
+[node name="TorreTempleate" type="StaticBody2D" unique_id=691898800 node_paths=PackedStringArray("PNGMania")]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_fymdk")
+PNGMania = NodePath("PactoAbisal2x")
+
+[node name="PactoAbisal2x" type="Sprite2D" parent="." unique_id=8722344]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_yoyqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633640780]
+shape = SubResource("RectangleShape2D_yoyqw")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

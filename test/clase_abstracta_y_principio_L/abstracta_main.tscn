@@ -9,7 +9,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_fiwcp"]
 font_size = 50
 
-[node name="Node2D" type="Control" unique_id=1437421267 node_paths=PackedStringArray("clase_a_implementar", "etiqueta")]
+[node name="Contro" type="Control" unique_id=1437421267 node_paths=PackedStringArray("clase_a_implementar", "etiqueta")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fiwcp")
-clase_a_implementar = NodePath("Clase_Compuesta_C")
+clase_a_implementar = NodePath("Clase_Compuesta_D")
 etiqueta = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=514890013]

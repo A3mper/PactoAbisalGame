@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PactoAbisalGameJamBAGD"
-run/main_scene="uid://ksadkkc7onb1"
+run/main_scene="uid://gnjnc07bm8vn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://bwd2w6vs3vm4c"
 
