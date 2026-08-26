@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cikc3f1bkbmt2"]
+
+[ext_resource type="Texture2D" uid="uid://qd0m5yoljkyx" path="res://test/cardToBoard/assets/20201017_095200 - copia.jpg" id="1_7ake8"]
+[ext_resource type="Script" uid="uid://bvtstb0dq40ka" path="res://test/cardToBoard/scripts/carta_templeate.gd" id="1_ge4w0"]
+
+[node name="CartaTempleate" type="Node2D" unique_id=476367395]
+script = ExtResource("1_ge4w0")
+
+[node name="Control" type="Control" parent="." unique_id=1628594571]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control" unique_id=127012610]
+layout_mode = 0
+offset_right = 271.0
+offset_bottom = 271.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("1_7ake8")
+
+[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

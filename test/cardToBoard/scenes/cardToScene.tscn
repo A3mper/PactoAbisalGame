@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://gnjnc07bm8vn"]
+
+[ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_623cq"]
+[ext_resource type="Script" uid="uid://b8corabii5djq" path="res://test/cardToBoard/scripts/card_to_scene.gd" id="1_kbh1b"]
+[ext_resource type="Texture2D" uid="uid://1kuw7dtner4b" path="res://test/cardToBoard/assets/20201017_095200.jpg" id="2_ffs83"]
+[ext_resource type="PackedScene" uid="uid://dqfsaitnf2g88" path="res://test/cardToBoard/scenes/torre_templeate.tscn" id="2_nh4si"]
+[ext_resource type="PackedScene" uid="uid://cikc3f1bkbmt2" path="res://test/cardToBoard/scenes/CartaTempleate.tscn" id="5_nh4si"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
+size = Vector2(500, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_41egw"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_623cq"]
+size = Vector2(20, 100)
+
+[sub_resource type="QuadMesh" id="QuadMesh_41egw"]
+size = Vector2(30, 115)
+
+[node name="CardToScene" type="Node2D" unique_id=2029263041]
+script = ExtResource("1_kbh1b")
+torre_a_colocar = ExtResource("2_nh4si")
+
+[node name="CacapturaTest" type="Sprite2D" parent="." unique_id=768531534]
+position = Vector2(538, 221)
+rotation = 1.5707964
+texture = ExtResource("1_623cq")
+
+[node name="Cartas" type="Node" parent="." unique_id=1522211157]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Cartas" unique_id=1475918196]
+position = Vector2(535, 511)
+mesh = SubResource("QuadMesh_ffs83")
+
+[node name="Label" type="Label" parent="Cartas/MeshInstance2D" unique_id=167973406]
+offset_left = -92.0
+offset_top = -40.0
+offset_right = 93.0
+offset_bottom = 29.0
+text = "CARTAS"
+label_settings = SubResource("LabelSettings_41egw")
+
+[node name="CartaTempleate" parent="Cartas" unique_id=476367395 node_paths=PackedStringArray("TorreParent") instance=ExtResource("5_nh4si")]
+position = Vector2(347, 513)
+scale = Vector2(1.5, 1.5)
+TorreCorrespondiete = ExtResource("2_nh4si")
+TorreParent = NodePath("../../Torres")
+
+[node name="Torres" type="Node" parent="." unique_id=1302141596]
+
+[node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
+
+[node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830]
+position = Vector2(288, 318)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaTorres/TowerEnableZone" unique_id=1114771057]
+shape = SubResource("RectangleShape2D_623cq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ZonaTorres/TowerEnableZone" unique_id=1315919461]
+mesh = SubResource("QuadMesh_41egw")
+texture = ExtResource("2_ffs83")
