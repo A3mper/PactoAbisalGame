@@ -6,8 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoyqw"]
 size = Vector2(25, 25)
 
-[node name="TorreTempleate" type="StaticBody2D" unique_id=691898800]
+[node name="TorreTempleate" type="StaticBody2D" unique_id=691898800 node_paths=PackedStringArray("PNGMania")]
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_fymdk")
+PNGMania = NodePath("PactoAbisal2x")
 
 [node name="PactoAbisal2x" type="Sprite2D" parent="." unique_id=8722344]
 rotation = -1.5707964

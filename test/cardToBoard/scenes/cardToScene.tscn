@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b8corabii5djq" path="res://test/cardToBoard/scripts/card_to_scene.gd" id="1_kbh1b"]
 [ext_resource type="Texture2D" uid="uid://1kuw7dtner4b" path="res://test/cardToBoard/assets/20201017_095200.jpg" id="2_ffs83"]
 [ext_resource type="PackedScene" uid="uid://dqfsaitnf2g88" path="res://test/cardToBoard/scenes/torre_templeate.tscn" id="2_nh4si"]
+[ext_resource type="Script" uid="uid://cd1wmsbvp3das" path="res://test/cardToBoard/scripts/tower_enable_zone.gd" id="5_aigdk"]
 [ext_resource type="PackedScene" uid="uid://cikc3f1bkbmt2" path="res://test/cardToBoard/scenes/CartaTempleate.tscn" id="5_nh4si"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
@@ -21,7 +22,6 @@ size = Vector2(30, 115)
 
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
-torre_a_colocar = ExtResource("2_nh4si")
 
 [node name="CacapturaTest" type="Sprite2D" parent="." unique_id=768531534]
 position = Vector2(538, 221)
@@ -52,15 +52,23 @@ TorreParent = NodePath("../../Torres")
 
 [node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
 
-[node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830]
+[node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830 node_paths=PackedStringArray("HighLightArea")]
 position = Vector2(288, 318)
 rotation = 1.5707964
 collision_layer = 16
 collision_mask = 0
+script = ExtResource("5_aigdk")
+HighLightArea = NodePath("MeshInstance2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaTorres/TowerEnableZone" unique_id=1114771057]
 shape = SubResource("RectangleShape2D_623cq")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="ZonaTorres/TowerEnableZone" unique_id=1315919461]
+self_modulate = Color(1, 1, 1, 0.63529414)
 mesh = SubResource("QuadMesh_41egw")
 texture = ExtResource("2_ffs83")
+
+[connection signal="TorreSelected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_carta_templeate_torre_selected"]
+[connection signal="body_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_body_entered"]
+[connection signal="mouse_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_exited"]

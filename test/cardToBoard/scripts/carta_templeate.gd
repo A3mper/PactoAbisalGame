@@ -4,7 +4,10 @@ extends Node2D
 @export var TorreParent : Node
 
 var Torre : Node2D = null
+
 var IsTorreSelected : bool = false
+
+#signal TorreSelected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,11 +21,12 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_RIGHT and event.pressed: 
-			IsTorreSelected = false
+			#IsTorreSelected = false
 			TorreParent.remove_child(Torre)
 			Torre = null
 
 func _on_button_pressed() -> void:
 	Torre = TorreCorrespondiete.instantiate()
+	#TorreSelected.emit()
 	IsTorreSelected = true
 	TorreParent.add_child(Torre)
