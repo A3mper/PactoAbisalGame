@@ -21,8 +21,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			IsTorreSelected = false
 			TorreParent.remove_child(Torre)
 			Torre = null
-			
-			
 
 func _on_button_pressed() -> void:
 	Torre = TorreCorrespondiete.instantiate()
