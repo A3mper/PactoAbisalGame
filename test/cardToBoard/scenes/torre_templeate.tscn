@@ -2,21 +2,34 @@
 
 [ext_resource type="Script" uid="uid://dti5hue1gcdek" path="res://test/cardToBoard/scripts/torre_templeate.gd" id="1_fymdk"]
 [ext_resource type="Texture2D" uid="uid://bwd2w6vs3vm4c" path="res://assets/Pacto_Abisal2x.png" id="1_yoyqw"]
+[ext_resource type="PackedScene" uid="uid://br74y2d6m1tqh" path="res://test/cardToBoard/scenes/torre_bullet.tscn" id="2_y5swo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoyqw"]
-size = Vector2(25, 25)
+[sub_resource type="CircleShape2D" id="CircleShape2D_fymdk"]
+radius = 50.0
 
-[node name="TorreTempleate" type="StaticBody2D" unique_id=691898800 node_paths=PackedStringArray("PNGMania")]
-collision_layer = 16
-collision_mask = 16
+[node name="TorreTempleate" type="Node2D" unique_id=652990647 node_paths=PackedStringArray("PNGMania", "SalidaBala", "timer")]
 script = ExtResource("1_fymdk")
 PNGMania = NodePath("PactoAbisal2x")
+LeBalaPS = ExtResource("2_y5swo")
+SalidaBala = NodePath("Marker2D")
+timer = NodePath("CadDeFuego")
 
 [node name="PactoAbisal2x" type="Sprite2D" parent="." unique_id=8722344]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_yoyqw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633640780]
-shape = SubResource("RectangleShape2D_yoyqw")
+[node name="Area2D" type="Area2D" parent="." unique_id=1071736890]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=633640780]
+shape = SubResource("CircleShape2D_fymdk")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1494339407]
+scale = Vector2(0.1, 0.1)
+
+[node name="CadDeFuego" type="Timer" parent="." unique_id=1906221075]
+wait_time = 2.0
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="CadDeFuego" to="." method="_on_cad_de_fuego_timeout"]

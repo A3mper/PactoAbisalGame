@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var IsInArea : bool = false
 
+
+
 '''
 func _physics_process(delta: float) -> void:
 	if IsInArea:

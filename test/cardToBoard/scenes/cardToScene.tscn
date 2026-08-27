@@ -24,9 +24,9 @@ size = Vector2(30, 115)
 
 [sub_resource type="Curve2D" id="Curve2D_a813w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -228, 108, 0, 0, 0, 0, -66, 108, 0, 0, 0, 0, -62, -137, 0, 0, 0, 0, 61, -137)
+"points": PackedVector2Array(0, 0, 0, 0, -228, 108, 0, 0, 0, 0, -86, 112, 0, 0, 0, 0, -64, 90, 0, 0, 0, 0, -63, -120, 0, 0, 0, 0, -43, -137, 0, 0, 0, 0, 56, -137)
 }
-point_count = 4
+point_count = 6
 
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
@@ -57,6 +57,9 @@ TorreCorrespondiete = ExtResource("2_nh4si")
 TorreParent = NodePath("../../Torres")
 
 [node name="Torres" type="Node" parent="." unique_id=1302141596]
+
+[node name="TorreTempleate" parent="Torres" unique_id=652990647 instance=ExtResource("2_nh4si")]
+position = Vector2(329, 319)
 
 [node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
 
@@ -89,8 +92,10 @@ position = Vector2(461, 240)
 curve = SubResource("Curve2D_a813w")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="ZonaEnemigos/Path2D" unique_id=409509130]
-position = Vector2(-228, 108)
+position = Vector2(-227.71841, 98.00397)
+rotation = 0.028161569
 scale = Vector2(0.5, 0.5)
+v_offset = -10.0
 loop = false
 
 [connection signal="_on_torre_de_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_de_selected"]
