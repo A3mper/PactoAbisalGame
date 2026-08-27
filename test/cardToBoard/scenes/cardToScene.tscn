@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://gnjnc07bm8vn"]
+
+[ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_623cq"]
+[ext_resource type="Script" uid="uid://b8corabii5djq" path="res://test/cardToBoard/scripts/card_to_scene.gd" id="1_kbh1b"]
+[ext_resource type="Texture2D" uid="uid://1kuw7dtner4b" path="res://test/cardToBoard/assets/20201017_095200.jpg" id="2_ffs83"]
+[ext_resource type="PackedScene" uid="uid://dqfsaitnf2g88" path="res://test/cardToBoard/scenes/torre_templeate.tscn" id="2_nh4si"]
+[ext_resource type="Script" uid="uid://cd1wmsbvp3das" path="res://test/cardToBoard/scripts/tower_enable_zone.gd" id="5_aigdk"]
+[ext_resource type="PackedScene" uid="uid://cikc3f1bkbmt2" path="res://test/cardToBoard/scenes/CartaTempleate.tscn" id="5_nh4si"]
+[ext_resource type="Script" uid="uid://c7t8so64ubvv" path="res://test/cardToBoard/scripts/enemy_manager.gd" id="7_2ggjw"]
+[ext_resource type="PackedScene" uid="uid://cdcq7iwi1qf73" path="res://test/cardToBoard/scenes/enemyTempleate.tscn" id="8_a813w"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
+size = Vector2(500, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_41egw"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_623cq"]
+size = Vector2(10, 100)
+
+[sub_resource type="QuadMesh" id="QuadMesh_41egw"]
+size = Vector2(30, 115)
+
+[sub_resource type="Curve2D" id="Curve2D_a813w"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -228, 108, 0, 0, 0, 0, -66, 108, 0, 0, 0, 0, -62, -137, 0, 0, 0, 0, 61, -137)
+}
+point_count = 4
+
+[node name="CardToScene" type="Node2D" unique_id=2029263041]
+script = ExtResource("1_kbh1b")
+
+[node name="CacapturaTest" type="Sprite2D" parent="." unique_id=768531534]
+position = Vector2(538, 221)
+rotation = 1.5707964
+texture = ExtResource("1_623cq")
+
+[node name="Cartas" type="Node" parent="." unique_id=1522211157]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Cartas" unique_id=1475918196]
+position = Vector2(535, 511)
+mesh = SubResource("QuadMesh_ffs83")
+
+[node name="Label" type="Label" parent="Cartas/MeshInstance2D" unique_id=167973406]
+offset_left = -92.0
+offset_top = -40.0
+offset_right = 93.0
+offset_bottom = 29.0
+text = "CARTAS"
+label_settings = SubResource("LabelSettings_41egw")
+
+[node name="CartaTempleate" parent="Cartas" unique_id=476367395 node_paths=PackedStringArray("TorreParent") instance=ExtResource("5_nh4si")]
+position = Vector2(347, 513)
+scale = Vector2(1.5, 1.5)
+TorreCorrespondiete = ExtResource("2_nh4si")
+TorreParent = NodePath("../../Torres")
+
+[node name="Torres" type="Node" parent="." unique_id=1302141596]
+
+[node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
+
+[node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830 node_paths=PackedStringArray("HighLightArea") groups=["TowerEnableZone"]]
+position = Vector2(288, 318)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("5_aigdk")
+HighLightArea = NodePath("MeshInstance2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaTorres/TowerEnableZone" unique_id=1114771057]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_623cq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ZonaTorres/TowerEnableZone" unique_id=1315919461]
+self_modulate = Color(1, 1, 1, 0.63529414)
+mesh = SubResource("QuadMesh_41egw")
+texture = ExtResource("2_ffs83")
+
+[node name="ZonaEnemigos" type="Node" parent="." unique_id=1492259904]
+
+[node name="EnemyManager" type="Node" parent="ZonaEnemigos" unique_id=2118253450 node_paths=PackedStringArray("SpawnPoint")]
+script = ExtResource("7_2ggjw")
+EnemyScene = ExtResource("8_a813w")
+SpawnPoint = NodePath("../Path2D/PathFollow2D")
+
+[node name="Path2D" type="Path2D" parent="ZonaEnemigos" unique_id=1719863966]
+position = Vector2(461, 240)
+curve = SubResource("Curve2D_a813w")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ZonaEnemigos/Path2D" unique_id=409509130]
+position = Vector2(-228, 108)
+scale = Vector2(0.5, 0.5)
+loop = false
+
+[connection signal="_on_torre_de_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_de_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_selected"]
+[connection signal="_on_torre_zone_entered" from="ZonaTorres/TowerEnableZone" to="Cartas/CartaTempleate" method="__on_torre_zone_entered"]
+[connection signal="_on_torre_zone_exited" from="ZonaTorres/TowerEnableZone" to="Cartas/CartaTempleate" method="__on_torre_zone_exited"]
+[connection signal="body_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_body_entered"]
+[connection signal="mouse_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_exited"]
