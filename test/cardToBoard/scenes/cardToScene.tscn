@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dqfsaitnf2g88" path="res://test/cardToBoard/scenes/torre_templeate.tscn" id="2_nh4si"]
 [ext_resource type="Script" uid="uid://cd1wmsbvp3das" path="res://test/cardToBoard/scripts/tower_enable_zone.gd" id="5_aigdk"]
 [ext_resource type="PackedScene" uid="uid://cikc3f1bkbmt2" path="res://test/cardToBoard/scenes/CartaTempleate.tscn" id="5_nh4si"]
+[ext_resource type="Script" uid="uid://c7t8so64ubvv" path="res://test/cardToBoard/scripts/enemy_manager.gd" id="7_2ggjw"]
+[ext_resource type="PackedScene" uid="uid://cdcq7iwi1qf73" path="res://test/cardToBoard/scenes/enemyTempleate.tscn" id="8_a813w"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
 size = Vector2(500, 100)
@@ -19,6 +21,12 @@ size = Vector2(10, 100)
 
 [sub_resource type="QuadMesh" id="QuadMesh_41egw"]
 size = Vector2(30, 115)
+
+[sub_resource type="Curve2D" id="Curve2D_a813w"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -228, 108, 0, 0, 0, 0, -66, 108, 0, 0, 0, 0, -62, -137, 0, 0, 0, 0, 61, -137)
+}
+point_count = 4
 
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
@@ -68,6 +76,22 @@ shape = SubResource("RectangleShape2D_623cq")
 self_modulate = Color(1, 1, 1, 0.63529414)
 mesh = SubResource("QuadMesh_41egw")
 texture = ExtResource("2_ffs83")
+
+[node name="ZonaEnemigos" type="Node" parent="." unique_id=1492259904]
+
+[node name="EnemyManager" type="Node" parent="ZonaEnemigos" unique_id=2118253450 node_paths=PackedStringArray("SpawnPoint")]
+script = ExtResource("7_2ggjw")
+EnemyScene = ExtResource("8_a813w")
+SpawnPoint = NodePath("../Path2D/PathFollow2D")
+
+[node name="Path2D" type="Path2D" parent="ZonaEnemigos" unique_id=1719863966]
+position = Vector2(461, 240)
+curve = SubResource("Curve2D_a813w")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ZonaEnemigos/Path2D" unique_id=409509130]
+position = Vector2(-228, 108)
+scale = Vector2(0.5, 0.5)
+loop = false
 
 [connection signal="_on_torre_de_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_de_selected"]
 [connection signal="_on_torre_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_selected"]

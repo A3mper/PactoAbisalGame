@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cdcq7iwi1qf73"]
+
+[ext_resource type="Texture2D" uid="uid://bbasa0rr2wx3o" path="res://test/cardToBoard/assets/IMG_20250313_220258_477.jpg" id="1_3n80a"]
+[ext_resource type="Script" uid="uid://c8ufw32ooj1sj" path="res://test/cardToBoard/scripts/enemy_templeate.gd" id="1_ywkkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n80a"]
+size = Vector2(55, 55)
+
+[node name="EnemyTempleate" type="CharacterBody2D" unique_id=372733312]
+script = ExtResource("1_ywkkd")
+
+[node name="sacaLasChelas" type="Sprite2D" parent="." unique_id=1542112480]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3n80a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=243015654]
+shape = SubResource("RectangleShape2D_3n80a")
