@@ -85,18 +85,11 @@ texture = ExtResource("2_ffs83")
 [node name="EnemyManager" type="Node" parent="ZonaEnemigos" unique_id=2118253450 node_paths=PackedStringArray("SpawnPoint")]
 script = ExtResource("7_2ggjw")
 EnemyScene = ExtResource("8_a813w")
-SpawnPoint = NodePath("../Path2D/PathFollow2D")
+SpawnPoint = NodePath("../Path2D")
 
 [node name="Path2D" type="Path2D" parent="ZonaEnemigos" unique_id=1719863966]
 position = Vector2(461, 240)
 curve = SubResource("Curve2D_a813w")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="ZonaEnemigos/Path2D" unique_id=409509130]
-position = Vector2(-227.71841, 98.00397)
-rotation = 0.028161569
-scale = Vector2(0.5, 0.5)
-v_offset = -10.0
-loop = false
 
 [connection signal="_on_torre_de_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_de_selected"]
 [connection signal="_on_torre_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_selected"]
