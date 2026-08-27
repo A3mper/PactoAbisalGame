@@ -70,7 +70,8 @@ texture = ExtResource("2_ffs83")
 [node name="Recuerdos" type="Node" parent="." unique_id=152419621]
 script = ExtResource("6_2ggjw")
 
-[node name="LabelRecuerdos" type="Label" parent="Recuerdos" unique_id=505718470]
+[node name="RecuerdosMana" type="Label" parent="Recuerdos" unique_id=505718470]
+unique_name_in_owner = true
 offset_left = 862.0
 offset_top = 8.0
 offset_right = 937.0
