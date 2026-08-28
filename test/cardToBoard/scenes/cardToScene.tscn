@@ -58,9 +58,6 @@ TorreParent = NodePath("../../Torres")
 
 [node name="Torres" type="Node" parent="." unique_id=1302141596]
 
-[node name="TorreTempleate" parent="Torres" unique_id=652990647 instance=ExtResource("2_nh4si")]
-position = Vector2(46.290833, -25.13499)
-
 [node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
 
 [node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830 node_paths=PackedStringArray("HighLightArea") groups=["TowerEnableZone"]]

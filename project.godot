@@ -15,6 +15,11 @@ run/main_scene="uid://gnjnc07bm8vn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://bwd2w6vs3vm4c"
 
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Nuevo Proyecto de Juego"

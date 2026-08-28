@@ -7,19 +7,22 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fymdk"]
 radius = 50.0
 
-[node name="TorreTempleate" type="Node2D" unique_id=652990647 node_paths=PackedStringArray("PNGMania", "SalidaBala", "rof")]
+[node name="TorreTempleate" type="Node2D" unique_id=652990647 node_paths=PackedStringArray("PNGMania", "SalidaBala", "rof", "AreaDeEfecto")]
 script = ExtResource("1_fymdk")
 PNGMania = NodePath("PactoAbisal2x")
 LeBalaPS = ExtResource("2_y5swo")
 SalidaBala = NodePath("Marker2D")
 rof = NodePath("CadDeFuego")
+AreaDeEfecto = NodePath("Area2D")
 
 [node name="PactoAbisal2x" type="Sprite2D" parent="." unique_id=8722344]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_yoyqw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1071736890]
-collision_layer = 0
+collision_layer = 2
+collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=633640780]
 shape = SubResource("CircleShape2D_fymdk")

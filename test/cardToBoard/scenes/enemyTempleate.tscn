@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n80a"]
 size = Vector2(30, 30)
 
-[node name="EnemyTempleate" type="StaticBody2D" unique_id=1432094457]
-collision_mask = 0
+[node name="EnemyTempleate" type="CharacterBody2D" unique_id=614258466]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ywkkd")
 
 [node name="sacaLasChelas" type="Sprite2D" parent="." unique_id=1542112480]
