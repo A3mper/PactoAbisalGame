@@ -3,18 +3,22 @@ extends Node2D
 @export var PNGMania : Sprite2D
 @export var LeBalaPS : PackedScene
 @export var SalidaBala : Marker2D
-@export var timer : Timer
+@export var rof : Timer
 
-var IsPlaced : bool = true
+var IsPlaced : bool = false
 var HasTarget : bool = false
 var IsReadyShoot : bool = true
 
-var leemeEsta : Node2D = null
-var Bala : Node2D
+var enemyBody : Node2D = null
+var Fogonazo : Node2D
+	
+var duracion_fogonazo: float = 0	
 
 func _ready():
 	PNGMania.self_modulate.a = 0.25
-	
+	Fogonazo = LeBalaPS.instantiate()
+	SalidaBala.add_child(Fogonazo)
+	Fogonazo.hide()
 
 func _on_tree_exited() -> void:
 	queue_free()
@@ -22,37 +26,45 @@ func _on_tree_exited() -> void:
 func _on_plant() -> void:
 	IsPlaced = true
 	PNGMania.self_modulate.a = 1
+	
 
 func dispara():
 	if IsReadyShoot:
-		Bala = LeBalaPS.instantiate()
-		SalidaBala.add_child(Bala)
-		timer.start()
 		IsReadyShoot = false
+		
+		Fogonazo.show()
+		
+		rof.start()
+
+		duracion_fogonazo = rof.wait_time * 0.25
+
+		get_tree().create_timer(duracion_fogonazo).timeout.connect(_on_fogonazo_timeout)
+		
 
 func _process(_delta : float):
+	#print(IsPlaced,HasTarget,IsReadyShoot)
 	if IsPlaced:
 		if HasTarget:
-			'''
-			print(leemeEsta.global_position,"  -  ",global_position)
-			print(leemeEsta.global_position - global_position)
-			print(rad_to_deg(atan2(leemeEsta.global_position.y - global_position.y,leemeEsta.global_position.x - global_position.x)))
-			'''
-			SalidaBala.rotation = atan2(leemeEsta.global_position.y - global_position.y,leemeEsta.global_position.x - global_position.x)
+			
+			if enemyBody != null:
+				SalidaBala.look_at(enemyBody.global_position)
+				
 			dispara()
 				
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	HasTarget = true
 	print("c papu")
-	leemeEsta = _body
-	
-
+	enemyBody = _body
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	HasTarget = false
-	leemeEsta = null
+	enemyBody = null
 
 
 func _on_cad_de_fuego_timeout() -> void:
 	IsReadyShoot = true
+
+func _on_fogonazo_timeout():
+	if is_instance_valid(Fogonazo): 
+		Fogonazo.hide()

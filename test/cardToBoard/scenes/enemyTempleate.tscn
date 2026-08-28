@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://c8ufw32ooj1sj" path="res://test/cardToBoard/scripts/enemy_templeate.gd" id="1_ywkkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n80a"]
-size = Vector2(55, 55)
+size = Vector2(30, 30)
 
-[node name="EnemyTempleate" type="CharacterBody2D" unique_id=372733312]
+[node name="EnemyTempleate" type="StaticBody2D" unique_id=1432094457]
 collision_mask = 0
 script = ExtResource("1_ywkkd")
 
