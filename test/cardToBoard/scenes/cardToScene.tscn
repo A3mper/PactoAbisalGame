@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_623cq"]
 [ext_resource type="Script" uid="uid://b8corabii5djq" path="res://test/cardToBoard/scripts/card_to_scene.gd" id="1_kbh1b"]
 [ext_resource type="Texture2D" uid="uid://1kuw7dtner4b" path="res://test/cardToBoard/assets/20201017_095200.jpg" id="2_ffs83"]
+[ext_resource type="Script" uid="uid://bil3nvfnxvptc" path="res://test/cardToBoard/scripts/modo_manager.gd" id="3_7ee7t"]
+[ext_resource type="Texture2D" uid="uid://jb2mdqnq3ob1" path="res://test/cardToBoard/assets/baby_ash.jpg" id="4_x12pg"]
 [ext_resource type="Script" uid="uid://q57ajpmyess3" path="res://test/cardToBoard/scripts/recuerdos_mana.gd" id="5_7ee7t"]
 [ext_resource type="Script" uid="uid://cd1wmsbvp3das" path="res://test/cardToBoard/scripts/tower_enable_zone.gd" id="5_aigdk"]
 [ext_resource type="PackedScene" uid="uid://cikc3f1bkbmt2" path="res://test/cardToBoard/scenes/CartaTempleate.tscn" id="5_nh4si"]
@@ -46,7 +48,29 @@ point_count = 10
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
 
-[node name="CacapturaTest" type="Sprite2D" parent="." unique_id=768531534]
+[node name="ModoManager" type="Node" parent="." unique_id=1282319505 node_paths=PackedStringArray("BotonCambiaModo", "SpriteRad", "SpriteVoid")]
+script = ExtResource("3_7ee7t")
+BotonCambiaModo = NodePath("Button")
+SpriteRad = NodePath("CacapturaTestRad")
+SpriteVoid = NodePath("CacapturaTestVoid")
+
+[node name="Button" type="Button" parent="ModoManager" unique_id=2069422328]
+z_index = 2
+offset_left = 686.0
+offset_top = 471.0
+offset_right = 1494.0
+offset_bottom = 1247.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("4_x12pg")
+
+[node name="CacapturaTestRad" type="Sprite2D" parent="ModoManager" unique_id=768531534]
+position = Vector2(538, 221)
+rotation = 1.5707964
+texture = ExtResource("1_623cq")
+
+[node name="CacapturaTestVoid" type="Sprite2D" parent="ModoManager" unique_id=488869097]
+visible = false
+self_modulate = Color(1, 0.18039216, 1, 1)
 position = Vector2(538, 221)
 rotation = 1.5707964
 texture = ExtResource("1_623cq")
@@ -111,6 +135,7 @@ SpawnPoint = NodePath("../Path2D")
 position = Vector2(461, 240)
 curve = SubResource("Curve2D_a813w")
 
+[connection signal="pressed" from="ModoManager/Button" to="ModoManager" method="_on_button_pressed"]
 [connection signal="_on_torre_de_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_de_selected"]
 [connection signal="_on_torre_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_selected"]
 [connection signal="_on_torre_zone_entered" from="ZonaTorres/TowerEnableZone" to="Cartas/CartaTempleate" method="__on_torre_zone_entered"]

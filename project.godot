@@ -17,8 +17,8 @@ config/icon="uid://bwd2w6vs3vm4c"
 
 [display]
 
-window/size/resizable=false
-window/stretch/mode="viewport"
+window/size/mode=2
+window/stretch/aspect="expand"
 
 [dotnet]
 
