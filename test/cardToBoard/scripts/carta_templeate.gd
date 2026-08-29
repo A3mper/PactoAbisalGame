@@ -2,14 +2,22 @@ extends Node2D
 
 @export var TorreCorrespondiete : PackedScene
 @export var TorreParent : Node
+@export var ResourcePool : PackedScene
 
 var Torre : Node2D = null
+var ManejoPool : Node = null
 
 var IsTorreSelected : bool = false
 var IsOnTorreZone : bool = false
 
+const TorreCost : int = 5
+
 signal _on_torre_selected
 signal _on_torre_de_selected
+
+func _ready():
+	ManejoPool = ResourcePool.instantiate()
+	add_child(ManejoPool)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -38,6 +46,9 @@ func __on_torre_zone_exited() -> void:
 
 
 func PlantarTorre() -> void:
+	if ManejoPool.has_method("SpendRecuerdos"):
+		ManejoPool.SpendRecuerdos(TorreCost)
+	
 	Torre.call("_on_plant")	
 	IsOnTorreZone = false
 	IsTorreSelected = false

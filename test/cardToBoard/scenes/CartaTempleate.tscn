@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://qd0m5yoljkyx" path="res://test/cardToBoard/assets/20201017_095200 - copia.jpg" id="1_7ake8"]
 [ext_resource type="Script" uid="uid://bvtstb0dq40ka" path="res://test/cardToBoard/scripts/carta_templeate.gd" id="1_ge4w0"]
+[ext_resource type="PackedScene" uid="uid://dqfsaitnf2g88" path="res://test/cardToBoard/scenes/torre_templeate.tscn" id="2_v6wol"]
 
 [node name="CartaTempleate" type="Node2D" unique_id=476367395]
 script = ExtResource("1_ge4w0")
+TorreCorrespondiete = ExtResource("2_v6wol")
 
 [node name="Control" type="Control" parent="." unique_id=1628594571]
 layout_mode = 3
