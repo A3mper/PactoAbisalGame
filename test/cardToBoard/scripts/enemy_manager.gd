@@ -1,14 +1,26 @@
 extends Node
 
 @export var EnemyScene : PackedScene
-@export var SpawnPoint : PathFollow2D
+@export var SpawnPoint : Path2D
 
 var Enemy : Node2D = null
 
-func _ready():
-	Enemy = EnemyScene.instantiate()
-	SpawnPoint.add_child(Enemy)
+var RoadFollower : PathFollow2D = null
 
-func _process(delta):
-	SpawnPoint.progress_ratio += 0.1 * delta
-		
+var IsSpawn : bool = false
+
+func _ready():
+	pass
+	
+func _input(event):
+	if event is InputEventKey:
+		if event.is_pressed() and event.keycode == KEY_1:
+			spawnEnemy()
+
+func spawnEnemy():
+	RoadFollower = PathFollow2D.new()
+	Enemy = EnemyScene.instantiate()
+	SpawnPoint.add_child(RoadFollower)
+	RoadFollower.add_child(Enemy)
+	RoadFollower.v_offset = randf_range(-10,10)
+	IsSpawn = true

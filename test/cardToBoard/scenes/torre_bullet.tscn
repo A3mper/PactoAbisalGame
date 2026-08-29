@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://br74y2d6m1tqh"]
+
+[ext_resource type="Script" uid="uid://4b54dagqhmey" path="res://test/cardToBoard/scripts/torre_bullet.gd" id="1_0qhgg"]
+[ext_resource type="Texture2D" uid="uid://gklpogybvsox" path="res://test/cardToBoard/assets/IMG_20250313_220258_477coca.jpg" id="1_bqspq"]
+
+[node name="TorreBullet" type="Node2D" unique_id=526954861]
+script = ExtResource("1_0qhgg")
+
+[node name="sacaLasChelas" type="Sprite2D" parent="." unique_id=1196582440]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_bqspq")
