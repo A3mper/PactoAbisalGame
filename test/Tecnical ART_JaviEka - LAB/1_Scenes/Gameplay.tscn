@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dyw2pfilar4j8"]
+
+[ext_resource type="PackedScene" uid="uid://m1ws7ki4tfnu" path="res://test/Tecnical ART_JaviEka - LAB/1_Scenes/LAB_02_CARD_JUICE.tscn" id="1_dlm0x"]
+
+[sub_resource type="Environment" id="Environment_kldg6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlm0x"]
+albedo_color = Color(0.1790041, 0.2022495, 0.13088174, 1)
+
+[node name="Main" type="Node3D" unique_id=456624304]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=917870897]
+environment = SubResource("Environment_kldg6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=455282358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.055814, 23.544014, 1.8558531)
+light_energy = 4.831
+light_indirect_energy = 2.803
+light_volumetric_fog_energy = 2.577
+light_angular_distance = 36.76
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1047124579]
+transform = Transform3D(381.24545, 0, 0, 0, 0.54, 0, 0, 0, 459.0325, -93.59376, 0, 0)
+material = SubResource("StandardMaterial3D_dlm0x")
+
+[node name="LAB_02_CARD_JUICE" parent="." unique_id=1989758882 instance=ExtResource("1_dlm0x")]
+transform = Transform3D(0.016244777, -0.7389283, 0.6735885, 0.011756235, 0.6737719, 0.73884565, -0.99979955, -0.0040835193, 0.019632285, 29.2766, 27.56595, -0.54754066)
+
+[node name="LAB_02_CARD_JUICE2" parent="." unique_id=1056458718 instance=ExtResource("1_dlm0x")]
+transform = Transform3D(0.009204521, -0.96326584, 0.26839224, 0.01781512, 0.26851898, 0.9631093, -0.9997993, -0.004083519, 0.019632284, 29.2766, 27.56595, 2.2734737)
