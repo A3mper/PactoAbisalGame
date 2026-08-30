@@ -5,6 +5,10 @@ extends Node2D
 @export var SalidaBala : Marker2D
 @export var rof : Timer
 @export var AreaDeEfecto : Area2D
+@export var TorrePlacement : Area2D
+
+signal espacio_ocupado
+signal espacio_libre
 
 var IsPlaced : bool = false
 #var HasTarget : bool = false
@@ -19,6 +23,11 @@ var dmgTorre : int = 50
 var duracion_fogonazo: float = 0	
 
 func _ready():
+	if TorrePlacement.has_signal("area_entered"):
+		TorrePlacement.area_entered.connect(_on_espacio_ocupado)
+	if TorrePlacement.has_signal("area_exited"):
+		TorrePlacement.area_exited.connect(_on_espacio_libre)
+	
 	AreaDeEfecto.monitoring = false
 	PNGMania.self_modulate.a = 0.25
 	Fogonazo = LeBalaPS.instantiate()
@@ -29,6 +38,7 @@ func _on_tree_exited() -> void:
 	queue_free()
 
 func _on_plant() -> void:
+	
 	IsPlaced = true
 	AreaDeEfecto.monitoring = true
 	PNGMania.self_modulate.a = 1
@@ -88,3 +98,10 @@ func _on_cad_de_fuego_timeout() -> void:
 func _on_fogonazo_timeout():
 	if is_instance_valid(Fogonazo): 
 		Fogonazo.hide()
+
+func _on_espacio_ocupado(_area : Area2D)->void:
+	espacio_ocupado.emit()
+
+func _on_espacio_libre(_area : Area2D)->void:
+	espacio_libre.emit()
+

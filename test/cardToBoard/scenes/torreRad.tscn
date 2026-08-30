@@ -7,20 +7,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fymdk"]
 radius = 50.0
 
-[node name="TorreTempleate" type="Node2D" unique_id=652990647 node_paths=PackedStringArray("PNGMania", "SalidaBala", "rof", "AreaDeEfecto") groups=["Radiance"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4job"]
+
+[node name="TorreTempleate" type="Node2D" unique_id=652990647 node_paths=PackedStringArray("PNGMania", "SalidaBala", "rof", "AreaDeEfecto", "TorrePlacement") groups=["Radiance"]]
 script = ExtResource("1_t4job")
 PNGMania = NodePath("PactoAbisal2x")
 LeBalaPS = ExtResource("2_7yxn6")
 SalidaBala = NodePath("Marker2D")
 rof = NodePath("CadDeFuego")
 AreaDeEfecto = NodePath("Area2D")
+TorrePlacement = NodePath("TorrePlacement")
 
 [node name="PactoAbisal2x" type="Sprite2D" parent="." unique_id=8722344]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_e2tab")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1071736890]
-collision_layer = 18
+collision_layer = 2
 collision_mask = 2
 monitorable = false
 
@@ -32,6 +35,13 @@ scale = Vector2(0.1, 0.1)
 
 [node name="CadDeFuego" type="Timer" parent="." unique_id=1906221075]
 wait_time = 2.0
+
+[node name="TorrePlacement" type="Area2D" parent="." unique_id=1775355593]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorrePlacement" unique_id=1406028750]
+shape = SubResource("RectangleShape2D_t4job")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

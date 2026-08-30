@@ -9,6 +9,7 @@ var ManejoPool : Node = null
 
 var IsTorreSelected : bool = false
 var IsOnTorreZone : bool = false
+var IsOcupied : bool = false
 
 const TorreCost : int = 5
 
@@ -17,6 +18,7 @@ signal _on_torre_de_selected
 
 func _ready():
 	pass
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -26,12 +28,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MouseButton.MOUSE_BUTTON_RIGHT and event.pressed:
 			_on_torre_de_selected.emit()
 			SacarTorre()
-		elif event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed and IsOnTorreZone:
+		elif event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed and IsOnTorreZone and not IsOcupied:
+			#pero si el espacio esta ocupado, simplemente seguir buscando lugar
 			_on_torre_de_selected.emit()
 			PlantarTorre()			
 
 func _on_button_pressed() -> void:
 	Torre = TorreCorrespondiete.instantiate()
+	if Torre.has_signal("espacio_ocupado"):
+		Torre.espacio_ocupado.connect(_is_torre_zone_ocupied)
+	if Torre.has_signal("espacio_libre"):
+		Torre.espacio_libre.connect(_is_torre_zone_free)
 	IsTorreSelected = true
 	TorreParent.add_child(Torre)
 	_on_torre_selected.emit()
@@ -57,3 +64,11 @@ func _on_torre_zone_in() -> void:
 
 func _on_torre_zone_out() -> void:
 	IsOnTorreZone = false
+
+func _is_torre_zone_free()->void:
+	#print("free")
+	IsOcupied = false
+
+func _is_torre_zone_ocupied()->void:
+	#print("ocupied")
+	IsOcupied = true
