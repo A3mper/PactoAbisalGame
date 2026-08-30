@@ -15,11 +15,13 @@ func _input(event):
 		if event.is_pressed() and event.keycode == KEY_2:
 			RecoverRecuerdos(5)
 		
-func RecoverRecuerdos(mana: int) -> void:
+func RecoverRecuerdos(mana: int) -> bool: # si la recuperacion es correcta, se procede
 	recuerdos_actual += mana
 	if recuerdos_actual > MAX_RECUERDOS:
 		recuerdos_actual = MAX_RECUERDOS
+		return false
 	recuerdos_changed.emit(recuerdos_actual)
+	return true
 	
 func SpendRecuerdos(mana: int) -> bool:
 	recuerdos_actual -= mana

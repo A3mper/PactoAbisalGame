@@ -4,20 +4,22 @@ extends CharacterBody2D
 
 const ENEMY_DEBUG_HEALTH := 100
 
-var velEnemigo : int = 0 
+@export var VelocidadEnemigo : int = 10
+
+var velCurrEnemigo : int = 0 
 
 var IsInArea : bool = false
 
 var RoadFollower : PathFollow2D = null
 
-var EnemyHealth : int = ENEMY_DEBUG_HEALTH
+@export var EnemyHealth : int = ENEMY_DEBUG_HEALTH
 
 func _ready():
 	moverse()
 	RoadFollower = get_parent() as PathFollow2D
 
 func _process(delta: float) -> void:
-	RoadFollower.progress += velEnemigo * delta
+	RoadFollower.progress += velCurrEnemigo * delta
 	if not has_health():
 		ShowDeath()
 		queue_free()
@@ -34,10 +36,10 @@ func has_been_shot(damage : int):
 		EnemyHealth -= damage
 
 func moverse() -> void:
-	velEnemigo = 10
+	velCurrEnemigo = VelocidadEnemigo
 
 func detenerse() -> void:
-	velEnemigo = 0
+	velCurrEnemigo = 0
 
 func ShowDamage()->void:
 	var tween = create_tween()

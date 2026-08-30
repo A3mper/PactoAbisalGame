@@ -9,17 +9,19 @@ extends Node2D
 
 signal espacio_ocupado
 signal espacio_libre
+signal torre_borrada
 
 var IsPlaced : bool = false
 #var HasTarget : bool = false
 var IsReadyShoot : bool = true
+var IsTorreGestion : bool = false
 
 var objetivoActual : Node2D = null
 var objetivosEnRango : Array[Node2D] = []
 
 var Fogonazo : Node2D
 
-var dmgTorre : int = 50
+@export var dmgTorre : int = 50
 var duracion_fogonazo: float = 0	
 
 func _ready():
@@ -27,6 +29,10 @@ func _ready():
 		TorrePlacement.area_entered.connect(_on_espacio_ocupado)
 	if TorrePlacement.has_signal("area_exited"):
 		TorrePlacement.area_exited.connect(_on_espacio_libre)
+	if TorrePlacement.has_signal("mouse_entered"):
+		TorrePlacement.mouse_entered.connect(GestionTorre)
+	if TorrePlacement.has_signal("mouse_exited"):
+		TorrePlacement.mouse_exited.connect(LeaveGestionTorre)
 	
 	AreaDeEfecto.monitoring = false
 	PNGMania.self_modulate.a = 0.25
@@ -73,6 +79,14 @@ func _process(_delta : float):
 			
 			dispara()
 
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and IsTorreGestion:
+		if event.button_index == MouseButton.MOUSE_BUTTON_RIGHT and event.pressed:
+			DeleteTorre()
+		#if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
+		#	print("qsy")
+
 func ActualizarObjetivo():
 	objetivosEnRango = objetivosEnRango.filter(func(exist) : return is_instance_valid(exist))
 
@@ -105,3 +119,28 @@ func _on_espacio_ocupado(_area : Area2D)->void:
 func _on_espacio_libre(_area : Area2D)->void:
 	espacio_libre.emit()
 
+func GestionTorre() -> void:
+	if IsPlaced:
+		ShowSelection()
+		IsTorreGestion = true
+
+func LeaveGestionTorre() -> void:
+	if IsPlaced:
+		IsTorreGestion = false
+
+func DeleteTorre()-> void:
+	torre_borrada.emit()
+	queue_free()
+
+func ShowSelection()->void:
+	var tween = create_tween()
+	
+	tween.tween_property(PNGMania, "self_modulate", Color.BLACK, 0.1)
+	'''
+	if is_in_group("Radiance"):
+		tween.tween_property(PNGMania, "self_modulate", Color.PURPLE, 0.1)
+	if is_in_group("Void"):
+		tween.tween_property(PNGMania, "self_modulate", Color.YELLOW, 0.1)
+	'''
+	# Vuelve al color original (blanco/normal) en 0.15 segundos
+	tween.tween_property(PNGMania, "self_modulate", Color.WHITE, 0.1)
