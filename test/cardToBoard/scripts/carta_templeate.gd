@@ -52,8 +52,8 @@ func SacarTorre() -> void:
 	Torre = null
 
 
-func _on_torre_zone_entered() -> void:
+func _on_torre_zone_in() -> void:
 	IsOnTorreZone = true
 
-func _on_torre_zone_exited() -> void:
+func _on_torre_zone_out() -> void:
 	IsOnTorreZone = false
