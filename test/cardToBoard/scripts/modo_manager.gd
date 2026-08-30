@@ -33,12 +33,15 @@ func CompuertaXOR(A: bool,B : bool) -> bool:
 func modo_radiance():
 	Transicion(SpriteVoid,SpriteRad)
 	_in_radiance.emit()
+	#musica de rad
+	
 	#SpriteRad.show()
 	#SpriteVoid.hide()
 
 func modo_void():
 	Transicion(SpriteRad,SpriteVoid)
 	_in_void.emit()
+	#musica de void
 	#SpriteRad.hide()
 	#SpriteVoid.show()
 

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dkwcjp5jkphyi"]
+
+[ext_resource type="Script" uid="uid://4b54dagqhmey" path="res://test/cardToBoard/scripts/torre_bullet.gd" id="1_otcg7"]
+[ext_resource type="Texture2D" uid="uid://bibw6f8sjc0lb" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Torres/ProyectilRadince.png" id="2_otcg7"]
+
+[node name="TorreBullet" type="Node2D" unique_id=526954861]
+script = ExtResource("1_otcg7")
+
+[node name="ProyectilRadince" type="Sprite2D" parent="." unique_id=1108111285]
+texture = ExtResource("2_otcg7")

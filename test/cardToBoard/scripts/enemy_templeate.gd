@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 const ENEMY_DEBUG_HEALTH := 100
 
-@export var VelocidadEnemigo : int = 10
+@export var VelocidadEnemigo : int = 100
 
 var velCurrEnemigo : int = 0 
 

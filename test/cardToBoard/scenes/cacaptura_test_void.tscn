@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://by8x2tq8k57yv"]
+
+[ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_3btsa"]
+
+[node name="CacapturaTestVoid" type="Sprite2D" unique_id=751436498]
+visible = false
+self_modulate = Color(1, 0.18039216, 1, 1)
+rotation = 1.5707964
+texture = ExtResource("1_3btsa")

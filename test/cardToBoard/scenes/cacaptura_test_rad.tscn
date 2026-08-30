@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://jl3orumfi4nj"]
+
+[ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_rdwp3"]
+
+[node name="CacapturaTestRad" type="Sprite2D" unique_id=407587090]
+rotation = 1.5707964
+texture = ExtResource("1_rdwp3")

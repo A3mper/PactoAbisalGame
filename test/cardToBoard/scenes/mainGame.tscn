@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://g52pumk4nuju"]
+
+[ext_resource type="PackedScene" uid="uid://b8g38mqgibnst" path="res://test/cardToBoard/scenes/modo_manager.tscn" id="1_4d1px"]
+[ext_resource type="PackedScene" uid="uid://jl3orumfi4nj" path="res://test/cardToBoard/scenes/cacaptura_test_rad.tscn" id="2_fc3dr"]
+[ext_resource type="PackedScene" uid="uid://by8x2tq8k57yv" path="res://test/cardToBoard/scenes/cacaptura_test_void.tscn" id="3_pyxy0"]
+
+[node name="MainGame" type="Node2D" unique_id=289467556]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=530669301]
+
+[node name="ModoManager" parent="." unique_id=862259778 node_paths=PackedStringArray("SpriteRad", "SpriteVoid") instance=ExtResource("1_4d1px")]
+position = Vector2(479, 228)
+SpriteRad = NodePath("../Planos/CacapturaTestRad")
+SpriteVoid = NodePath("../Planos/CacapturaTestVoid")
+
+[node name="Planos" type="Node" parent="." unique_id=1924860052]
+
+[node name="CacapturaTestRad" parent="Planos" unique_id=407587090 instance=ExtResource("2_fc3dr")]
+
+[node name="CacapturaTestVoid" parent="Planos" unique_id=751436498 instance=ExtResource("3_pyxy0")]

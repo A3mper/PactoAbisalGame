@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cptuxfixay5de"]
 
 [ext_resource type="Script" uid="uid://dti5hue1gcdek" path="res://test/cardToBoard/scripts/torre_templeate.gd" id="1_uwji3"]
-[ext_resource type="PackedScene" uid="uid://br74y2d6m1tqh" path="res://test/cardToBoard/scenes/torre_bullet.tscn" id="2_1rm33"]
-[ext_resource type="Texture2D" uid="uid://bwd2w6vs3vm4c" path="res://assets/Pacto_Abisal2x.png" id="3_6u8vw"]
+[ext_resource type="Texture2D" uid="uid://cst5t5qa4t75d" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Torres/Torre Void lvl 3.png" id="2_svgfj"]
+[ext_resource type="PackedScene" uid="uid://ch2faatp1as37" path="res://test/cardToBoard/scenes/torre_bullet_void.tscn" id="2_uwji3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fymdk"]
 radius = 50.0
@@ -11,17 +11,12 @@ radius = 50.0
 
 [node name="TorreTempleate" type="Node2D" unique_id=652990647 node_paths=PackedStringArray("PNGMania", "SalidaBala", "rof", "AreaDeEfecto", "TorrePlacement") groups=["Void"]]
 script = ExtResource("1_uwji3")
-PNGMania = NodePath("PactoAbisal2x")
-LeBalaPS = ExtResource("2_1rm33")
+PNGMania = NodePath("TorreVoidLvl3")
+LeBalaPS = ExtResource("2_uwji3")
 SalidaBala = NodePath("Marker2D")
 rof = NodePath("CadDeFuego")
 AreaDeEfecto = NodePath("Area2D")
 TorrePlacement = NodePath("TorrePlacement")
-
-[node name="PactoAbisal2x" type="Sprite2D" parent="." unique_id=8722344]
-modulate = Color(1, 0.29411766, 1, 1)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_6u8vw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1071736890]
 collision_layer = 4
@@ -38,11 +33,16 @@ scale = Vector2(0.1, 0.1)
 wait_time = 2.0
 
 [node name="TorrePlacement" type="Area2D" parent="." unique_id=1111341311]
+scale = Vector2(0.92000014, 1.0799997)
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TorrePlacement" unique_id=1518783631]
 shape = SubResource("RectangleShape2D_uwji3")
+
+[node name="TorreVoidLvl3" type="Sprite2D" parent="." unique_id=1507856513]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_svgfj")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

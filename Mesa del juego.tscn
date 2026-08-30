@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d38ivn3jw2u5i"]
+
+[ext_resource type="Texture2D" uid="uid://5t6gr2m4r1f3" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Mesa del juego.png" id="1_edum2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5noo"]
+albedo_texture = ExtResource("1_edum2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kp7yl"]
+
+[node name="Mesa" type="Node3D" unique_id=118772691]
+
+[node name="Manteles Texture" type="MeshInstance3D" parent="." unique_id=646377150]
+transform = Transform3D(7.475, 0, 0, 0, 4.815, 0, 0, 0, 4.095, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_x5noo")
+mesh = SubResource("QuadMesh_kp7yl")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=341835607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27584338, 2.4581323)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1029169755]

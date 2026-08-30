@@ -4,31 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://cptuxfixay5de" path="res://test/cardToBoard/scenes/torreVoid.tscn" id="2_abt26"]
 [ext_resource type="Texture2D" uid="uid://qd0m5yoljkyx" path="res://test/cardToBoard/assets/20201017_095200 - copia.jpg" id="3_5u76i"]
 
-[node name="CartaTempleate" type="Node2D" unique_id=476367395 groups=["Void"]]
+[node name="CartaTempleate" type="Node2D" unique_id=476367395 node_paths=PackedStringArray("CardButton") groups=["Cartas", "Void"]]
 modulate = Color(1, 0.30980393, 1, 1)
 script = ExtResource("1_abt26")
 TorreCorrespondiete = ExtResource("2_abt26")
+CardButton = NodePath("Button")
 
-[node name="Control" type="Control" parent="." unique_id=1628594571]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
-offset_right = 30.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="Control" unique_id=127012610]
-layout_mode = 0
-offset_right = 271.0
-offset_bottom = 271.0
+[node name="Button" type="Button" parent="." unique_id=1609764364]
+offset_left = -26.999998
+offset_top = -25.999998
+offset_right = 244.0
+offset_bottom = 245.0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("3_5u76i")
 
-[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

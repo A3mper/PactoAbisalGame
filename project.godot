@@ -13,13 +13,13 @@ config_version=5
 config/name="PactoAbisalGameJamBAGD"
 run/main_scene="uid://gnjnc07bm8vn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://bwd2w6vs3vm4c"
+config/icon="uid://b58mhl4q8uc7q"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -39,6 +39,7 @@ folder_colors={
 
 Radiance="Radiance"
 Void="Void"
+Cartas=""
 
 [layer_names]
 

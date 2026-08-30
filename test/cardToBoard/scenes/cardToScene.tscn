@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://gnjnc07bm8vn"]
 
-[ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_623cq"]
 [ext_resource type="Script" uid="uid://b8corabii5djq" path="res://test/cardToBoard/scripts/card_to_scene.gd" id="1_kbh1b"]
 [ext_resource type="PackedScene" uid="uid://b8g38mqgibnst" path="res://test/cardToBoard/scenes/modo_manager.tscn" id="2_a813w"]
 [ext_resource type="PackedScene" uid="uid://bmijvr2ck8875" path="res://test/cardToBoard/scenes/recuerdos_manager.tscn" id="3_gocx8"]
@@ -11,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dahncxdm06uoi" path="res://test/cardToBoard/scenes/tower_enable_zone.tscn" id="7_gocx8"]
 [ext_resource type="Script" uid="uid://dq21kcjkvacxt" path="res://test/cardToBoard/scripts/zone_manager.gd" id="7_nauxi"]
 [ext_resource type="PackedScene" uid="uid://drk8lbvyjoyd7" path="res://test/cardToBoard/scenes/enemyVoid.tscn" id="8_x12pg"]
+[ext_resource type="PackedScene" uid="uid://jl3orumfi4nj" path="res://test/cardToBoard/scenes/cacaptura_test_rad.tscn" id="11_welv0"]
 [ext_resource type="PackedScene" uid="uid://coqf114s66o14" path="res://test/cardToBoard/scenes/torreMadreTempleate.tscn" id="11_x12pg"]
+[ext_resource type="PackedScene" uid="uid://by8x2tq8k57yv" path="res://test/cardToBoard/scenes/cacaptura_test_void.tscn" id="12_08eeh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
 size = Vector2(500, 100)
@@ -22,9 +23,9 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_a813w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -269, 109, 0, 0, 0, 0, -225, 110, 0, 0, 0, 0, -88, 110, 0, 0, 0, 0, -68, 105, 0, 0, 0, 0, -63, 86, 0, 0, 0, 0, -63, -119, 0, 0, 0, 0, -59, -134, 0, 0, 0, 0, -43, -137, 0, 0, 0, 0, 42, -138, 0, 0, 0, 0, 56, -134, 0, 0, 0, 0, 60, -124)
+"points": PackedVector2Array(0, 0, 0, 0, -269, 109, 0, 0, 0, 0, -225, 110, 0, 0, 0, 0, -88, 110, 0, 0, 0, 0, -68, 105, 0, 0, 0, 0, -63, 86, 0, 0, 0, 0, -63, -119, 0, 0, 0, 0, -59, -134, 0, 0, 0, 0, -43, -137, 0, 0, 0, 0, 42, -138, 0, 0, 0, 0, 56, -134, 0, 0, 0, 0, 60, -124, 0, 0, 0, 0, 60, 81, 0, 0, 0, 0, 225, 83, 0, 0, 0, 0, 240, -27, 0, 0, 0, 0, 356, -26, 0, 0, 0, 0, 386, -27)
 }
-point_count = 11
+point_count = 16
 
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
@@ -49,16 +50,17 @@ text = "CARTAS"
 label_settings = SubResource("LabelSettings_41egw")
 
 [node name="CartaRad" parent="Cartas" unique_id=1088732520 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("4_gocx8")]
-position = Vector2(330, 503)
+position = Vector2(333, 503)
 TorreParent = NodePath("../../Torres")
 ResourcePool = NodePath("../RecuerdosManager")
 
 [node name="CartaVoid" parent="Cartas" unique_id=476367395 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("4_7ee7t")]
-position = Vector2(400, 503)
+position = Vector2(400, 500)
 TorreParent = NodePath("../../Torres")
 ResourcePool = NodePath("../RecuerdosManager")
 
-[node name="RecuerdosManager" parent="Cartas" unique_id=1797674970 instance=ExtResource("3_gocx8")]
+[node name="RecuerdosManager" parent="Cartas" unique_id=1797674970 node_paths=PackedStringArray("etiqueta") instance=ExtResource("3_gocx8")]
+etiqueta = NodePath("../../Label")
 
 [node name="Torres" type="Node" parent="." unique_id=1302141596]
 
@@ -97,20 +99,21 @@ SpawnPoint = NodePath("../Path2D")
 position = Vector2(459, 239)
 curve = SubResource("Curve2D_a813w")
 
-[node name="CacapturaTestRad" type="Sprite2D" parent="." unique_id=1139765511]
+[node name="CacapturaTestRad" parent="." unique_id=407587090 instance=ExtResource("11_welv0")]
 position = Vector2(538, 221)
-rotation = 1.5707964
-texture = ExtResource("1_623cq")
 
-[node name="CacapturaTestVoid" type="Sprite2D" parent="." unique_id=1705906867]
-visible = false
-self_modulate = Color(1, 0.18039216, 1, 1)
+[node name="CacapturaTestVoid" parent="." unique_id=751436498 instance=ExtResource("12_08eeh")]
 position = Vector2(538, 221)
-rotation = 1.5707964
-texture = ExtResource("1_623cq")
 
 [node name="TorreMadreTempleate" parent="." unique_id=1554045754 instance=ExtResource("11_x12pg")]
 position = Vector2(865, 212)
+
+[node name="Label" type="Label" parent="." unique_id=1356109056]
+offset_left = 1016.0
+offset_top = 9.0
+offset_right = 1057.0
+offset_bottom = 32.0
+text = "wdsa"
 
 [connection signal="_in_radiance" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_radiance"]
 [connection signal="_in_void" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_void"]

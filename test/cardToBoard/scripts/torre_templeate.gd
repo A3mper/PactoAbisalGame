@@ -33,7 +33,7 @@ func _ready():
 		TorrePlacement.mouse_entered.connect(GestionTorre)
 	if TorrePlacement.has_signal("mouse_exited"):
 		TorrePlacement.mouse_exited.connect(LeaveGestionTorre)
-	
+	TorrePlacement.monitoring = false
 	AreaDeEfecto.monitoring = false
 	PNGMania.self_modulate.a = 0.25
 	Fogonazo = LeBalaPS.instantiate()
@@ -46,6 +46,7 @@ func _on_tree_exited() -> void:
 func _on_plant() -> void:
 	
 	IsPlaced = true
+	TorrePlacement.monitoring = true
 	AreaDeEfecto.monitoring = true
 	PNGMania.self_modulate.a = 1
 	
