@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://dq21kcjkvacxt" path="res://test/cardToBoard/scripts/zone_manager.gd" id="7_nauxi"]
 [ext_resource type="PackedScene" uid="uid://drk8lbvyjoyd7" path="res://test/cardToBoard/scenes/enemyVoid.tscn" id="8_x12pg"]
 [ext_resource type="PackedScene" uid="uid://coqf114s66o14" path="res://test/cardToBoard/scenes/torreMadreTempleate.tscn" id="11_x12pg"]
+[ext_resource type="AudioStream" uid="uid://s04yx1oycwjh" path="res://assets/Audio/SFX/radiantInRadiantMODE_SFX_000.wav" id="13_08eeh"]
+[ext_resource type="AudioStream" uid="uid://ccnerrhjqeoh8" path="res://assets/Audio/Música/radiantLayer_Music_001.wav" id="14_5b6nn"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
 size = Vector2(500, 100)
@@ -25,6 +27,11 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -269, 109, 0, 0, 0, 0, -225, 110, 0, 0, 0, 0, -88, 110, 0, 0, 0, 0, -68, 105, 0, 0, 0, 0, -63, 86, 0, 0, 0, 0, -63, -119, 0, 0, 0, 0, -59, -134, 0, 0, 0, 0, -43, -137, 0, 0, 0, 0, 42, -138, 0, 0, 0, 0, 56, -134, 0, 0, 0, 0, 60, -124)
 }
 point_count = 11
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_wcgde"]
+stream_count = 2
+stream_0 = ExtResource("13_08eeh")
+stream_1 = ExtResource("14_5b6nn")
 
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
@@ -111,6 +118,10 @@ texture = ExtResource("1_623cq")
 
 [node name="TorreMadreTempleate" parent="." unique_id=1554045754 instance=ExtResource("11_x12pg")]
 position = Vector2(865, 212)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=232459939]
+stream = SubResource("AudioStreamPlaylist_wcgde")
+autoplay = true
 
 [connection signal="_in_radiance" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_radiance"]
 [connection signal="_in_void" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_void"]
