@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://by4g4sgof6dh1"]
+
+[ext_resource type="Script" uid="uid://qng32tu54ebx" path="res://test/Tecnical ART_JaviEka - LAB/2_Scripts/Card.gd" id="1_a4dgd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lr2lr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lr2lr"]
+
+[node name="LAB_02_CARD_JUICE" type="Node3D" unique_id=1989758882]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=399999656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1028301889]
+
+[node name="Card" type="Node3D" parent="." unique_id=2054579539]
+script = ExtResource("1_a4dgd")
+
+[node name="Mesh" type="MeshInstance3D" parent="Card" unique_id=341827607]
+transform = Transform3D(-1.09278474e-07, 1.3, 0, -2.5, -5.6824803e-08, 0, 0, 0, 0.08, 0, 0, 0)
+mesh = SubResource("BoxMesh_lr2lr")
+
+[node name="Area3D" type="Area3D" parent="Card" unique_id=1434848827]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Card/Area3D" unique_id=2025676513]
+transform = Transform3D(-1.09278474e-07, -1.3, 0, 2.5, -5.6824803e-08, 0, 0, 0, 0.08, 0, 0, 0)
+shape = SubResource("BoxShape3D_lr2lr")
+
+[connection signal="input_event" from="Card/Area3D" to="Card" method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Card/Area3D" to="Card" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Card/Area3D" to="Card" method="_on_area_3d_mouse_exited"]
