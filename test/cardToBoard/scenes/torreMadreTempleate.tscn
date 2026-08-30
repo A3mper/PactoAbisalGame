@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://coqf114s66o14"]
+
+[ext_resource type="Texture2D" uid="uid://c7wfvmobrc7r6" path="res://test/cardToBoard/assets/IMG_20250124_072357_693.jpg" id="1_1rd2o"]
+[ext_resource type="Script" uid="uid://dvoedtsuswupw" path="res://test/cardToBoard/scripts/torre_madre_templeate.gd" id="1_cb8u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rd2o"]
+
+[node name="TorreMadreTempleate" type="Area2D" unique_id=1554045754 node_paths=PackedStringArray("torreMadreSprite")]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_cb8u7")
+torreMadreSprite = NodePath("houseDr")
+
+[node name="houseDr" type="Sprite2D" parent="." unique_id=1994178944]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_1rd2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2114096792]
+scale = Vector2(3.6, 3.6)
+shape = SubResource("RectangleShape2D_1rd2o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

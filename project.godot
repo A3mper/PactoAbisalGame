@@ -17,8 +17,9 @@ config/icon="uid://bwd2w6vs3vm4c"
 
 [display]
 
-window/size/mode=2
-window/stretch/aspect="expand"
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -33,6 +34,15 @@ folder_colors={
 "res://systems/": "yellow",
 "res://test/": "green"
 }
+
+[global_group]
+
+Radiance="Radiance"
+Void="Void"
+
+[layer_names]
+
+2d_physics/layer_2="Radiance"
 
 [physics]
 

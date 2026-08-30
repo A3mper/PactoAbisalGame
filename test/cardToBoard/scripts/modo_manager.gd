@@ -1,8 +1,11 @@
-extends Node
+extends Node2D
 
 @export var BotonCambiaModo : Button
 @export var SpriteRad : Sprite2D
 @export var SpriteVoid : Sprite2D
+
+signal _in_radiance
+signal _in_void
 
 var IsRad : bool = true
 var transitionTween : Tween
@@ -29,11 +32,13 @@ func CompuertaXOR(A: bool,B : bool) -> bool:
 
 func modo_radiance():
 	Transicion(SpriteVoid,SpriteRad)
+	_in_radiance.emit()
 	#SpriteRad.show()
 	#SpriteVoid.hide()
 
 func modo_void():
 	Transicion(SpriteRad,SpriteVoid)
+	_in_void.emit()
 	#SpriteRad.hide()
 	#SpriteVoid.show()
 

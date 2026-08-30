@@ -2,14 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_623cq"]
 [ext_resource type="Script" uid="uid://b8corabii5djq" path="res://test/cardToBoard/scripts/card_to_scene.gd" id="1_kbh1b"]
-[ext_resource type="Texture2D" uid="uid://1kuw7dtner4b" path="res://test/cardToBoard/assets/20201017_095200.jpg" id="2_ffs83"]
-[ext_resource type="Script" uid="uid://bil3nvfnxvptc" path="res://test/cardToBoard/scripts/modo_manager.gd" id="3_7ee7t"]
-[ext_resource type="Texture2D" uid="uid://jb2mdqnq3ob1" path="res://test/cardToBoard/assets/baby_ash.jpg" id="4_x12pg"]
-[ext_resource type="Script" uid="uid://q57ajpmyess3" path="res://test/cardToBoard/scripts/recuerdos_mana.gd" id="5_7ee7t"]
-[ext_resource type="Script" uid="uid://cd1wmsbvp3das" path="res://test/cardToBoard/scripts/tower_enable_zone.gd" id="5_aigdk"]
-[ext_resource type="PackedScene" uid="uid://cikc3f1bkbmt2" path="res://test/cardToBoard/scenes/CartaTempleate.tscn" id="5_nh4si"]
+[ext_resource type="PackedScene" uid="uid://b8g38mqgibnst" path="res://test/cardToBoard/scenes/modo_manager.tscn" id="2_a813w"]
+[ext_resource type="PackedScene" uid="uid://bmijvr2ck8875" path="res://test/cardToBoard/scenes/recuerdos_manager.tscn" id="3_gocx8"]
+[ext_resource type="PackedScene" uid="uid://c0cb2yv1sn6tn" path="res://test/cardToBoard/scenes/cartaVoid.tscn" id="4_7ee7t"]
+[ext_resource type="PackedScene" uid="uid://43xwhcasvlxt" path="res://test/cardToBoard/scenes/cartaRad.tscn" id="4_gocx8"]
 [ext_resource type="Script" uid="uid://c7t8so64ubvv" path="res://test/cardToBoard/scripts/enemy_manager.gd" id="7_2ggjw"]
-[ext_resource type="PackedScene" uid="uid://cdcq7iwi1qf73" path="res://test/cardToBoard/scenes/enemyTempleate.tscn" id="8_a813w"]
+[ext_resource type="PackedScene" uid="uid://bbqjw355javsf" path="res://test/cardToBoard/scenes/enemyRad.tscn" id="7_7ee7t"]
+[ext_resource type="PackedScene" uid="uid://dahncxdm06uoi" path="res://test/cardToBoard/scenes/tower_enable_zone.tscn" id="7_gocx8"]
+[ext_resource type="PackedScene" uid="uid://drk8lbvyjoyd7" path="res://test/cardToBoard/scenes/enemyVoid.tscn" id="8_x12pg"]
+[ext_resource type="PackedScene" uid="uid://coqf114s66o14" path="res://test/cardToBoard/scenes/torreMadreTempleate.tscn" id="11_x12pg"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
 size = Vector2(500, 100)
@@ -17,27 +18,6 @@ size = Vector2(500, 100)
 [sub_resource type="LabelSettings" id="LabelSettings_41egw"]
 font_size = 50
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PackedScene" id="PackedScene_a813w"]
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(0, 0, 14, 13, 2, 0, 0),
-"editable_instances": [],
-"id_paths": [],
-"names": PackedStringArray("Recuerdos", "script", "etiqueta", "Node", "Control", "layout_mode", "anchors_preset", "anchor_right", "grow_horizontal", "Label", "anchor_left", "offset_left", "offset_bottom", "_on_recuerdos_changed", "recuerdos_changed"),
-"node_count": 3,
-"node_ids": PackedInt32Array(452091041, 892546157, 209566200),
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 3, 0, -1, 2, 1, 0, 1073741826, 1, 0, 0, 0, 4, 4, -1, 4, 5, 2, 6, 3, 7, 4, 8, 5, 0, 1, 0, 9, 9, -1, 7, 5, 6, 6, 6, 10, 4, 7, 4, 11, 7, 12, 8, 8, 9, 0),
-"variants": [ExtResource("5_7ee7t"), NodePath("Control/Label"), 3, 10, 1.0, 2, 1, -40.0, 23.0, 0],
-"version": 3
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_623cq"]
-size = Vector2(10, 100)
-
-[sub_resource type="QuadMesh" id="QuadMesh_41egw"]
-size = Vector2(30, 115)
 
 [sub_resource type="Curve2D" id="Curve2D_a813w"]
 _data = {
@@ -48,32 +28,10 @@ point_count = 10
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
 
-[node name="ModoManager" type="Node" parent="." unique_id=1282319505 node_paths=PackedStringArray("BotonCambiaModo", "SpriteRad", "SpriteVoid")]
-script = ExtResource("3_7ee7t")
-BotonCambiaModo = NodePath("Button")
-SpriteRad = NodePath("CacapturaTestRad")
-SpriteVoid = NodePath("CacapturaTestVoid")
-
-[node name="Button" type="Button" parent="ModoManager" unique_id=2069422328]
-z_index = 2
-offset_left = 686.0
-offset_top = 471.0
-offset_right = 1494.0
-offset_bottom = 1247.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("4_x12pg")
-
-[node name="CacapturaTestRad" type="Sprite2D" parent="ModoManager" unique_id=768531534]
-position = Vector2(538, 221)
-rotation = 1.5707964
-texture = ExtResource("1_623cq")
-
-[node name="CacapturaTestVoid" type="Sprite2D" parent="ModoManager" unique_id=488869097]
-visible = false
-self_modulate = Color(1, 0.18039216, 1, 1)
-position = Vector2(538, 221)
-rotation = 1.5707964
-texture = ExtResource("1_623cq")
+[node name="ModoManager" parent="." unique_id=844162780 node_paths=PackedStringArray("SpriteRad", "SpriteVoid") instance=ExtResource("2_a813w")]
+position = Vector2(809, 471)
+SpriteRad = NodePath("../CacapturaTestRad")
+SpriteVoid = NodePath("../CacapturaTestVoid")
 
 [node name="Cartas" type="Node" parent="." unique_id=1522211157]
 
@@ -82,64 +40,87 @@ position = Vector2(535, 511)
 mesh = SubResource("QuadMesh_ffs83")
 
 [node name="Label" type="Label" parent="Cartas/MeshInstance2D" unique_id=167973406]
-offset_left = -92.0
+offset_left = 51.0
 offset_top = -40.0
-offset_right = 93.0
+offset_right = 236.0
 offset_bottom = 29.0
 text = "CARTAS"
 label_settings = SubResource("LabelSettings_41egw")
 
-[node name="CartaTempleate" parent="Cartas" unique_id=476367395 node_paths=PackedStringArray("TorreParent") instance=ExtResource("5_nh4si")]
-position = Vector2(347, 513)
-scale = Vector2(1.5, 1.5)
+[node name="CartaRad" parent="Cartas" unique_id=1088732520 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("4_gocx8")]
+position = Vector2(330, 503)
 TorreParent = NodePath("../../Torres")
-ResourcePool = SubResource("PackedScene_a813w")
+ResourcePool = NodePath("../RecuerdosManager")
 
-[node name="RecuerdosManager" type="Node" parent="Cartas" unique_id=83282442 node_paths=PackedStringArray("etiqueta")]
-script = ExtResource("5_7ee7t")
-etiqueta = NodePath("Label")
+[node name="CartaVoid" parent="Cartas" unique_id=476367395 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("4_7ee7t")]
+position = Vector2(400, 503)
+TorreParent = NodePath("../../Torres")
+ResourcePool = NodePath("../RecuerdosManager")
 
-[node name="Label" type="Label" parent="Cartas/RecuerdosManager" unique_id=198324560]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="RecuerdosManager" parent="Cartas" unique_id=1797674970 instance=ExtResource("3_gocx8")]
 
 [node name="Torres" type="Node" parent="." unique_id=1302141596]
 
 [node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
 
-[node name="TowerEnableZone" type="Area2D" parent="ZonaTorres" unique_id=246139830 node_paths=PackedStringArray("HighLightArea") groups=["TowerEnableZone"]]
+[node name="T_E_Z_1" parent="ZonaTorres" unique_id=2090659298 instance=ExtResource("7_gocx8")]
 position = Vector2(288, 318)
-rotation = 1.5707964
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("5_aigdk")
-HighLightArea = NodePath("MeshInstance2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaTorres/TowerEnableZone" unique_id=1114771057]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_623cq")
+[node name="T_E_Z_2" parent="ZonaTorres" unique_id=355182497 instance=ExtResource("7_gocx8")]
+position = Vector2(264.99997, 382)
+scale = Vector2(0.9109725, 0.55796754)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="ZonaTorres/TowerEnableZone" unique_id=1315919461]
-self_modulate = Color(1, 1, 1, 0.63529414)
-mesh = SubResource("QuadMesh_41egw")
-texture = ExtResource("2_ffs83")
+[node name="T_E_Z_3" parent="ZonaTorres" unique_id=462690421 instance=ExtResource("7_gocx8")]
+position = Vector2(374.99997, 382)
+scale = Vector2(0.9109725, 0.55796754)
 
 [node name="ZonaEnemigos" type="Node" parent="." unique_id=1492259904]
 
 [node name="EnemyManager" type="Node" parent="ZonaEnemigos" unique_id=2118253450 node_paths=PackedStringArray("SpawnPoint")]
 script = ExtResource("7_2ggjw")
-EnemyScene = ExtResource("8_a813w")
+EnemySceneRad = ExtResource("7_7ee7t")
+EnemySceneVoid = ExtResource("8_x12pg")
 SpawnPoint = NodePath("../Path2D")
 
 [node name="Path2D" type="Path2D" parent="ZonaEnemigos" unique_id=1719863966]
-position = Vector2(461, 240)
+position = Vector2(458, 237)
 curve = SubResource("Curve2D_a813w")
 
-[connection signal="pressed" from="ModoManager/Button" to="ModoManager" method="_on_button_pressed"]
-[connection signal="_on_torre_de_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_de_selected"]
-[connection signal="_on_torre_selected" from="Cartas/CartaTempleate" to="ZonaTorres/TowerEnableZone" method="_on_torre_selected"]
-[connection signal="_on_torre_zone_entered" from="ZonaTorres/TowerEnableZone" to="Cartas/CartaTempleate" method="__on_torre_zone_entered"]
-[connection signal="_on_torre_zone_exited" from="ZonaTorres/TowerEnableZone" to="Cartas/CartaTempleate" method="__on_torre_zone_exited"]
-[connection signal="body_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_body_entered"]
-[connection signal="mouse_entered" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ZonaTorres/TowerEnableZone" to="ZonaTorres/TowerEnableZone" method="_on_mouse_exited"]
+[node name="CacapturaTestRad" type="Sprite2D" parent="." unique_id=1139765511]
+position = Vector2(538, 221)
+rotation = 1.5707964
+texture = ExtResource("1_623cq")
+
+[node name="CacapturaTestVoid" type="Sprite2D" parent="." unique_id=1705906867]
+visible = false
+self_modulate = Color(1, 0.18039216, 1, 1)
+position = Vector2(538, 221)
+rotation = 1.5707964
+texture = ExtResource("1_623cq")
+
+[node name="TorreMadreTempleate" parent="." unique_id=1554045754 instance=ExtResource("11_x12pg")]
+position = Vector2(865, 212)
+
+[connection signal="_in_radiance" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_radiance"]
+[connection signal="_in_void" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_void"]
+[connection signal="_on_torre_de_selected" from="Cartas/CartaRad" to="ZonaTorres/T_E_Z_1" method="_on_torre_de_selected"]
+[connection signal="_on_torre_de_selected" from="Cartas/CartaRad" to="ZonaTorres/T_E_Z_2" method="_on_torre_de_selected"]
+[connection signal="_on_torre_de_selected" from="Cartas/CartaRad" to="ZonaTorres/T_E_Z_3" method="_on_torre_de_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaRad" to="ZonaTorres/T_E_Z_1" method="_on_torre_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaRad" to="ZonaTorres/T_E_Z_2" method="_on_torre_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaRad" to="ZonaTorres/T_E_Z_3" method="_on_torre_selected"]
+[connection signal="_on_torre_de_selected" from="Cartas/CartaVoid" to="ZonaTorres/T_E_Z_1" method="_on_torre_de_selected"]
+[connection signal="_on_torre_de_selected" from="Cartas/CartaVoid" to="ZonaTorres/T_E_Z_2" method="_on_torre_de_selected"]
+[connection signal="_on_torre_de_selected" from="Cartas/CartaVoid" to="ZonaTorres/T_E_Z_3" method="_on_torre_de_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaVoid" to="ZonaTorres/T_E_Z_1" method="_on_torre_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaVoid" to="ZonaTorres/T_E_Z_2" method="_on_torre_selected"]
+[connection signal="_on_torre_selected" from="Cartas/CartaVoid" to="ZonaTorres/T_E_Z_3" method="_on_torre_selected"]
+[connection signal="_on_torre_zone_entered" from="ZonaTorres/T_E_Z_1" to="Cartas/CartaRad" method="_on_torre_zone_entered"]
+[connection signal="_on_torre_zone_entered" from="ZonaTorres/T_E_Z_1" to="Cartas/CartaVoid" method="_on_torre_zone_entered"]
+[connection signal="_on_torre_zone_exited" from="ZonaTorres/T_E_Z_1" to="Cartas/CartaRad" method="_on_torre_zone_exited"]
+[connection signal="_on_torre_zone_exited" from="ZonaTorres/T_E_Z_1" to="Cartas/CartaVoid" method="_on_torre_zone_exited"]
+[connection signal="_on_torre_zone_entered" from="ZonaTorres/T_E_Z_2" to="Cartas/CartaRad" method="_on_torre_zone_entered"]
+[connection signal="_on_torre_zone_exited" from="ZonaTorres/T_E_Z_2" to="Cartas/CartaRad" method="_on_torre_zone_exited"]
+[connection signal="_on_torre_zone_entered" from="ZonaTorres/T_E_Z_3" to="Cartas/CartaRad" method="_on_torre_zone_entered"]
+[connection signal="_on_torre_zone_exited" from="ZonaTorres/T_E_Z_3" to="Cartas/CartaRad" method="_on_torre_zone_exited"]
+[connection signal="_on_game_over" from="TorreMadreTempleate" to="." method="_on_game_over"]

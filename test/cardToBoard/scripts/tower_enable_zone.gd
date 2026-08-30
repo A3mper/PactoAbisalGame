@@ -2,8 +2,8 @@ extends Area2D
 
 @export var HighLightArea : MeshInstance2D
 
-signal _on_torre_zone_entered
-signal _on_torre_zone_exited
+signal _on_torre_zone_entered()
+signal _on_torre_zone_exited()
 
 var TorrePosActive : bool = false
 
@@ -13,22 +13,21 @@ func _ready() -> void:
 	HighLightArea.hide()
 	#monitoring = true
 	input_pickable = true
-	
-'''
-func _on_body_entered(body: Node2D) -> void:
-	print(body)
-'''
+
 
 func _on_mouse_entered() -> void:
+	#print("Entro el mouse",self)
 	if TorrePosActive:
+		#print("entro:",self)
 		_on_torre_zone_entered.emit()
 		HighLightArea.show()
 
 func _on_mouse_exited() -> void:
+	#print("Se fue el mouse",self)
 	if TorrePosActive:
+		#print("salio:",self)
 		_on_torre_zone_exited.emit()
 		HighLightArea.hide()
-
 
 func _on_torre_selected() -> void:
 	TorrePosActive = true 

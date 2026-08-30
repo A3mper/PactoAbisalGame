@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ccdffm124m1vn"]
+
+[ext_resource type="Texture2D" uid="uid://jb2mdqnq3ob1" path="res://test/cardToBoard/assets/baby_ash.jpg" id="1_o5w1j"]
+[ext_resource type="Texture2D" uid="uid://bbasa0rr2wx3o" path="res://test/cardToBoard/assets/IMG_20250313_220258_477.jpg" id="2_mgq0h"]
+
+[node name="MainBoard" type="Node2D" unique_id=54260345]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1622944745]
+
+[node name="BabyAsh" type="Sprite2D" parent="." unique_id=597162694]
+position = Vector2(-503.00003, -253)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("1_o5w1j")
+
+[node name="Img20250313220258477" type="Sprite2D" parent="." unique_id=1146514600]
+position = Vector2(426, 179)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mgq0h")
