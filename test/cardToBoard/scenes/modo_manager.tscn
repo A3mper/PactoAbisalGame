@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bil3nvfnxvptc" path="res://test/cardToBoard/scripts/modo_manager.gd" id="1_78bv3"]
 [ext_resource type="Texture2D" uid="uid://jb2mdqnq3ob1" path="res://test/cardToBoard/assets/baby_ash.jpg" id="2_vnxh0"]
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnxh0"]
+
 [node name="ModoManager" type="Node2D" unique_id=862259778 node_paths=PackedStringArray("BotonCambiaModo")]
 script = ExtResource("1_78bv3")
 BotonCambiaModo = NodePath("Button")
@@ -15,5 +17,8 @@ offset_right = 808.00006
 offset_bottom = 776.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("2_vnxh0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1975535245]
+libraries/ = SubResource("AnimationLibrary_vnxh0")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

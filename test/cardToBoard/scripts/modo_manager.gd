@@ -3,6 +3,7 @@ extends Node2D
 @export var BotonCambiaModo : Button
 @export var SpriteRad : Sprite2D
 @export var SpriteVoid : Sprite2D
+@onready var animation_player = $"../AnimationPlayer"
 
 signal _in_radiance
 signal _in_void
@@ -31,14 +32,19 @@ func CompuertaXOR(A: bool,B : bool) -> bool:
 	return (((A) and (not B)) or ((not A) and (B)))
 
 func modo_radiance():
+	animation_player.play("swipeToRadiant")
 	Transicion(SpriteVoid,SpriteRad)
 	_in_radiance.emit()
+	
 	#SpriteRad.show()
 	#SpriteVoid.hide()
 
 func modo_void():
+	animation_player.play("swipeToVoid")
+	
 	Transicion(SpriteRad,SpriteVoid)
 	_in_void.emit()
+	
 	#SpriteRad.hide()
 	#SpriteVoid.show()
 

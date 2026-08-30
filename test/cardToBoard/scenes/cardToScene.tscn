@@ -12,8 +12,12 @@
 [ext_resource type="Script" uid="uid://dq21kcjkvacxt" path="res://test/cardToBoard/scripts/zone_manager.gd" id="7_nauxi"]
 [ext_resource type="PackedScene" uid="uid://drk8lbvyjoyd7" path="res://test/cardToBoard/scenes/enemyVoid.tscn" id="8_x12pg"]
 [ext_resource type="PackedScene" uid="uid://coqf114s66o14" path="res://test/cardToBoard/scenes/torreMadreTempleate.tscn" id="11_x12pg"]
-[ext_resource type="AudioStream" uid="uid://s04yx1oycwjh" path="res://assets/Audio/SFX/radiantInRadiantMODE_SFX_000.wav" id="13_08eeh"]
+[ext_resource type="AudioStream" uid="uid://dq4kfrx4wxyph" path="res://assets/Audio/Música/voidLayer_Music_001.wav" id="13_welv0"]
+[ext_resource type="AudioStream" uid="uid://cjbcsnevm63pr" path="res://assets/Audio/Música/intro_Music_000.wav" id="13_yp2nl"]
 [ext_resource type="AudioStream" uid="uid://ccnerrhjqeoh8" path="res://assets/Audio/Música/radiantLayer_Music_001.wav" id="14_5b6nn"]
+[ext_resource type="AudioStream" uid="uid://c6mtytnplxioi" path="res://assets/Audio/Música/loserTheme_Music_000.wav" id="14_w834a"]
+[ext_resource type="AudioStream" uid="uid://cwcgm3jmle2kj" path="res://assets/Audio/Música/radiantLoopSeg_Music_001.wav" id="15_0baus"]
+[ext_resource type="AudioStream" uid="uid://bmfropeb81qgv" path="res://assets/Audio/Música/voidLoopSeg_Music_001.wav" id="16_gpnmw"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
 size = Vector2(500, 100)
@@ -28,10 +32,189 @@ _data = {
 }
 point_count = 11
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_wcgde"]
-stream_count = 2
-stream_0 = ExtResource("13_08eeh")
-stream_1 = ExtResource("14_5b6nn")
+[sub_resource type="Animation" id="Animation_08eeh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/Musica/radiantLayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/Musica/voidLayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/Musica/radiantLayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Musica/voidLayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio/Musica/RadiantLoopSegMusic001:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Audio/Musica/VoidLoopSegMusic001:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5b6nn"]
+resource_name = "swipeToRadiant"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/Musica/radiantLayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/Musica/voidLayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/Musica/RadiantLoopSegMusic001:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Musica/VoidLoopSegMusic001:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_wcgde"]
+resource_name = "swipeToVoid"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/Musica/radiantLayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio/Musica/voidLayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio/Musica/RadiantLoopSegMusic001:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Musica/VoidLoopSegMusic001:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qejx"]
+_data = {
+&"RESET": SubResource("Animation_08eeh"),
+&"swipeToRadiant": SubResource("Animation_5b6nn"),
+&"swipeToVoid": SubResource("Animation_wcgde")
+}
 
 [node name="CardToScene" type="Node2D" unique_id=2029263041]
 script = ExtResource("1_kbh1b")
@@ -119,10 +302,37 @@ texture = ExtResource("1_623cq")
 [node name="TorreMadreTempleate" parent="." unique_id=1554045754 instance=ExtResource("11_x12pg")]
 position = Vector2(865, 212)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=232459939]
-stream = SubResource("AudioStreamPlaylist_wcgde")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=143363015]
+libraries/ = SubResource("AnimationLibrary_6qejx")
+
+[node name="Audio" type="Node" parent="." unique_id=1643242757]
+
+[node name="Musica" type="Node" parent="Audio" unique_id=1688438805]
+
+[node name="IntroMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=567990815]
+stream = ExtResource("13_yp2nl")
+
+[node name="LoserThemeMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=514278017]
+stream = ExtResource("14_w834a")
+
+[node name="RadiantLoopSegMusic001" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1287069418]
+stream = ExtResource("15_0baus")
+
+[node name="VoidLoopSegMusic001" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1784681419]
+stream = ExtResource("16_gpnmw")
+
+[node name="radiantLayer" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=232459939]
+stream = ExtResource("14_5b6nn")
 autoplay = true
+
+[node name="voidLayer" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=195406199]
+stream = ExtResource("13_welv0")
+autoplay = true
+
+[node name="SFX" type="Node" parent="Audio" unique_id=6291452]
 
 [connection signal="_in_radiance" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_radiance"]
 [connection signal="_in_void" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_void"]
 [connection signal="_on_game_over" from="TorreMadreTempleate" to="." method="_on_game_over"]
+[connection signal="finished" from="Audio/Musica/radiantLayer" to="." method="_on_radiant_layer_finished"]
+[connection signal="finished" from="Audio/Musica/voidLayer" to="." method="_on_void_layer_finished"]
