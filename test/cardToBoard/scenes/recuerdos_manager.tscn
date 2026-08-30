@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bmijvr2ck8875"]
+
+[ext_resource type="Script" uid="uid://q57ajpmyess3" path="res://test/cardToBoard/scripts/recuerdos_mana.gd" id="1_br0am"]
+
+[node name="RecuerdosManager" type="Node" unique_id=1797674970 node_paths=PackedStringArray("etiqueta")]
+script = ExtResource("1_br0am")
+etiqueta = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=1554179969]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "dwas"
+
+[connection signal="recuerdos_changed" from="." to="." method="_on_recuerdos_changed"]

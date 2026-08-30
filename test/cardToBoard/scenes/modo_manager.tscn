@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b8g38mqgibnst"]
+
+[ext_resource type="Script" uid="uid://bil3nvfnxvptc" path="res://test/cardToBoard/scripts/modo_manager.gd" id="1_78bv3"]
+[ext_resource type="Texture2D" uid="uid://jb2mdqnq3ob1" path="res://test/cardToBoard/assets/baby_ash.jpg" id="2_vnxh0"]
+
+[node name="ModoManager" type="Node2D" unique_id=862259778 node_paths=PackedStringArray("BotonCambiaModo")]
+script = ExtResource("1_78bv3")
+BotonCambiaModo = NodePath("Button")
+
+[node name="Button" type="Button" parent="." unique_id=258526583]
+z_index = 2
+offset_left = 6.1035156e-05
+offset_top = 3.0517578e-05
+offset_right = 808.00006
+offset_bottom = 776.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("2_vnxh0")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

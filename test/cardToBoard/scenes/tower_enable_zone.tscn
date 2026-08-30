@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dahncxdm06uoi"]
+
+[ext_resource type="Script" uid="uid://cd1wmsbvp3das" path="res://test/cardToBoard/scripts/tower_enable_zone.gd" id="1_mg2xm"]
+[ext_resource type="Texture2D" uid="uid://1kuw7dtner4b" path="res://test/cardToBoard/assets/20201017_095200.jpg" id="2_cjr6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_623cq"]
+size = Vector2(10, 100)
+
+[sub_resource type="QuadMesh" id="QuadMesh_41egw"]
+size = Vector2(30, 115)
+
+[node name="TowerEnableZone" type="Area2D" unique_id=2090659298 node_paths=PackedStringArray("HighLightArea")]
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_mg2xm")
+HighLightArea = NodePath("MeshInstance2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90517380]
+scale = Vector2(1.9999998, 1)
+shape = SubResource("RectangleShape2D_623cq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1483827251]
+self_modulate = Color(1, 1, 1, 0.63529414)
+mesh = SubResource("QuadMesh_41egw")
+texture = ExtResource("2_cjr6r")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

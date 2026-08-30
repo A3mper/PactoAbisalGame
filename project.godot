@@ -15,6 +15,12 @@ run/main_scene="uid://gnjnc07bm8vn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://bwd2w6vs3vm4c"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Nuevo Proyecto de Juego"
@@ -28,6 +34,15 @@ folder_colors={
 "res://systems/": "yellow",
 "res://test/": "green"
 }
+
+[global_group]
+
+Radiance="Radiance"
+Void="Void"
+
+[layer_names]
+
+2d_physics/layer_2="Radiance"
 
 [physics]
 

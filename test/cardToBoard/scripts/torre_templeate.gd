@@ -3,56 +3,144 @@ extends Node2D
 @export var PNGMania : Sprite2D
 @export var LeBalaPS : PackedScene
 @export var SalidaBala : Marker2D
-@export var timer : Timer
+@export var rof : Timer
+@export var AreaDeEfecto : Area2D
+@export var TorrePlacement : Area2D
 
-var IsPlaced : bool = true
-var HasTarget : bool = false
+signal espacio_ocupado
+signal espacio_libre
+signal torre_borrada
+
+var IsPlaced : bool = false
+#var HasTarget : bool = false
 var IsReadyShoot : bool = true
+var IsTorreGestion : bool = false
 
-var leemeEsta : Node2D = null
-var Bala : Node2D
+var objetivoActual : Node2D = null
+var objetivosEnRango : Array[Node2D] = []
+
+var Fogonazo : Node2D
+
+@export var dmgTorre : int = 50
+var duracion_fogonazo: float = 0	
 
 func _ready():
-	PNGMania.self_modulate.a = 0.25
+	if TorrePlacement.has_signal("area_entered"):
+		TorrePlacement.area_entered.connect(_on_espacio_ocupado)
+	if TorrePlacement.has_signal("area_exited"):
+		TorrePlacement.area_exited.connect(_on_espacio_libre)
+	if TorrePlacement.has_signal("mouse_entered"):
+		TorrePlacement.mouse_entered.connect(GestionTorre)
+	if TorrePlacement.has_signal("mouse_exited"):
+		TorrePlacement.mouse_exited.connect(LeaveGestionTorre)
 	
+	AreaDeEfecto.monitoring = false
+	PNGMania.self_modulate.a = 0.25
+	Fogonazo = LeBalaPS.instantiate()
+	SalidaBala.add_child(Fogonazo)
+	Fogonazo.hide()
 
 func _on_tree_exited() -> void:
 	queue_free()
 
 func _on_plant() -> void:
+	
 	IsPlaced = true
+	AreaDeEfecto.monitoring = true
 	PNGMania.self_modulate.a = 1
+	
 
 func dispara():
 	if IsReadyShoot:
-		Bala = LeBalaPS.instantiate()
-		SalidaBala.add_child(Bala)
-		timer.start()
+		
 		IsReadyShoot = false
+		
+		Fogonazo.show()
+		
+		rof.start()
+
+		duracion_fogonazo = rof.wait_time * 0.25
+
+		get_tree().create_timer(duracion_fogonazo).timeout.connect(_on_fogonazo_timeout)
+
+		if objetivoActual.has_method("has_been_shot"):
+			
+			objetivoActual.has_been_shot(dmgTorre)
+		
 
 func _process(_delta : float):
-	if IsPlaced:
-		if HasTarget:
-			'''
-			print(leemeEsta.global_position,"  -  ",global_position)
-			print(leemeEsta.global_position - global_position)
-			print(rad_to_deg(atan2(leemeEsta.global_position.y - global_position.y,leemeEsta.global_position.x - global_position.x)))
-			'''
-			SalidaBala.rotation = atan2(leemeEsta.global_position.y - global_position.y,leemeEsta.global_position.x - global_position.x)
-			dispara()
-				
-
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	HasTarget = true
-	print("c papu")
-	leemeEsta = _body
 	
 
+	if IsPlaced:
+		ActualizarObjetivo()
+
+		if objetivoActual != null:
+			SalidaBala.look_at(objetivoActual.global_position)
+			
+			dispara()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and IsTorreGestion:
+		if event.button_index == MouseButton.MOUSE_BUTTON_RIGHT and event.pressed:
+			DeleteTorre()
+		#if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
+		#	print("qsy")
+
+func ActualizarObjetivo():
+	objetivosEnRango = objetivosEnRango.filter(func(exist) : return is_instance_valid(exist))
+
+	if objetivosEnRango.size() > 0:
+		objetivoActual = objetivosEnRango[0]
+	else:
+		objetivoActual = null
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	
+	#print("c papu")
+	if _body.has_method("has_been_shot") and not objetivosEnRango.has(_body):
+		objetivosEnRango.append(_body)
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
-	HasTarget = false
-	leemeEsta = null
+	#HasTarget = false
+	objetivoActual = null
 
 
 func _on_cad_de_fuego_timeout() -> void:
 	IsReadyShoot = true
+
+func _on_fogonazo_timeout():
+	if is_instance_valid(Fogonazo): 
+		Fogonazo.hide()
+
+func _on_espacio_ocupado(_area : Area2D)->void:
+	espacio_ocupado.emit()
+
+func _on_espacio_libre(_area : Area2D)->void:
+	espacio_libre.emit()
+
+func GestionTorre() -> void:
+	if IsPlaced:
+		ShowSelection()
+		IsTorreGestion = true
+
+func LeaveGestionTorre() -> void:
+	if IsPlaced:
+		IsTorreGestion = false
+
+func DeleteTorre()-> void:
+	torre_borrada.emit()
+	queue_free()
+
+func ShowSelection()->void:
+	var tween = create_tween()
+	
+	tween.tween_property(PNGMania, "self_modulate", Color.BLACK, 0.1)
+	'''
+	if is_in_group("Radiance"):
+		tween.tween_property(PNGMania, "self_modulate", Color.PURPLE, 0.1)
+	if is_in_group("Void"):
+		tween.tween_property(PNGMania, "self_modulate", Color.YELLOW, 0.1)
+	'''
+	# Vuelve al color original (blanco/normal) en 0.15 segundos
+	tween.tween_property(PNGMania, "self_modulate", Color.WHITE, 0.1)
