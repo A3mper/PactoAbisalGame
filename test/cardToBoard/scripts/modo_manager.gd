@@ -19,6 +19,11 @@ func _ready():
 	SpriteVoid.show() # Ambos visibles, controlamos la opacidad
 	SpriteVoid.modulate.a = 0.0
 
+func _process(delta):
+	if Input.is_action_just_pressed("press_e"):
+		$"../Audio/SFX/EidolonVoiceRadiantSfx000".play()
+	
+	pass
 func _on_button_pressed() -> void:
 	IsRad = CompuertaXOR(IsRad,true)    
 	

@@ -71,6 +71,8 @@
 [ext_resource type="AudioStream" uid="uid://dk3t7yoqtjb7v" path="res://assets/Audio/SFX/step4_SFX.wav" id="69_i11id"]
 [ext_resource type="AudioStream" uid="uid://chru61b6v1ym6" path="res://assets/Audio/SFX/swipeADia_SFX_000.wav" id="71_kwpyh"]
 [ext_resource type="AudioStream" uid="uid://bu1bt2m6bniup" path="res://assets/Audio/SFX/swipeAnoche_SFX_000.wav" id="72_5orxb"]
+[ext_resource type="AudioStream" uid="uid://b0gv7jb7tdcgj" path="res://assets/Audio/SFX/eidolonVoiceRadiant_SFX_000.wav" id="72_jeoa1"]
+[ext_resource type="AudioStream" uid="uid://c3l4ghhjimb0q" path="res://assets/Audio/SFX/eidolonVoiceVoid_SFX_000.wav" id="73_b0qkk"]
 [ext_resource type="AudioStream" uid="uid://u7eih41aomnt" path="res://assets/Audio/SFX/transiciónADia_SFX_000.wav" id="73_s7fhr"]
 [ext_resource type="AudioStream" uid="uid://b82wvdwexv5i0" path="res://assets/Audio/SFX/transiciónANoche_SFX_000.wav" id="74_1jfg3"]
 [ext_resource type="AudioStream" uid="uid://cqunsvut0exq7" path="res://assets/Audio/SFX/upMenu_SFX_000.wav" id="75_jdkpv"]
@@ -185,7 +187,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.24148414),
 "update": 0,
 "values": [-80.0, 0.0]
 }
@@ -197,7 +199,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.30778608),
 "update": 0,
 "values": [0.0, -80.0]
 }
@@ -209,7 +211,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.27739242),
 "update": 0,
 "values": [-80.0, 0.0]
 }
@@ -221,7 +223,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.2773924),
 "update": 0,
 "values": [0.0, -80.0]
 }
@@ -233,7 +235,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.39229208),
 "update": 0,
 "values": [-80.0, 0.0]
 }
@@ -245,7 +247,7 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.46651652),
 "update": 0,
 "values": [0.0, -80.0]
 }
@@ -632,6 +634,13 @@ stream = ExtResource("71_kwpyh")
 [node name="SwipeAnocheSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1800494575]
 stream = ExtResource("72_5orxb")
 
+[node name="EidolonVoiceRadiantSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1638282106]
+stream = ExtResource("72_jeoa1")
+volume_db = -13.522
+
+[node name="EidolonVoiceVoidSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1608930854]
+stream = ExtResource("73_b0qkk")
+
 [node name="TransiciónADiaSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1391687814]
 stream = ExtResource("73_s7fhr")
 
@@ -644,7 +653,7 @@ stream = ExtResource("75_jdkpv")
 [node name="swipSFX" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1216294703]
 stream = ExtResource("75_jdkpv")
 volume_db = -19.025
-pitch_scale = 0.66
+pitch_scale = 0.37
 
 [connection signal="_in_radiance" from="ModoManager" to="Cartas/CartaRad" method="_on_modo_manager__in_radiance"]
 [connection signal="_in_radiance" from="ModoManager" to="Cartas/CartaVoid" method="_on_modo_manager__in_radiance"]
