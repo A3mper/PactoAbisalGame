@@ -31,4 +31,5 @@ scale = Vector2(0.2, 0.2)
 icon = ExtResource("3_5u76i")
 
 [connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Control/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

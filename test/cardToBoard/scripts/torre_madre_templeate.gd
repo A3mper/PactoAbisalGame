@@ -11,7 +11,9 @@ signal _on_game_over
 func _ready() -> void:
 	currentHealth = MaxHealth
 	
-
+func _process(delta):
+	if Input.is_action_just_pressed("press_r"):
+		pass
 
 func ShowDamage()->void:
 	var tween = create_tween()

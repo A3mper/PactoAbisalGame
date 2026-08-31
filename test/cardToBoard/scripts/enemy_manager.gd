@@ -4,6 +4,7 @@ extends Node
 @export var EnemySceneVoid : PackedScene
 @export var SpawnPoint : Path2D
 
+
 var EnemyToSpawn : Node2D = null
 
 var RoadFollower : PathFollow2D = null
@@ -17,7 +18,9 @@ func _ready():
 func _input(event):
 	if event is InputEventKey:
 		if event.is_pressed() and event.keycode == KEY_1:
+			$"../../Audio/SFX/EnemySpawn2Sfx000".play
 			spawnEnemy()
+
 
 
 func spawnEnemy():
@@ -32,6 +35,12 @@ func spawnEnemy():
 	RoadFollower.add_child(EnemyToSpawn )
 	RoadFollower.v_offset = randf_range(-10,10)
 	IsSpawn = true
+	if IsRad:
+		$"../../Audio/SFX/RadiantInRadiantModeSfx000".play()
+	else:
+		$"../../Audio/SFX/RadiantInVoidModeSfx000".play()
+		pass
+		
 
 
 func _on_modo_manager__in_radiance() -> void:

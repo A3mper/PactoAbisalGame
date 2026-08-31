@@ -32,6 +32,7 @@ func CompuertaXOR(A: bool,B : bool) -> bool:
 	return (((A) and (not B)) or ((not A) and (B)))
 
 func modo_radiance():
+	$"../Audio/SFX/swipSFX".play()
 	animation_player.play("swipeToRadiant")
 	Transicion(SpriteVoid,SpriteRad)
 	_in_radiance.emit()
@@ -40,8 +41,8 @@ func modo_radiance():
 	#SpriteVoid.hide()
 
 func modo_void():
+	$"../Audio/SFX/swipSFX".play()
 	animation_player.play("swipeToVoid")
-	
 	Transicion(SpriteRad,SpriteVoid)
 	_in_void.emit()
 	

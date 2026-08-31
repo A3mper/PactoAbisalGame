@@ -3,6 +3,8 @@ extends Node2D
 @export var TorreCorrespondiete : PackedScene
 @export var TorreParent : Node
 @export var ResourcePool : Node
+@onready var modo_manager = $"../../ModoManager"
+@export var IsRad : bool = true
 
 var Torre : Node2D = null
 var ManejoPool : Node = null
@@ -18,6 +20,7 @@ signal _on_torre_selected
 signal _on_torre_de_selected
 
 func _ready():
+	
 	pass
 	
 
@@ -47,6 +50,11 @@ func _on_button_pressed() -> void:
 
 func PlantarTorre() -> void:
 	if Torre.has_signal("torre_borrada"):
+		if IsRad:
+			$"../../Audio/SFX/BuidTowerInRadiantSfx000".play()
+		else:
+			$"../../Audio/SFX/BuildATowerVoid1Sfx000".play()
+		
 		Torre.torre_borrada.connect(RefundTorre)
 
 	if ResourcePool.has_method("SpendRecuerdos"):
@@ -87,3 +95,22 @@ func RefundTorre()->void:
 			print("devuelveme los recuerdos")	
 		
 	#
+
+
+func _on_modo_manager__in_radiance():
+	IsRad = true
+	get_tree().call_group("Radiance","moverse")
+	get_tree().call_group("Void","detenerse")
+	pass # Replace with function body.
+
+
+func _on_modo_manager__in_void():
+	IsRad = false
+	get_tree().call_group("Radiance","detenerse")
+	get_tree().call_group("Void","moverse")
+	pass # Replace with function body.
+
+
+func _on_button_mouse_entered():
+	$"../../Audio/SFX/PutOnACard3Sfx000".play()
+	pass # Replace with function body.

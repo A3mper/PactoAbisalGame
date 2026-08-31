@@ -5,8 +5,6 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 
 
-
-
 #const t_e_z := preload("uid://cd1wmsbvp3das")
 
 # Called when the node enters the scene tree for the first time.
