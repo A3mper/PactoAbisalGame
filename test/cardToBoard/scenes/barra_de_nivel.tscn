@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bhubvut1xdyg4"]
+
+[ext_resource type="Script" uid="uid://b24l4hex70v0i" path="res://test/cardToBoard/scripts/barra_de_nivel.gd" id="1_3ualm"]
+[ext_resource type="Texture2D" uid="uid://n7w2fsl3coyt" path="res://assets/textures/Base.png" id="1_xgchw"]
+[ext_resource type="Texture2D" uid="uid://dllniyybxynp" path="res://assets/textures/Recuerdos basico.png" id="2_h3iq8"]
+[ext_resource type="Texture2D" uid="uid://cyv2xkymjqosr" path="res://assets/textures/Recuerdos mitad.png" id="3_3ualm"]
+[ext_resource type="Texture2D" uid="uid://bybeclyxp2v3r" path="res://assets/textures/Borde.png" id="4_lnxh1"]
+[ext_resource type="Texture2D" uid="uid://bvji06vsshp0w" path="res://assets/textures/Recuerdos full.png" id="5_lnxh1"]
+
+[node name="BarraDeNivel" type="Node2D" unique_id=730446217 node_paths=PackedStringArray("NivelFull", "NivelFullMedio", "NivelMedio", "NivelMedioMedio", "NivelBasico")]
+script = ExtResource("1_3ualm")
+NivelFull = NodePath("RecuerdosFull")
+NivelFullMedio = NodePath("RecuerdosFullMitad")
+NivelMedio = NodePath("RecuerdosMitad")
+NivelMedioMedio = NodePath("RecuerdosMitadMitad")
+NivelBasico = NodePath("RecuerdosBasico")
+ColorNivel = Color(1, 1, 1, 1)
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1443614406]
+texture = ExtResource("1_xgchw")
+
+[node name="RecuerdosBasico" type="Sprite2D" parent="." unique_id=1941832509]
+visible = false
+position = Vector2(-500, -1)
+texture = ExtResource("2_h3iq8")
+
+[node name="RecuerdosMitadMitad" type="Sprite2D" parent="." unique_id=968230848]
+visible = false
+position = Vector2(-381, -5)
+scale = Vector2(0.5, 1)
+texture = ExtResource("3_3ualm")
+
+[node name="RecuerdosMitad" type="Sprite2D" parent="." unique_id=2003615197]
+visible = false
+position = Vector2(-240, -1)
+texture = ExtResource("3_3ualm")
+
+[node name="RecuerdosFullMitad" type="Sprite2D" parent="." unique_id=394514045]
+visible = false
+position = Vector2(-100, -5)
+scale = Vector2(1.5, 1)
+texture = ExtResource("3_3ualm")
+
+[node name="RecuerdosFull" type="Sprite2D" parent="." unique_id=716945673]
+position = Vector2(0, -8.25)
+scale = Vector2(1, 0.8821139)
+texture = ExtResource("5_lnxh1")
+
+[node name="Borde" type="Sprite2D" parent="." unique_id=867682457]
+position = Vector2(0, -6)
+texture = ExtResource("4_lnxh1")

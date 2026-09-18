@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dyw2pfilar4j8"]
+
+[ext_resource type="PackedScene" uid="uid://m1ws7ki4tfnu" path="res://test/Tecnical ART_JaviEka - LAB/1_Scenes/LAB_02_CARD_JUICE.tscn" id="1_dlm0x"]
+[ext_resource type="PackedScene" uid="uid://d38ivn3jw2u5i" path="res://test/Tecnical ART_JaviEka - LAB/1_Scenes/Mesa del juego.tscn" id="2_kldg6"]
+[ext_resource type="PackedScene" uid="uid://by4g4sgof6dh1" path="res://test/Tecnical ART_JaviEka - LAB/1_Scenes/LAB_02_CARD_SPOILER.tscn" id="3_wcb50"]
+
+[sub_resource type="Environment" id="Environment_kldg6"]
+
+[node name="Main" type="Node3D" unique_id=456624304]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=917870897]
+environment = SubResource("Environment_kldg6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=455282358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.055814, 16.102606, 1.8558531)
+light_energy = 2.577
+light_indirect_energy = 2.803
+light_volumetric_fog_energy = 2.577
+light_angular_distance = 36.76
+light_bake_mode = 0
+sky_mode = 2
+
+[node name="Mesa" parent="." unique_id=118772691 instance=ExtResource("2_kldg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3923936)
+
+[node name="LAB_02_CARD_JUICE" parent="." unique_id=1989758882 instance=ExtResource("1_dlm0x")]
+transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, 0, -0.41051245, 0)
+
+[node name="LAB_02_CARD_JUICE3" parent="." unique_id=1399005430 instance=ExtResource("1_dlm0x")]
+transform = Transform3D(0.11140352, 0.02853518, 0, -0.02853518, 0.11140352, 0, 0, 0, 0.115, 0.13160661, -0.42007455, 0)
+
+[node name="LAB_02_CARD_JUICE4" parent="." unique_id=941928814 instance=ExtResource("1_dlm0x")]
+transform = Transform3D(0.101859435, 0.053382196, 0, -0.053382196, 0.101859435, 0, 0, 0, 0.115, 0.25356814, -0.48115203, 0)
+
+[node name="LAB_02_CARD_JUICE5" parent="." unique_id=1592401454 instance=ExtResource("1_dlm0x")]
+transform = Transform3D(0.11123939, -0.029168574, 0, 0.029168574, 0.11123939, 0, 0, 0, 0.115, -0.13080549, -0.4630512, 0)
+
+[node name="LAB_02_CARD_JUICE2" parent="." unique_id=1417815351 instance=ExtResource("3_wcb50")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0.10644555, 0)

@@ -1,19 +1,54 @@
 [gd_scene format=3 uid="uid://b8g38mqgibnst"]
 
 [ext_resource type="Script" uid="uid://bil3nvfnxvptc" path="res://test/cardToBoard/scripts/modo_manager.gd" id="1_78bv3"]
-[ext_resource type="Texture2D" uid="uid://jb2mdqnq3ob1" path="res://test/cardToBoard/assets/baby_ash.jpg" id="2_vnxh0"]
+[ext_resource type="Shader" uid="uid://c77yada6nplch" path="res://test/cardToBoard/scenes/dancebabydance.gdshader" id="1_vnxh0"]
+[ext_resource type="Texture2D" uid="uid://bwalv2ycerlpg" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/EIDOLON y story telling/RADIANCE/Eidolon radiant main.png" id="2_8434o"]
+[ext_resource type="Texture2D" uid="uid://bgxmpxb7uanrf" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/EIDOLON y story telling/VOID/Eidolon Void.png" id="3_78bv3"]
 
-[node name="ModoManager" type="Node2D" unique_id=862259778 node_paths=PackedStringArray("BotonCambiaModo")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jg8c3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vnxh0"]
+shader = ExtResource("1_vnxh0")
+shader_parameter/tempo = 0.44000001764012
+shader_parameter/rotation_amount = 0.1010000047975
+shader_parameter/jump_amount = 38.4930018284175
+shader_parameter/wiggle_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yi3mi"]
+shader = ExtResource("1_vnxh0")
+shader_parameter/tempo = 0.10000000149012
+shader_parameter/rotation_amount = 0.0370000017575
+shader_parameter/jump_amount = 11.986000569335
+shader_parameter/wiggle_amount = 10.0
+
+[node name="ModoManager" type="Node2D" unique_id=862259778 node_paths=PackedStringArray("BotonCambiaModo", "SpriteRad", "SpriteVoid", "SpriteMaskRad", "SpriteMaskVoid")]
+material = SubResource("ShaderMaterial_jg8c3")
 script = ExtResource("1_78bv3")
 BotonCambiaModo = NodePath("Button")
+SpriteRad = NodePath("EidolonRadiantMain")
+SpriteVoid = NodePath("EidolonVoid")
+SpriteMaskRad = NodePath("EidolonRadiantMain")
+SpriteMaskVoid = NodePath("EidolonVoid")
 
 [node name="Button" type="Button" parent="." unique_id=258526583]
+self_modulate = Color(1, 1, 1, 0)
 z_index = 2
-offset_left = 6.1035156e-05
-offset_top = 3.0517578e-05
-offset_right = 808.00006
-offset_bottom = 776.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("2_vnxh0")
+offset_left = -45.000004
+offset_top = -53.0
+offset_right = 763.0
+offset_bottom = 723.0
+scale = Vector2(0.110986754, 0.15887065)
+
+[node name="EidolonRadiantMain" type="Sprite2D" parent="." unique_id=235291326]
+material = SubResource("ShaderMaterial_vnxh0")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8434o")
+
+[node name="EidolonVoid" type="Sprite2D" parent="." unique_id=546754590]
+visible = false
+material = SubResource("ShaderMaterial_yi3mi")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_78bv3")
+flip_h = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

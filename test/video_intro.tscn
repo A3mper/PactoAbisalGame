@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bd8psklgx1a1i"]
+
+[ext_resource type="Script" uid="uid://bcofmv30agwcd" path="res://test/button.gd" id="1_dgk4q"]
+[ext_resource type="VideoStream" uid="uid://cs4xvdpdojr26" path="res://assets/Video/video.ogv" id="1_k58wt"]
+[ext_resource type="Script" uid="uid://ccq1hmp8ejdt4" path="res://test/video_intro.gd" id="1_sb7p1"]
+[ext_resource type="AudioStream" uid="uid://cep03mpl6b2pq" path="res://assets/Audio/Música/EidolonsTalkTheme_Music_000.wav" id="4_6wtdm"]
+
+[node name="Node2D" type="Node2D" unique_id=668083368]
+script = ExtResource("1_sb7p1")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=300518292]
+z_index = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+stream = ExtResource("1_k58wt")
+autoplay = true
+expand = true
+
+[node name="Button" type="Button" parent="." unique_id=1826079159]
+z_index = 2
+offset_left = 1617.0
+offset_top = 919.0
+offset_right = 1905.0
+offset_bottom = 1065.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 30
+text = "Saltar Intro"
+icon_alignment = 2
+vertical_icon_alignment = 2
+script = ExtResource("1_dgk4q")
+
+[node name="EidolonsTalkThemeMusic000" type="AudioStreamPlayer" parent="." unique_id=137339473]
+stream = ExtResource("4_6wtdm")
+volume_db = -17.0
+bus = &"Compressor_bus"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_go_to_play"]
+[connection signal="pressed" from="Button" to="." method="_go_to_play"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

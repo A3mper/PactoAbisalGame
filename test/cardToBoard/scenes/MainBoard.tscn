@@ -1,18 +1,83 @@
 [gd_scene format=3 uid="uid://ccdffm124m1vn"]
 
-[ext_resource type="Texture2D" uid="uid://jb2mdqnq3ob1" path="res://test/cardToBoard/assets/baby_ash.jpg" id="1_o5w1j"]
-[ext_resource type="Texture2D" uid="uid://bbasa0rr2wx3o" path="res://test/cardToBoard/assets/IMG_20250313_220258_477.jpg" id="2_mgq0h"]
+[ext_resource type="PackedScene" uid="uid://jl3orumfi4nj" path="res://test/cardToBoard/scenes/cacaptura_test_rad.tscn" id="1_o5w1j"]
+[ext_resource type="PackedScene" uid="uid://b8g38mqgibnst" path="res://test/cardToBoard/scenes/modo_manager.tscn" id="1_xn1xb"]
+[ext_resource type="PackedScene" uid="uid://by8x2tq8k57yv" path="res://test/cardToBoard/scenes/cacaptura_test_void.tscn" id="2_mgq0h"]
+[ext_resource type="PackedScene" uid="uid://43xwhcasvlxt" path="res://test/cardToBoard/scenes/cartaTorreRad.tscn" id="4_n2p60"]
+[ext_resource type="PackedScene" uid="uid://c0cb2yv1sn6tn" path="res://test/cardToBoard/scenes/cartaTorreVoid.tscn" id="5_6u1oi"]
+[ext_resource type="PackedScene" uid="uid://bmijvr2ck8875" path="res://test/cardToBoard/scenes/recuerdos_manager.tscn" id="6_6u1oi"]
+[ext_resource type="PackedScene" uid="uid://dahncxdm06uoi" path="res://test/cardToBoard/scenes/tower_enable_zone.tscn" id="6_jwkvf"]
+[ext_resource type="Script" uid="uid://dq21kcjkvacxt" path="res://test/cardToBoard/scripts/zone_manager.gd" id="7_m8y7c"]
+[ext_resource type="Script" uid="uid://c7t8so64ubvv" path="res://test/cardToBoard/scripts/enemy_manager.gd" id="8_6dw2e"]
+[ext_resource type="PackedScene" uid="uid://bbqjw355javsf" path="res://test/cardToBoard/scenes/enemyRad.tscn" id="9_b6qyg"]
+[ext_resource type="PackedScene" uid="uid://drk8lbvyjoyd7" path="res://test/cardToBoard/scenes/enemyVoid.tscn" id="10_w4axy"]
+
+[sub_resource type="Curve2D" id="Curve2D_m8y7c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 426, 165, 0, 0, 0, 0, 378, 49, 0, 0, 0, 0, 299, -46, 0, 0, 0, 0, 211, -81, 0, 0, 0, 0, 162, -37, 0, 0, 0, 0, 149, 21)
+}
+point_count = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_6u1oi"]
+font_size = 25
 
 [node name="MainBoard" type="Node2D" unique_id=54260345]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1622944745]
+[node name="ModoManager" parent="." unique_id=862259778 node_paths=PackedStringArray("SpriteRad", "SpriteVoid") instance=ExtResource("1_xn1xb")]
+z_index = 2
+position = Vector2(1023.10004, 469.6)
+SpriteRad = NodePath("../CacapturaTestRad")
+SpriteVoid = NodePath("../CacapturaTestVoid")
 
-[node name="BabyAsh" type="Sprite2D" parent="." unique_id=597162694]
-position = Vector2(-503.00003, -253)
-scale = Vector2(0.17, 0.17)
-texture = ExtResource("1_o5w1j")
+[node name="Torres" type="Node" parent="." unique_id=1907631556]
 
-[node name="Img20250313220258477" type="Sprite2D" parent="." unique_id=1146514600]
-position = Vector2(426, 179)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_mgq0h")
+[node name="Cartas" type="Node" parent="." unique_id=1024410654]
+
+[node name="CartaVoid" parent="Cartas" unique_id=455644308 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("5_6u1oi")]
+position = Vector2(564.10004, 536.6)
+TorreParent = NodePath("../../Torres")
+ResourcePool = NodePath("../RecuerdosManager")
+
+[node name="RecuerdosManager" parent="Cartas" unique_id=1797674970 node_paths=PackedStringArray("etiqueta") instance=ExtResource("6_6u1oi")]
+etiqueta = NodePath("../../Label")
+
+[node name="CartaRad" parent="Cartas" unique_id=476367395 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("4_n2p60")]
+position = Vector2(658.10004, 536.6)
+TorreParent = NodePath("../../Torres")
+ResourcePool = NodePath("../RecuerdosManager")
+
+[node name="ZonaTorres" type="Node" parent="." unique_id=796159079]
+
+[node name="ZoneManager" type="Node" parent="ZonaTorres" unique_id=164198963 node_paths=PackedStringArray("TorreEnableZone", "CartasConTorres")]
+script = ExtResource("7_m8y7c")
+TorreEnableZone = [NodePath("../T_E_Z_1")]
+CartasConTorres = [NodePath("../../Cartas/CartaRad"), NodePath("../../Cartas/CartaVoid")]
+
+[node name="T_E_Z_1" parent="ZonaTorres" unique_id=2090659298 instance=ExtResource("6_jwkvf")]
+position = Vector2(613.10004, 341.6)
+
+[node name="ZonaEnemigos" type="Node" parent="." unique_id=586852430]
+
+[node name="Path2D" type="Path2D" parent="ZonaEnemigos" unique_id=597720572]
+position = Vector2(581.10004, 282.6)
+curve = SubResource("Curve2D_m8y7c")
+
+[node name="EnemyManager" type="Node" parent="ZonaEnemigos" unique_id=579282953]
+script = ExtResource("8_6dw2e")
+EnemySceneRad = ExtResource("9_b6qyg")
+EnemySceneVoid = ExtResource("10_w4axy")
+
+[node name="CacapturaTestRad" parent="." unique_id=407587090 instance=ExtResource("1_o5w1j")]
+scale = Vector2(0.99466175, 0.99466175)
+
+[node name="CacapturaTestVoid" parent="." unique_id=751436498 instance=ExtResource("2_mgq0h")]
+scale = Vector2(0.99466175, 0.99466175)
+
+[node name="Label" type="Label" parent="." unique_id=1871552087]
+z_index = 1
+offset_left = 1003.0
+offset_top = 541.0
+offset_right = 1043.0
+offset_bottom = 576.0
+text = "00"
+label_settings = SubResource("LabelSettings_6u1oi")

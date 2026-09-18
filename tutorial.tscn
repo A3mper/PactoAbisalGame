@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bvp1lrsocqv7t"]
+
+[ext_resource type="Script" uid="uid://c84oo8kh5vbee" path="res://tutorial.gd" id="1_7n6eb"]
+[ext_resource type="AudioStream" uid="uid://ctxk2mpkuy2lm" path="res://assets/Audio/Música/EidolonsTalkTheme_Music_001.wav" id="2_yb1ct"]
+
+[node name="Tutorial" type="Control" unique_id=633386838]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.89, 1.89)
+script = ExtResource("1_7n6eb")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1671964869]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 6
+
+[node name="Mtutorial" type="AudioStreamPlayer" parent="." unique_id=1931106482]
+stream = ExtResource("2_yb1ct")
+volume_db = -7.805

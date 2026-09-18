@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://blqm58yydffw6"]
+
+[ext_resource type="Texture2D" uid="uid://cdn5smlvg2dfv" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/MapaShadow.png" id="1_sai56"]
+[ext_resource type="Texture2D" uid="uid://b01o2poeijabi" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Texture top neblina.png" id="2_e0v6s"]
+[ext_resource type="Texture2D" uid="uid://n7lmb2ftdkuu" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Texture boton neblina.png" id="3_sai56"]
+[ext_resource type="Texture2D" uid="uid://ch2l5bach53ic" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Texture portal.png" id="4_vuja3"]
+[ext_resource type="PackedScene" uid="uid://bmup150ylhxbs" path="res://islas_ui.tscn" id="5_sai56"]
+
+[node name="MapaIlusion" type="Node2D" unique_id=234915757]
+self_modulate = Color(1, 1, 1, 0.02745098)
+z_index = 4
+
+[node name="MapaBase" type="Sprite2D" parent="." unique_id=229763988]
+self_modulate = Color(0.16416663, 1, 0.14999998, 1)
+texture = ExtResource("1_sai56")
+
+[node name="TextureTopNeblina" type="Sprite2D" parent="." unique_id=1796246354]
+position = Vector2(295, 2)
+texture = ExtResource("2_e0v6s")
+
+[node name="TextureBotonNeblina" type="Sprite2D" parent="." unique_id=431349893]
+texture = ExtResource("3_sai56")
+
+[node name="TexturePortal" type="Sprite2D" parent="." unique_id=10470926]
+z_index = 2
+position = Vector2(1683.1046, -215.82147)
+scale = Vector2(1.19009, 1.0665674)
+texture = ExtResource("4_vuja3")
+
+[node name="IslasUI" parent="." unique_id=1686981973 instance=ExtResource("5_sai56")]
+modulate = Color(1.0416296, 1.0416296, 1.0416296, 1)
+self_modulate = Color(3.1672676, 3.1672676, 3.1672676, 1)
+position = Vector2(2.5, 1.5)

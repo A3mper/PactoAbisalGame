@@ -1,3 +1,16 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+assets/Video/video.ogv
+*.tmp
+*.import
+*.import
+*.import
+*.import
+*.import
+*.import
+*.import
+*.import
+*.import
+*.import
+*.import

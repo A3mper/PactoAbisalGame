@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://drk8lbvyjoyd7"]
 
 [ext_resource type="Script" uid="uid://c8ufw32ooj1sj" path="res://test/cardToBoard/scripts/enemy_templeate.gd" id="1_slxtc"]
-[ext_resource type="Texture2D" uid="uid://bbasa0rr2wx3o" path="res://test/cardToBoard/assets/IMG_20250313_220258_477.jpg" id="2_kopu5"]
+[ext_resource type="Shader" uid="uid://b3dakeukr2vsi" path="res://test/cardToBoard/scenes/wallkbabywallk.gdshader" id="2_kopu5"]
+[ext_resource type="Texture2D" uid="uid://b2ux1aocs7fy0" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Enemigos/Enemigos Jav/Void enemy.png" id="3_ykk4w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n80a"]
-size = Vector2(30, 30)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5k7qi"]
+shader = ExtResource("2_kopu5")
+shader_parameter/tempo = 0.10000000149012
+shader_parameter/rotation_amount = 0.106000005035
+shader_parameter/jump_amount = 50.0
+shader_parameter/wiggle_amount = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kopu5"]
+radius = 50.0
 
 [node name="EnemyTempleate" type="CharacterBody2D" unique_id=614258466 node_paths=PackedStringArray("EnemySprite") groups=["Void"]]
+z_index = 5
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_slxtc")
@@ -14,8 +23,11 @@ EnemySprite = NodePath("sacaLasChelas")
 
 [node name="sacaLasChelas" type="Sprite2D" parent="." unique_id=1542112480]
 modulate = Color(1, 0.3372549, 1, 1)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_kopu5")
+material = SubResource("ShaderMaterial_5k7qi")
+position = Vector2(-9.379164e-13, 43.999996)
+rotation = -3.1415927
+scale = Vector2(0.11978668, 0.11978668)
+texture = ExtResource("3_ykk4w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=243015654]
-shape = SubResource("RectangleShape2D_3n80a")
+shape = SubResource("CircleShape2D_kopu5")

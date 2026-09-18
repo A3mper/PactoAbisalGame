@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://du75u8qaxs13j"]
+
+[ext_resource type="PackedScene" uid="uid://bhubvut1xdyg4" path="res://test/cardToBoard/scenes/barra_de_nivel.tscn" id="1_oi08u"]
+
+[node name="EscenaLaboratorio" type="Node2D" unique_id=378036835]
+
+[node name="BarraDeNivel" parent="." unique_id=730446217 instance=ExtResource("1_oi08u")]
+position = Vector2(884, 611)

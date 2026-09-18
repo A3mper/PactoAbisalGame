@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bmup150ylhxbs"]
+
+[ext_resource type="Texture2D" uid="uid://cyusbxpx24fr8" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/isla_1.png" id="1_a88j1"]
+[ext_resource type="Script" uid="uid://bit1qrq2fvrlu" path="res://islas_uiopaci.gd" id="1_ai7hw"]
+[ext_resource type="Texture2D" uid="uid://dq3qtpk2lrcwy" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_2.png" id="2_hscaq"]
+[ext_resource type="Texture2D" uid="uid://dnd5ieh52k46b" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_3.png" id="3_ai7hw"]
+[ext_resource type="Texture2D" uid="uid://daom0gegv04xa" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_4.png" id="4_httiy"]
+[ext_resource type="Texture2D" uid="uid://miccnkobcvch" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_5.png" id="5_nppuq"]
+[ext_resource type="Texture2D" uid="uid://ckjbmwh0m14gg" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_6.png" id="6_8hj4c"]
+[ext_resource type="Texture2D" uid="uid://ob7y32xig5cf" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_7.png" id="7_gfnxl"]
+[ext_resource type="Texture2D" uid="uid://dd7m5n85svwcr" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_8.png" id="8_fi1ak"]
+[ext_resource type="Texture2D" uid="uid://dxlxpclv0pcf" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_9.png" id="9_13qi8"]
+[ext_resource type="Texture2D" uid="uid://b1pbb4vjlkiqv" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_10.png" id="10_d0yca"]
+[ext_resource type="Texture2D" uid="uid://g1dti8apm71h" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/Isla_11.png" id="11_i3nju"]
+[ext_resource type="Texture2D" uid="uid://cdn5smlvg2dfv" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/MapaShadow.png" id="12_a88j1"]
+
+[node name="IslasUI" type="Node2D" unique_id=1686981973]
+z_index = 4
+script = ExtResource("1_ai7hw")
+hover_alpha = 0.696
+
+[node name="Isla1" type="Sprite2D" parent="." unique_id=358278674]
+position = Vector2(-1177, 10)
+texture = ExtResource("1_a88j1")
+
+[node name="Isla2" type="Sprite2D" parent="." unique_id=1542742444]
+position = Vector2(-817, -54)
+texture = ExtResource("2_hscaq")
+
+[node name="Isla3" type="Sprite2D" parent="." unique_id=202448091]
+position = Vector2(-900.5, 218.5)
+texture = ExtResource("3_ai7hw")
+
+[node name="Isla4" type="Sprite2D" parent="." unique_id=612360310]
+position = Vector2(-627, 277)
+texture = ExtResource("4_httiy")
+
+[node name="Isla5" type="Sprite2D" parent="." unique_id=1248903924]
+position = Vector2(-56, 211)
+texture = ExtResource("5_nppuq")
+
+[node name="Isla6" type="Sprite2D" parent="." unique_id=26133070]
+position = Vector2(407, 121)
+texture = ExtResource("6_8hj4c")
+
+[node name="Isla7" type="Sprite2D" parent="." unique_id=37816125]
+position = Vector2(769, 241)
+texture = ExtResource("7_gfnxl")
+
+[node name="Isla8" type="Sprite2D" parent="." unique_id=41085202]
+position = Vector2(816, -39)
+texture = ExtResource("8_fi1ak")
+
+[node name="Isla9" type="Sprite2D" parent="." unique_id=1338540932]
+position = Vector2(-336, -168)
+texture = ExtResource("9_13qi8")
+
+[node name="Isla10" type="Sprite2D" parent="." unique_id=632697383]
+position = Vector2(305, -201)
+texture = ExtResource("10_d0yca")
+
+[node name="Isla11" type="Sprite2D" parent="." unique_id=1396211326]
+position = Vector2(23, -209)
+texture = ExtResource("11_i3nju")
+
+[node name="Mapa2Final" type="Sprite2D" parent="." unique_id=263125824]
+visible = false
+self_modulate = Color(0.4506483, 0.4506483, 0.45064825, 0.50980395)
+texture = ExtResource("12_a88j1")

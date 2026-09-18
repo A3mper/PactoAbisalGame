@@ -1,29 +1,51 @@
 [gd_scene format=3 uid="uid://dahncxdm06uoi"]
 
 [ext_resource type="Script" uid="uid://cd1wmsbvp3das" path="res://test/cardToBoard/scripts/tower_enable_zone.gd" id="1_mg2xm"]
-[ext_resource type="Texture2D" uid="uid://1kuw7dtner4b" path="res://test/cardToBoard/assets/20201017_095200.jpg" id="2_cjr6r"]
+[ext_resource type="Shader" uid="uid://igm2655jibib" path="res://test/cardToBoard/scenes/Voidcardshader.gdshader" id="2_cjr6r"]
+[ext_resource type="Texture2D" uid="uid://b4ta8dc2bnxkj" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Mesa de trabajo/InvoK.png" id="2_mg2xm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_623cq"]
-size = Vector2(10, 100)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_od57s"]
+shader = ExtResource("2_cjr6r")
+shader_parameter/hover_enabled = true
+shader_parameter/hover_color = Color(0.8862745, 0.9647059, 0, 1)
+shader_parameter/color_strength = 1.0
+shader_parameter/glow_color = Color(0.6204511, 0.9456492, 0.8612123, 1)
+shader_parameter/glow_strength = 1.5
+shader_parameter/glow_size = 0.05000000074506
+shader_parameter/flicker_speed = 2.83700013149762
+shader_parameter/flicker_min = 0.8590000408025
+shader_parameter/flicker_max = 0.2390000113525
 
-[sub_resource type="QuadMesh" id="QuadMesh_41egw"]
-size = Vector2(30, 115)
+[sub_resource type="QuadMesh" id="QuadMesh_cjr6r"]
+uv2_padding = 2.83
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mg2xm"]
+radius = 50.0
 
 [node name="TowerEnableZone" type="Area2D" unique_id=2090659298 node_paths=PackedStringArray("HighLightArea")]
+z_index = 3
 rotation = 1.5707964
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_mg2xm")
 HighLightArea = NodePath("MeshInstance2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90517380]
-scale = Vector2(1.9999998, 1)
-shape = SubResource("RectangleShape2D_623cq")
+HighlightTime = 0.5
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1483827251]
-self_modulate = Color(1, 1, 1, 0.63529414)
-mesh = SubResource("QuadMesh_41egw")
-texture = ExtResource("2_cjr6r")
+modulate = Color(0.2819191, 0.28191912, 0.28191912, 1)
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+z_index = 3
+z_as_relative = false
+material = SubResource("ShaderMaterial_od57s")
+position = Vector2(0, 2.5)
+rotation = -0.0032756526
+scale = Vector2(91.78, 90.739494)
+mesh = SubResource("QuadMesh_cjr6r")
+texture = ExtResource("2_mg2xm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90517380]
+shape = SubResource("CircleShape2D_mg2xm")
+debug_color = Color(0, 0.60350007, 0.71, 0.13725491)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

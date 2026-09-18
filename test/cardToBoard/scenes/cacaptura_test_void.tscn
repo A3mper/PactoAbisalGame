@@ -1,9 +1,57 @@
 [gd_scene format=3 uid="uid://by8x2tq8k57yv"]
 
-[ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_3btsa"]
+[ext_resource type="Script" uid="uid://fh0nyrwr3erj" path="res://test/cardToBoard/scenes/cammovement.gd" id="1_dy57o"]
+[ext_resource type="Texture2D" uid="uid://5t6gr2m4r1f3" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Mesa del juego.png" id="1_lrncx"]
+[ext_resource type="Shader" uid="uid://cx2611gw0k55a" path="res://test/Tecnical ART_JaviEka - LAB/Shader void mantel.gdshader" id="1_ulldw"]
+[ext_resource type="Texture2D" uid="uid://blm4p72kqc5d1" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Sombra mesa inferior.png" id="2_lrncx"]
+[ext_resource type="Texture2D" uid="uid://dlbdjnrn4trrx" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Sombra superior.png" id="3_ulldw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dy57o"]
+shader = ExtResource("1_ulldw")
+shader_parameter/void_color = Color(0.45, 0.15, 0.65, 1)
+shader_parameter/color_strength = 0.5930000281675
+shader_parameter/saturation = 1.578000074955
+shader_parameter/brightness = 2.0
 
 [node name="CacapturaTestVoid" type="Sprite2D" unique_id=751436498]
-visible = false
-self_modulate = Color(1, 0.18039216, 1, 1)
-rotation = 1.5707964
-texture = ExtResource("1_3btsa")
+self_modulate = Color(1, 0.1764706, 1, 1)
+z_index = -1
+script = ExtResource("1_dy57o")
+min_x = -1007.0
+max_y = 200.0
+
+[node name="textura mantel" type="Sprite2D" parent="." unique_id=302681129]
+material = SubResource("ShaderMaterial_dy57o")
+position = Vector2(1424, 697)
+scale = Vector2(1.322925, 1.4)
+texture = ExtResource("1_lrncx")
+
+[node name="Sombra inferior" type="Node2D" parent="." unique_id=730046124]
+
+[node name="SombraMesaInferior" type="Sprite2D" parent="Sombra inferior" unique_id=1488448756]
+modulate = Color(1.7034907, 1.2672132, 2.8972735, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_dy57o")
+position = Vector2(806, 811)
+texture = ExtResource("2_lrncx")
+
+[node name="SombraMesaInferior2" type="Sprite2D" parent="Sombra inferior" unique_id=1658951360]
+modulate = Color(1.7034907, 1.2672132, 2.8972735, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_dy57o")
+position = Vector2(2049, 811)
+texture = ExtResource("2_lrncx")
+flip_h = true
+
+[node name="Sombra superior" type="Node2D" parent="." unique_id=612140080]
+
+[node name="SombraSuperior" type="Sprite2D" parent="Sombra superior" unique_id=69111387]
+material = SubResource("ShaderMaterial_dy57o")
+position = Vector2(902, 0)
+texture = ExtResource("3_ulldw")
+
+[node name="SombraSuperior2" type="Sprite2D" parent="Sombra superior" unique_id=952285494]
+material = SubResource("ShaderMaterial_dy57o")
+position = Vector2(1973, 0)
+texture = ExtResource("3_ulldw")
+flip_h = true

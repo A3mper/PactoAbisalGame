@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://corc5o6b32gi0"]
+
+[ext_resource type="Texture2D" uid="uid://bp4utlt7sp0tv" path="res://assets/Whithin my cards - lighting the Void.png" id="1_8eer7"]
+[ext_resource type="Script" uid="uid://cu8fw6qo1tidw" path="res://test/cardToBoard/scripts/game_over.gd" id="1_550a8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_550a8"]
+font_size = 75
+
+[node name="GameOver" type="Node2D" unique_id=1802876328]
+script = ExtResource("1_550a8")
+
+[node name="WhithinMyCardsLightingTheVoid" type="Sprite2D" parent="." unique_id=1046680332]
+position = Vector2(960, 543)
+texture = ExtResource("1_8eer7")
+
+[node name="Label" type="Label" parent="." unique_id=1026524196]
+offset_left = 582.0
+offset_top = 850.0
+offset_right = 1380.0
+offset_bottom = 953.0
+text = "GRACIAS POR JUGAR!!!"
+label_settings = SubResource("LabelSettings_550a8")
+
+[node name="Timer" type="Timer" parent="." unique_id=8876392]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

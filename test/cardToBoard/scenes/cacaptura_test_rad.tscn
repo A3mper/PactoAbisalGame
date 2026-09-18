@@ -1,7 +1,46 @@
 [gd_scene format=3 uid="uid://jl3orumfi4nj"]
 
-[ext_resource type="Texture2D" uid="uid://d3e1jjokon2lo" path="res://test/cardToBoard/assets/cacaptura_test.png" id="1_rdwp3"]
+[ext_resource type="Texture2D" uid="uid://5t6gr2m4r1f3" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Mesa del juego.png" id="1_bmsvd"]
+[ext_resource type="Texture2D" uid="uid://blm4p72kqc5d1" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Sombra mesa inferior.png" id="2_bmsvd"]
+[ext_resource type="Texture2D" uid="uid://dlbdjnrn4trrx" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Sombra superior.png" id="3_6o32n"]
 
 [node name="CacapturaTestRad" type="Sprite2D" unique_id=407587090]
-rotation = 1.5707964
-texture = ExtResource("1_rdwp3")
+z_index = -1
+
+[node name="textura mantel" type="Sprite2D" parent="." unique_id=1135637047]
+position = Vector2(1424, 697)
+scale = Vector2(1.322925, 1.4)
+texture = ExtResource("1_bmsvd")
+
+[node name="Sombras izquierdas" type="Node2D" parent="." unique_id=281586528]
+
+[node name="SombraMesaInferior" type="Sprite2D" parent="Sombras izquierdas" unique_id=445804568]
+texture_filter = 1
+position = Vector2(806, 811)
+texture = ExtResource("2_bmsvd")
+
+[node name="SombraSuperior" type="Sprite2D" parent="Sombras izquierdas" unique_id=743329087]
+position = Vector2(902, 0)
+texture = ExtResource("3_6o32n")
+
+[node name="SombraSuperior2" type="Sprite2D" parent="Sombras izquierdas" unique_id=2072681834]
+position = Vector2(902, 0)
+texture = ExtResource("3_6o32n")
+
+[node name="Sombras derechas" type="Node2D" parent="." unique_id=1560422952]
+
+[node name="SombraMesaInferior2" type="Sprite2D" parent="Sombras derechas" unique_id=200358986]
+texture_filter = 1
+position = Vector2(2049, 811)
+texture = ExtResource("2_bmsvd")
+flip_h = true
+
+[node name="SombraSuperior2" type="Sprite2D" parent="Sombras derechas" unique_id=20692493]
+position = Vector2(1978.815, 0)
+texture = ExtResource("3_6o32n")
+flip_h = true
+
+[node name="SombraSuperior3" type="Sprite2D" parent="Sombras derechas" unique_id=376369394]
+position = Vector2(1978.815, 0)
+texture = ExtResource("3_6o32n")
+flip_h = true

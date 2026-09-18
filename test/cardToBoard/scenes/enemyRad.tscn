@@ -1,20 +1,33 @@
 [gd_scene format=3 uid="uid://bbqjw355javsf"]
 
 [ext_resource type="Script" uid="uid://c8ufw32ooj1sj" path="res://test/cardToBoard/scripts/enemy_templeate.gd" id="1_6asbq"]
-[ext_resource type="Texture2D" uid="uid://bbasa0rr2wx3o" path="res://test/cardToBoard/assets/IMG_20250313_220258_477.jpg" id="2_bq2np"]
+[ext_resource type="Texture2D" uid="uid://bbbe71lgurh0" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Enemigos/Enemigos Jav/Radiance mid enemy.png" id="2_6asbq"]
+[ext_resource type="Shader" uid="uid://b3dakeukr2vsi" path="res://test/cardToBoard/scenes/wallkbabywallk.gdshader" id="2_bq2np"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n80a"]
-size = Vector2(30, 30)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_db2p2"]
+shader = ExtResource("2_bq2np")
+shader_parameter/tempo = 0.88200003863512
+shader_parameter/rotation_amount = 0.0
+shader_parameter/jump_amount = 43.09600204706
+shader_parameter/wiggle_amount = 6.226000295735
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bq2np"]
+radius = 50.0
 
 [node name="EnemyTempleate" type="CharacterBody2D" unique_id=614258466 node_paths=PackedStringArray("EnemySprite") groups=["Radiance"]]
+z_index = 5
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_6asbq")
 EnemySprite = NodePath("sacaLasChelas")
+MaxHealthIncrement = 50.0
 
 [node name="sacaLasChelas" type="Sprite2D" parent="." unique_id=1542112480]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_bq2np")
+modulate = Color(0.86724, 0.88, 0.11439999, 1)
+material = SubResource("ShaderMaterial_db2p2")
+rotation = -3.1415927
+scale = Vector2(0.11978668, 0.11978668)
+texture = ExtResource("2_6asbq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=243015654]
-shape = SubResource("RectangleShape2D_3n80a")
+shape = SubResource("CircleShape2D_bq2np")

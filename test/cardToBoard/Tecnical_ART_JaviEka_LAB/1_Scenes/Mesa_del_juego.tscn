@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://d38ivn3jw2u5i"]
+
+[ext_resource type="Texture2D" uid="uid://5t6gr2m4r1f3" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Mesa del juego.png" id="1_edum2"]
+[ext_resource type="Texture2D" uid="uid://dlbdjnrn4trrx" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Sombra superior.png" id="2_x5noo"]
+[ext_resource type="Texture2D" uid="uid://blm4p72kqc5d1" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Mesa de trabajo/Sombra mesa inferior.png" id="3_kp7yl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5noo"]
+albedo_texture = ExtResource("1_edum2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kp7yl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp7yl"]
+transparency = 4
+shading_mode = 0
+albedo_texture = ExtResource("2_x5noo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx026"]
+transparency = 1
+albedo_texture = ExtResource("3_kp7yl")
+texture_filter = 5
+
+[sub_resource type="QuadMesh" id="QuadMesh_nwx4u"]
+
+[node name="Mesa" type="Node3D" unique_id=118772691]
+
+[node name="Manteles Texture" type="MeshInstance3D" parent="." unique_id=646377150]
+transform = Transform3D(7.097906, 0.37715495, 0.09035176, -0.6544545, 4.0904427, 0.9799117, -5.944388e-08, -2.2270079, 1.8151469, 0, 0, -0.35077298)
+material_override = SubResource("StandardMaterial3D_x5noo")
+mesh = SubResource("QuadMesh_kp7yl")
+
+[node name="Sombra superior" type="MeshInstance3D" parent="." unique_id=1432511910]
+transform = Transform3D(1.8579013, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.057539612, 0.35899282)
+material_override = SubResource("StandardMaterial3D_kp7yl")
+mesh = SubResource("QuadMesh_kp7yl")
+
+[node name="Sombra inferior" type="MeshInstance3D" parent="." unique_id=1248192368]
+transform = Transform3D(1.8579013, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029915571, 0.031148732, 0.36617452)
+material_override = SubResource("StandardMaterial3D_bx026")
+mesh = SubResource("QuadMesh_nwx4u")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=341835607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.056564808, 1.1228622)
+visible = false
+current = true
+fov = 65.8
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1029169755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98871195, 4.8764915)
+sky_mode = 1

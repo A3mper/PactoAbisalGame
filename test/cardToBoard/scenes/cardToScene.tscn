@@ -3,118 +3,667 @@
 [ext_resource type="Script" uid="uid://b8corabii5djq" path="res://test/cardToBoard/scripts/card_to_scene.gd" id="1_kbh1b"]
 [ext_resource type="PackedScene" uid="uid://b8g38mqgibnst" path="res://test/cardToBoard/scenes/modo_manager.tscn" id="2_a813w"]
 [ext_resource type="PackedScene" uid="uid://bmijvr2ck8875" path="res://test/cardToBoard/scenes/recuerdos_manager.tscn" id="3_gocx8"]
-[ext_resource type="PackedScene" uid="uid://c0cb2yv1sn6tn" path="res://test/cardToBoard/scenes/cartaVoid.tscn" id="4_7ee7t"]
-[ext_resource type="PackedScene" uid="uid://43xwhcasvlxt" path="res://test/cardToBoard/scenes/cartaRad.tscn" id="4_gocx8"]
+[ext_resource type="PackedScene" uid="uid://c0cb2yv1sn6tn" path="res://test/cardToBoard/scenes/cartaTorreVoid.tscn" id="4_7ee7t"]
+[ext_resource type="PackedScene" uid="uid://43xwhcasvlxt" path="res://test/cardToBoard/scenes/cartaTorreRad.tscn" id="4_gocx8"]
+[ext_resource type="Script" uid="uid://2xttfj31qn3l" path="res://test/cardToBoard/scripts/hand_manager.gd" id="4_ymr0h"]
+[ext_resource type="Script" uid="uid://b7ffdy8geeius" path="res://test/cardToBoard/scenes/cacaptura_test_rad.gd" id="5_t7jn3"]
 [ext_resource type="Script" uid="uid://c7t8so64ubvv" path="res://test/cardToBoard/scripts/enemy_manager.gd" id="7_2ggjw"]
 [ext_resource type="PackedScene" uid="uid://bbqjw355javsf" path="res://test/cardToBoard/scenes/enemyRad.tscn" id="7_7ee7t"]
 [ext_resource type="PackedScene" uid="uid://dahncxdm06uoi" path="res://test/cardToBoard/scenes/tower_enable_zone.tscn" id="7_gocx8"]
 [ext_resource type="Script" uid="uid://dq21kcjkvacxt" path="res://test/cardToBoard/scripts/zone_manager.gd" id="7_nauxi"]
+[ext_resource type="PackedScene" uid="uid://cikc3f1bkbmt2" path="res://test/cardToBoard/scenes/CartaTempleate.tscn" id="8_vipp3"]
 [ext_resource type="PackedScene" uid="uid://drk8lbvyjoyd7" path="res://test/cardToBoard/scenes/enemyVoid.tscn" id="8_x12pg"]
+[ext_resource type="Curve" uid="uid://dtskme7prx4g5" path="res://test/cardToBoard/scripts/hand_y_curve.tres" id="9_kwbfk"]
+[ext_resource type="Curve" uid="uid://dwkwcluylhkq0" path="res://test/cardToBoard/scripts/hand_rotation_curve.tres" id="10_5241x"]
 [ext_resource type="PackedScene" uid="uid://jl3orumfi4nj" path="res://test/cardToBoard/scenes/cacaptura_test_rad.tscn" id="11_welv0"]
 [ext_resource type="PackedScene" uid="uid://coqf114s66o14" path="res://test/cardToBoard/scenes/torreMadreTempleate.tscn" id="11_x12pg"]
 [ext_resource type="PackedScene" uid="uid://by8x2tq8k57yv" path="res://test/cardToBoard/scenes/cacaptura_test_void.tscn" id="12_08eeh"]
+[ext_resource type="PackedScene" uid="uid://blqm58yydffw6" path="res://mapa_ilusion.tscn" id="13_36rj8"]
+[ext_resource type="PackedScene" path="res://test/cardToBoard/scenes/animation_player.tscn" id="15_5b6nn"]
+[ext_resource type="Script" uid="uid://ww81wcj0vkoi" path="res://test/cardToBoard/scripts/eidolon.gd" id="16_ql5nl"]
+[ext_resource type="Script" uid="uid://b384m0qyj2cd4" path="res://test/cardToBoard/scripts/audio.gd" id="16_t7jn3"]
+[ext_resource type="AudioStream" uid="uid://cep03mpl6b2pq" path="res://assets/Audio/Música/EidolonsTalkTheme_Music_000.wav" id="17_0wp5n"]
+[ext_resource type="AudioStream" uid="uid://ctxk2mpkuy2lm" path="res://assets/Audio/Música/EidolonsTalkTheme_Music_001.wav" id="18_ql5nl"]
+[ext_resource type="AudioStream" uid="uid://cjbcsnevm63pr" path="res://assets/Audio/Música/intro_Music_000.wav" id="19_ymr0h"]
+[ext_resource type="AudioStream" uid="uid://c6mtytnplxioi" path="res://assets/Audio/Música/loserTheme_Music_000.wav" id="20_vipp3"]
+[ext_resource type="AudioStream" uid="uid://ctviqow5yioqd" path="res://assets/Audio/Música/radiantLayer_Music_000.wav" id="21_r6o5t"]
+[ext_resource type="AudioStream" uid="uid://ccnerrhjqeoh8" path="res://assets/Audio/Música/radiantLayer_Music_001.wav" id="22_kwbfk"]
+[ext_resource type="AudioStream" uid="uid://bomu7ipy12keh" path="res://assets/Audio/Música/radiantLoopSeg_Music_000.wav" id="23_5241x"]
+[ext_resource type="AudioStream" uid="uid://cwcgm3jmle2kj" path="res://assets/Audio/Música/radiantLoopSeg_Music_001.wav" id="24_5xgby"]
+[ext_resource type="AudioStream" uid="uid://btkjidam8bljy" path="res://assets/Audio/Música/VoidiansAndRadiantsFULLTHEME_Music_000.wav" id="25_g6hnb"]
+[ext_resource type="AudioStream" uid="uid://hutf00ieqgvn" path="res://assets/Audio/Música/voidLayer_Music_000.wav" id="26_5ceh4"]
+[ext_resource type="AudioStream" uid="uid://dq4kfrx4wxyph" path="res://assets/Audio/Música/voidLayer_Music_001.wav" id="27_36rj8"]
+[ext_resource type="AudioStream" uid="uid://cpjrtwbv8uiy" path="res://assets/Audio/Música/voidLoopSeg_Music_000.wav" id="28_laqwf"]
+[ext_resource type="AudioStream" uid="uid://bmfropeb81qgv" path="res://assets/Audio/Música/voidLoopSeg_Music_001.wav" id="29_y0cxo"]
+[ext_resource type="AudioStream" uid="uid://brijupimwdkrw" path="res://assets/Audio/Música/winnerThemePart1Noloop_Music_000.wav" id="30_6lhjj"]
+[ext_resource type="AudioStream" uid="uid://f614p3111brb" path="res://assets/Audio/Música/winnerThemePart2Loop_Music_000.wav" id="31_7t27w"]
+[ext_resource type="AudioStream" uid="uid://dkhlrxhyitvyg" path="res://assets/Audio/SFX/arrowBlock_SFX_000.wav" id="32_u1f1o"]
+[ext_resource type="AudioStream" uid="uid://vpvbfaeaylwl" path="res://assets/Audio/SFX/arrowImpact_SFX_000.wav" id="33_v71ek"]
+[ext_resource type="AudioStream" uid="uid://bbrb3wv713bk1" path="res://assets/Audio/SFX/arrowShot_SFX_000.wav" id="34_w0atn"]
+[ext_resource type="AudioStream" uid="uid://bgew5nlu2la5" path="res://assets/Audio/SFX/backMenu_SFX_000.wav" id="35_0tiq6"]
+[ext_resource type="AudioStream" uid="uid://c0oepfm6dk8ui" path="res://assets/Audio/SFX/bell.wav" id="36_0dhrk"]
+[ext_resource type="AudioStream" uid="uid://d35so2abj4heu" path="res://assets/Audio/SFX/bird1_SFX_000.wav" id="37_a0vbm"]
+[ext_resource type="AudioStream" uid="uid://bj5jsuhy6pi6t" path="res://assets/Audio/SFX/BuidTowerInRadiant_SFX_000.wav" id="38_w7rsl"]
+[ext_resource type="AudioStream" uid="uid://pde3qttooupt" path="res://assets/Audio/SFX/buildATower1_SFX_000.wav" id="39_mrudy"]
+[ext_resource type="AudioStream" uid="uid://bf5wr66kan5dm" path="res://assets/Audio/SFX/buildATower2_SFX_000.wav" id="40_77i1g"]
+[ext_resource type="AudioStream" uid="uid://sf3llt806km3" path="res://assets/Audio/SFX/buildATowerVoid1_SFX_000.wav" id="41_iw3su"]
+[ext_resource type="AudioStream" uid="uid://bxt66r4byufdt" path="res://assets/Audio/SFX/buildATowerVoid2_SFX_000.wav" id="42_rbga7"]
+[ext_resource type="AudioStream" uid="uid://bidu7mu1ynaxl" path="res://assets/Audio/SFX/buildATowerVoid3_SFX_000.wav" id="43_gwc77"]
+[ext_resource type="AudioStream" uid="uid://m131ikxul51d" path="res://assets/Audio/SFX/buildATowerVoid4_SFX_000.wav" id="44_ajnv2"]
+[ext_resource type="AudioStream" uid="uid://jqqhqp6av58m" path="res://assets/Audio/SFX/buildATowerVoid5_SFX_000.wav" id="45_pqy1k"]
+[ext_resource type="AudioStream" uid="uid://xsp6qeukpkti" path="res://assets/Audio/SFX/cricket1_SFX_000.wav" id="46_647n7"]
+[ext_resource type="AudioStream" uid="uid://cqh0dl4ap0hx5" path="res://assets/Audio/SFX/cricket2_SFX_000.wav" id="47_x3lwl"]
+[ext_resource type="AudioStream" uid="uid://cohg5spqr6qcu" path="res://assets/Audio/SFX/cricket3_SFX_000.wav" id="48_rs83f"]
+[ext_resource type="AudioStream" uid="uid://cm4ewcvqi4vg4" path="res://assets/Audio/SFX/cricket4_SFX_000.wav" id="49_kxeby"]
+[ext_resource type="AudioStream" uid="uid://diijfu85r2cb1" path="res://assets/Audio/SFX/downMenu_SFX_000.wav" id="50_i11id"]
+[ext_resource type="AudioStream" uid="uid://c57eqsoqthimi" path="res://assets/Audio/SFX/DrawACard1_SFX_000.wav" id="51_hx0it"]
+[ext_resource type="AudioStream" uid="uid://6i4gcefjh237" path="res://assets/Audio/SFX/DrawACard2_SFX_000.wav" id="52_kwpyh"]
+[ext_resource type="AudioStream" uid="uid://cjhbpsk3kvfmr" path="res://assets/Audio/SFX/DrawACard3_SFX_000.wav" id="53_5orxb"]
+[ext_resource type="AudioStream" uid="uid://bv7h4w5ifqcvd" path="res://assets/Audio/SFX/DrawACard4_SFX_000.wav" id="54_s7fhr"]
+[ext_resource type="AudioStream" uid="uid://b0gv7jb7tdcgj" path="res://assets/Audio/SFX/eidolonVoiceRadiant_SFX_000.wav" id="55_1jfg3"]
+[ext_resource type="AudioStream" uid="uid://c3l4ghhjimb0q" path="res://assets/Audio/SFX/eidolonVoiceVoid_SFX_000.wav" id="56_jdkpv"]
+[ext_resource type="AudioStream" uid="uid://cww4ji1r1vs36" path="res://assets/Audio/SFX/EidorolsIntrusion_SFX_000.wav" id="57_qy2wv"]
+[ext_resource type="AudioStream" uid="uid://tibpfmsc0xkr" path="res://assets/Audio/SFX/enemyImpact_SFX_000.wav" id="58_80sxq"]
+[ext_resource type="AudioStream" uid="uid://d0ahedeg8eqtp" path="res://assets/Audio/SFX/enemySpawn2_SFX_000.wav" id="59_6hv14"]
+[ext_resource type="AudioStream" uid="uid://c8tibny7wvgn0" path="res://assets/Audio/SFX/enemySpawnLoop_SFX_000.wav" id="60_alggs"]
+[ext_resource type="AudioStream" uid="uid://cilyf552vkf7w" path="res://assets/Audio/SFX/inMenu_SFX_000.wav" id="61_8x0ks"]
+[ext_resource type="AudioStream" uid="uid://ddhqkwev4xicq" path="res://assets/Audio/SFX/invCrash_SFX_000.wav" id="62_gl47w"]
+[ext_resource type="AudioStream" uid="uid://buxyub2ko4dxn" path="res://assets/Audio/SFX/lava1_SFX_000.wav" id="63_6d01d"]
+[ext_resource type="AudioStream" uid="uid://bjhi1b2836ayd" path="res://assets/Audio/SFX/lava2_SFX_000.wav" id="64_0ta0s"]
+[ext_resource type="AudioStream" uid="uid://bn3a6s2uju0n1" path="res://assets/Audio/SFX/manaRecover_SFX_000.wav" id="65_jscty"]
+[ext_resource type="AudioStream" uid="uid://rrj7wimc6t16" path="res://assets/Audio/SFX/owl1_SFX_000.wav" id="66_m7o8l"]
+[ext_resource type="AudioStream" uid="uid://saj0byauy8fg" path="res://assets/Audio/SFX/owl2_SFX_000.wav" id="67_ih5as"]
+[ext_resource type="AudioStream" uid="uid://b4nqvy77y0263" path="res://assets/Audio/SFX/pressStartMenu_SFX_000.wav" id="68_6o3ld"]
+[ext_resource type="AudioStream" uid="uid://jtcqa45ntw63" path="res://assets/Audio/SFX/PutACard1_SFX_000.wav" id="69_whxky"]
+[ext_resource type="AudioStream" uid="uid://cd4156s0co85r" path="res://assets/Audio/SFX/PutACard1_SFX_001.wav" id="70_pdrki"]
+[ext_resource type="AudioStream" uid="uid://h7w7o0ex5ith" path="res://assets/Audio/SFX/PutACard2_SFX_000.wav" id="71_0rcop"]
+[ext_resource type="AudioStream" uid="uid://d2p2kyapctfk4" path="res://assets/Audio/SFX/PutACard3_SFX_000.wav" id="72_nihvo"]
+[ext_resource type="AudioStream" uid="uid://k11d5jqu7toc" path="res://assets/Audio/SFX/PutACard4_SFX_000.wav" id="73_4l6n0"]
+[ext_resource type="AudioStream" uid="uid://detc74f1gs2av" path="res://assets/Audio/SFX/PutOnACard1_SFX_000.wav" id="74_563op"]
+[ext_resource type="AudioStream" uid="uid://dg1plmbwpjo4u" path="res://assets/Audio/SFX/PutOnACard2_SFX_000.wav" id="75_ugs84"]
+[ext_resource type="AudioStream" uid="uid://carrb8um4j0xx" path="res://assets/Audio/SFX/PutOnACard3_SFX_000.wav" id="76_8qu4x"]
+[ext_resource type="AudioStream" uid="uid://cckmjg5tena3o" path="res://assets/Audio/SFX/PutOnACard4_SFX_000.wav" id="77_nmf0k"]
+[ext_resource type="AudioStream" uid="uid://s04yx1oycwjh" path="res://assets/Audio/SFX/radiantInRadiantMODE_SFX_000.wav" id="78_rrptm"]
+[ext_resource type="AudioStream" uid="uid://cewl02hmy5c4" path="res://assets/Audio/SFX/radiantInVoidMODE_SFX_000.wav" id="79_huhlg"]
+[ext_resource type="AudioStream" uid="uid://1ni81iidghgn" path="res://assets/Audio/SFX/river_SFX_000.wav" id="80_s6uyl"]
+[ext_resource type="AudioStream" uid="uid://crpju3jfwmcsv" path="res://assets/Audio/SFX/startGame_SFX_000.wav" id="81_5a7kk"]
+[ext_resource type="AudioStream" uid="uid://coycauvkryg4j" path="res://assets/Audio/SFX/step1_SFX.wav" id="82_p2asq"]
+[ext_resource type="AudioStream" uid="uid://dnsw4akac0a36" path="res://assets/Audio/SFX/step2_SFX.wav" id="83_bcdkj"]
+[ext_resource type="AudioStream" uid="uid://5rif0fiahstj" path="res://assets/Audio/SFX/step3_SFX.wav" id="84_mlkce"]
+[ext_resource type="AudioStream" uid="uid://dk3t7yoqtjb7v" path="res://assets/Audio/SFX/step4_SFX.wav" id="85_euk11"]
+[ext_resource type="AudioStream" uid="uid://chru61b6v1ym6" path="res://assets/Audio/SFX/swipeADia_SFX_000.wav" id="87_euvse"]
+[ext_resource type="AudioStream" uid="uid://bu1bt2m6bniup" path="res://assets/Audio/SFX/swipeAnoche_SFX_000.wav" id="88_3jpnw"]
+[ext_resource type="AudioStream" uid="uid://u7eih41aomnt" path="res://assets/Audio/SFX/transiciónADia_SFX_000.wav" id="89_r3xdb"]
+[ext_resource type="AudioStream" uid="uid://b82wvdwexv5i0" path="res://assets/Audio/SFX/transiciónANoche_SFX_000.wav" id="90_ftorf"]
+[ext_resource type="AudioStream" uid="uid://cqunsvut0exq7" path="res://assets/Audio/SFX/upMenu_SFX_000.wav" id="91_26ybo"]
+[ext_resource type="PackedScene" uid="uid://dhrg0235jc1io" path="res://test/cardToBoard/scenes/pausa.tscn" id="91_t7jn3"]
+[ext_resource type="PackedScene" uid="uid://pbop4vwk3h8s" path="res://test/menu.tscn" id="92_0wp5n"]
+[ext_resource type="AudioStream" uid="uid://o8x1xg41imud" path="res://assets/Audio/SFX/step5_SFX.wav" id="94_g6hnb"]
+[ext_resource type="AudioStream" uid="uid://c6aljxdj6pf52" path="res://assets/Audio/SFX/buildATowerRadFinal_SFX_000.wav" id="98_5241x"]
+[ext_resource type="PackedScene" uid="uid://bhubvut1xdyg4" path="res://test/cardToBoard/scenes/barra_de_nivel.tscn" id="99_5xgby"]
+[ext_resource type="AudioStream" uid="uid://c41u53mb57er6" path="res://assets/Audio/SFX/BlockPutTowerSFX000.wav" id="101_5ceh4"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_ffs83"]
-size = Vector2(500, 100)
+[sub_resource type="LabelSettings" id="LabelSettings_36rj8"]
+font_size = 60
 
-[sub_resource type="LabelSettings" id="LabelSettings_41egw"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Curve2D" id="Curve2D_a813w"]
+[sub_resource type="Curve2D" id="Curve2D_5ceh4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -269, 109, 0, 0, 0, 0, -225, 110, 0, 0, 0, 0, -88, 110, 0, 0, 0, 0, -68, 105, 0, 0, 0, 0, -63, 86, 0, 0, 0, 0, -63, -119, 0, 0, 0, 0, -59, -134, 0, 0, 0, 0, -43, -137, 0, 0, 0, 0, 42, -138, 0, 0, 0, 0, 56, -134, 0, 0, 0, 0, 60, -124, 0, 0, 0, 0, 60, 81, 0, 0, 0, 0, 225, 83, 0, 0, 0, 0, 240, -27, 0, 0, 0, 0, 356, -26, 0, 0, 0, 0, 386, -27)
+"points": PackedVector2Array(0, 0, 0, 0, 2956, 531, 238.93869, -4.5949745, -238.93869, 4.5949745, 2460, 569, 269.63934, -3.391026, -269.63934, 3.391026, 2094, 429, 62.149414, -104.76133, -62.149414, 104.76133, 1706, 666, 287.33478, 5.05381, -287.33478, -5.05381, 1369, 1080, 160.78082, 46.923077, -160.78082, -46.923077, 881, 448, 134.63864, -30.116539, -134.63864, 30.116539, 514, 532, 0, 0, 0, 0, 251, 503)
 }
-point_count = 16
+point_count = 8
 
-[node name="CardToScene" type="Node2D" unique_id=2029263041]
+[sub_resource type="Curve2D" id="Curve2D_08eeh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3017, 269, 133.63635, 0.9090909, -133.63635, -0.9090909, 2488, 315, 55, -64.9, -55, 64.9, 2273, 417, 132, -53.9, -132, 53.9, 2206, 688, 166.87982, 14.243692, -166.87982, -14.243692, 1847, 743, 96.643585, 70.210266, -96.643585, -70.210266, 1591, 370, 201.40332, -2.092617, -201.40332, 2.092617, 1198, 328, 183.17946, -3.8974347, -183.17946, 3.8974347, 744, 682, 107.17947, 64.30768, -107.17947, -64.30768, 471, 452, 0, 0, 0, 0, 247, 306)
+}
+point_count = 10
+
+[node name="CardToScene" type="Node2D" unique_id=1735533448 groups=["pausables"]]
+z_index = 1
 script = ExtResource("1_kbh1b")
+metadata/_edit_vertical_guides_ = [-736.0]
 
-[node name="ModoManager" parent="." unique_id=844162780 node_paths=PackedStringArray("SpriteRad", "SpriteVoid") instance=ExtResource("2_a813w")]
-position = Vector2(809, 471)
-SpriteRad = NodePath("../CacapturaTestRad")
-SpriteVoid = NodePath("../CacapturaTestVoid")
+[node name="DebugLabel" type="Node" parent="." unique_id=1075173366]
 
-[node name="Cartas" type="Node" parent="." unique_id=1522211157]
+[node name="Label1" type="Label" parent="DebugLabel" unique_id=261330612]
+visible = false
+z_index = 8
+offset_left = 615.0
+offset_top = 2.0
+offset_right = 818.0
+offset_bottom = 85.0
+text = "asdsad"
+label_settings = SubResource("LabelSettings_36rj8")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Cartas" unique_id=1475918196]
-position = Vector2(535, 511)
-mesh = SubResource("QuadMesh_ffs83")
+[node name="Label2" type="Label" parent="DebugLabel" unique_id=1776745006]
+visible = false
+z_index = 8
+offset_left = 979.0
+offset_right = 1182.0
+offset_bottom = 83.0
+text = "asdsad"
+label_settings = SubResource("LabelSettings_36rj8")
 
-[node name="Label" type="Label" parent="Cartas/MeshInstance2D" unique_id=167973406]
-offset_left = 51.0
-offset_top = -40.0
-offset_right = 236.0
-offset_bottom = 29.0
-text = "CARTAS"
-label_settings = SubResource("LabelSettings_41egw")
+[node name="Cartas" type="ColorRect" parent="." unique_id=1747884770 node_paths=PackedStringArray("ZoneManager") groups=["pausables"]]
+z_index = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 515.0
+offset_top = 772.0
+offset_right = 1315.0
+offset_bottom = 1072.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 1, 0)
+script = ExtResource("4_ymr0h")
+ZoneManager = NodePath("../SolidZone/ZoneManager")
+CartaTorreRad = ExtResource("4_gocx8")
+CartaTorreVoid = ExtResource("4_7ee7t")
+CartaTempleate = ExtResource("8_vipp3")
+curvaDeMano = ExtResource("9_kwbfk")
+curvaDeRotacion = ExtResource("10_5241x")
+Separacion_X = 180.0
+Max_Y_Pos = 50
+FactorEscala = 0.35
+Ajuste_Segunda_Carta_Y = 110.0
+Ajuste_Mano_X = 25.0
+metadata/_edit_use_anchors_ = true
 
-[node name="CartaRad" parent="Cartas" unique_id=1088732520 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("4_gocx8")]
-position = Vector2(333, 503)
-TorreParent = NodePath("../../Torres")
-ResourcePool = NodePath("../RecuerdosManager")
+[node name="pausa" parent="." unique_id=689808865 instance=ExtResource("91_t7jn3")]
 
-[node name="CartaVoid" parent="Cartas" unique_id=476367395 node_paths=PackedStringArray("TorreParent", "ResourcePool") instance=ExtResource("4_7ee7t")]
-position = Vector2(400, 500)
-TorreParent = NodePath("../../Torres")
-ResourcePool = NodePath("../RecuerdosManager")
+[node name="Menu" parent="pausa" unique_id=590139714 instance=ExtResource("92_0wp5n")]
+visible = false
+z_index = 20
 
-[node name="RecuerdosManager" parent="Cartas" unique_id=1797674970 node_paths=PackedStringArray("etiqueta") instance=ExtResource("3_gocx8")]
-etiqueta = NodePath("../../Label")
+[node name="RecuerdosManager" parent="." unique_id=1797674970 node_paths=PackedStringArray("RECUERDOS_Label") groups=["pausables"] instance=ExtResource("3_gocx8")]
+RECUERDOS_Label = NodePath("../BDNRecuerdos/ConteoRecuerdos")
 
-[node name="Torres" type="Node" parent="." unique_id=1302141596]
+[node name="BDNRisk" parent="." unique_id=730446217 instance=ExtResource("99_5xgby")]
+visible = false
+z_index = 5
+position = Vector2(920, 719)
+scale = Vector2(0.75, 0.75)
+ColorNivel = Color(1, 0.6509804, 0.2509804, 1)
 
-[node name="ZonaTorres" type="Node" parent="." unique_id=44747860]
+[node name="BDNRecuerdos" parent="." unique_id=1714790624 instance=ExtResource("99_5xgby")]
+z_index = 5
+position = Vector2(1604, 44.000004)
+scale = Vector2(-0.55, -0.521)
 
-[node name="T_E_Z_1" parent="ZonaTorres" unique_id=2090659298 instance=ExtResource("7_gocx8")]
-position = Vector2(288, 318)
+[node name="ConteoRecuerdos" type="Label" parent="BDNRecuerdos" unique_id=1749423656]
+offset_left = -398.1818
+offset_top = -55.662193
+offset_right = -347.1818
+offset_bottom = 67.33781
+rotation = 3.1398473
+theme_override_colors/font_color = Color(0.1882353, 0.9411765, 0.84313726, 0.7411765)
+theme_override_font_sizes/font_size = 89
+text = "3"
 
-[node name="T_E_Z_2" parent="ZonaTorres" unique_id=355182497 instance=ExtResource("7_gocx8")]
-position = Vector2(264.99997, 382)
-scale = Vector2(0.9109725, 0.55796754)
+[node name="SolidZone" type="Node2D" parent="." unique_id=1598018522 groups=["pausables"]]
+z_index = -1
+script = ExtResource("5_t7jn3")
 
-[node name="T_E_Z_3" parent="ZonaTorres" unique_id=462690421 instance=ExtResource("7_gocx8")]
-position = Vector2(374.99997, 382)
-scale = Vector2(0.9109725, 0.55796754)
+[node name="MapaIlusion" parent="SolidZone" unique_id=234915757 instance=ExtResource("13_36rj8")]
+self_modulate = Color(1, 1, 1, 1)
+z_index = 3
+position = Vector2(1469, 385)
+scale = Vector2(0.83602804, 0.9459384)
 
-[node name="T_E_Z_4" parent="ZonaTorres" unique_id=1032707129 instance=ExtResource("7_gocx8")]
-position = Vector2(365, 296)
-rotation = 0.0
-scale = Vector2(0.9109725, 0.55796754)
+[node name="Camino 2" type="Path2D" parent="SolidZone" unique_id=260929747 groups=["pausables"]]
+z_index = 2
+position = Vector2(49, -263)
+curve = SubResource("Curve2D_5ceh4")
+metadata/_edit_lock_ = true
 
-[node name="ZoneManager" type="Node" parent="ZonaTorres" unique_id=642131316 node_paths=PackedStringArray("TorreEnableZone", "CartasConTorres")]
+[node name="Path2D" type="Path2D" parent="SolidZone" unique_id=1719863966 groups=["pausables"]]
+z_index = 3
+position = Vector2(-12, -2)
+curve = SubResource("Curve2D_08eeh")
+metadata/_edit_lock_ = true
+
+[node name="TorreMadreTempleate2" parent="SolidZone" unique_id=252788492 groups=["pausables"] instance=ExtResource("11_x12pg")]
+z_index = 2
+position = Vector2(212.99998, 129)
+scale = Vector2(5.8095136, 5.8095136)
+
+[node name="T_E_Z_1" parent="SolidZone" unique_id=2090659298 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(2239, 262)
+rotation = 1.5715734
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_2" parent="SolidZone" unique_id=1657143042 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(2166, 248)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_3" parent="SolidZone" unique_id=892373620 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(2086, 259)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_4" parent="SolidZone" unique_id=349328347 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(2189, 305)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_5" parent="SolidZone" unique_id=1161891104 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(2119, 562.00006)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_6" parent="SolidZone" unique_id=2083397248 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(1817, 451.00003)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_7" parent="SolidZone" unique_id=1389116831 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(1497.0001, 524.00006)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_8" parent="SolidZone" unique_id=1101506703 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(1329, 504.00006)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_9" parent="SolidZone" unique_id=421634397 groups=["pausables"] instance=ExtResource("7_gocx8")]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+position = Vector2(1398, 550.00006)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_10" parent="SolidZone" unique_id=1494319566 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(1492.0001, 120.000015)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_11" parent="SolidZone" unique_id=748888962 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(1727, 156)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_12" parent="SolidZone" unique_id=1805181259 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(1199, 171)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_13" parent="SolidZone" unique_id=401482848 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(948, 620.00006)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_14" parent="SolidZone" unique_id=79158249 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(716.99994, 550.00006)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_15" parent="SolidZone" unique_id=963562193 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(816, 276.00003)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_16" parent="SolidZone" unique_id=970614505 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(502.99994, 355.00003)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_17" parent="SolidZone" unique_id=355055476 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(1434.9999, 469)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="T_E_Z_18" parent="SolidZone" unique_id=1571068459 groups=["pausables"] instance=ExtResource("7_gocx8")]
+position = Vector2(692, 328.00003)
+scale = Vector2(-0.2191592, 0.47173092)
+
+[node name="CacapturaTestVoid" parent="SolidZone" unique_id=751436498 groups=["pausables"] instance=ExtResource("12_08eeh")]
+position = Vector2(0, -9)
+script = null
+metadata/_edit_lock_ = true
+
+[node name="CacapturaTestRad" parent="SolidZone" unique_id=407587090 groups=["pausables"] instance=ExtResource("11_welv0")]
+position = Vector2(1, -9)
+metadata/_edit_lock_ = true
+
+[node name="ZoneManager" type="Node" parent="SolidZone" unique_id=642131316 node_paths=PackedStringArray("TorreEnableZone", "TorreParent", "ResourcePool") groups=["pausables"]]
 script = ExtResource("7_nauxi")
-TorreEnableZone = [NodePath("../T_E_Z_1"), NodePath("../T_E_Z_2"), NodePath("../T_E_Z_3"), NodePath("../T_E_Z_4")]
-CartasConTorres = [NodePath("../../Cartas/CartaRad"), NodePath("../../Cartas/CartaVoid")]
+TorreEnableZone = [NodePath("../T_E_Z_1"), NodePath("../T_E_Z_2"), NodePath("../T_E_Z_3"), NodePath("../T_E_Z_4"), NodePath("../T_E_Z_5"), NodePath("../T_E_Z_6"), NodePath("../T_E_Z_7"), NodePath("../T_E_Z_8"), NodePath("../T_E_Z_9"), NodePath("../T_E_Z_10"), NodePath("../T_E_Z_11"), NodePath("../T_E_Z_12"), NodePath("../T_E_Z_13"), NodePath("../T_E_Z_14"), NodePath("../T_E_Z_15"), NodePath("../T_E_Z_16"), NodePath("../T_E_Z_17"), NodePath("../T_E_Z_18")]
+TorreParent = NodePath("..")
+ResourcePool = NodePath("../../RecuerdosManager")
 
-[node name="ZonaEnemigos" type="Node" parent="." unique_id=1492259904]
-
-[node name="EnemyManager" type="Node" parent="ZonaEnemigos" unique_id=2118253450 node_paths=PackedStringArray("SpawnPoint")]
+[node name="EnemyManager" type="Node" parent="SolidZone" unique_id=2118253450 node_paths=PackedStringArray("SpawnPoints", "TimeGameStart", "TimeToSpawn", "TimeToEvaluate", "ResourcePool", "DebugLabel1", "DebugLabel2") groups=["pausables"]]
 script = ExtResource("7_2ggjw")
 EnemySceneRad = ExtResource("7_7ee7t")
 EnemySceneVoid = ExtResource("8_x12pg")
-SpawnPoint = NodePath("../Path2D")
+SpawnPoints = [NodePath("../Path2D"), NodePath("../Camino 2")]
+TimeGameStart = NodePath("TGS")
+TimeToSpawn = NodePath("TTS")
+TimeToEvaluate = NodePath("TTE")
+ResourcePool = NodePath("../../RecuerdosManager")
+MinTTSFactor = 2
+TorreRiskCount = 8
+DebugLabel1 = NodePath("../../DebugLabel/Label1")
+DebugLabel2 = NodePath("../../DebugLabel/Label2")
 
-[node name="Path2D" type="Path2D" parent="ZonaEnemigos" unique_id=1719863966]
-position = Vector2(459, 239)
-curve = SubResource("Curve2D_a813w")
+[node name="TTS" type="Timer" parent="SolidZone/EnemyManager" unique_id=879476432 groups=["pausables"]]
+wait_time = 2.0
 
-[node name="CacapturaTestRad" parent="." unique_id=407587090 instance=ExtResource("11_welv0")]
-position = Vector2(538, 221)
+[node name="TGS" type="Timer" parent="SolidZone/EnemyManager" unique_id=1684068599 groups=["pausables"]]
+one_shot = true
 
-[node name="CacapturaTestVoid" parent="." unique_id=751436498 instance=ExtResource("12_08eeh")]
-position = Vector2(538, 221)
+[node name="TTE" type="Timer" parent="SolidZone/EnemyManager" unique_id=987380230]
+wait_time = 5.0
 
-[node name="TorreMadreTempleate" parent="." unique_id=1554045754 instance=ExtResource("11_x12pg")]
-position = Vector2(865, 212)
+[node name="Eidolon" type="Node2D" parent="." unique_id=2095844698 node_paths=PackedStringArray("ModoSwaper", "PosRad", "PosVoid") groups=["pausables"]]
+z_index = 6
+position = Vector2(0, -60)
+script = ExtResource("16_ql5nl")
+ModoSwaper = NodePath("ModoManager")
+PosRad = NodePath("Posicionamiento/RadPos")
+PosVoid = NodePath("Posicionamiento/VoidPos")
+SwapTime = 0.5
+ScaleFactor = 0.1
 
-[node name="Label" type="Label" parent="." unique_id=1356109056]
-offset_left = 1016.0
-offset_top = 9.0
-offset_right = 1057.0
-offset_bottom = 32.0
-text = "wdsa"
+[node name="ModoManager" parent="Eidolon" unique_id=844162780 node_paths=PackedStringArray("SpriteRad", "SpriteVoid") groups=["pausables"] instance=ExtResource("2_a813w")]
+z_index = 4
+position = Vector2(1700, 840)
+scale = Vector2(3.2098298, 3.2098298)
+SpriteRad = NodePath("../../SolidZone/CacapturaTestRad")
+SpriteVoid = NodePath("../../SolidZone/CacapturaTestVoid")
+TweenTime = 1.0
 
-[connection signal="_in_radiance" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_radiance"]
-[connection signal="_in_void" from="ModoManager" to="ZonaEnemigos/EnemyManager" method="_on_modo_manager__in_void"]
-[connection signal="_on_game_over" from="TorreMadreTempleate" to="." method="_on_game_over"]
+[node name="Posicionamiento" type="Node2D" parent="Eidolon" unique_id=508753146]
+position = Vector2(900, 838)
+
+[node name="RadPos" type="Marker2D" parent="Eidolon/Posicionamiento" unique_id=1248006215]
+position = Vector2(783, 0)
+gizmo_extents = 500.0
+
+[node name="VoidPos" type="Marker2D" parent="Eidolon/Posicionamiento" unique_id=595990985]
+position = Vector2(-668, 2)
+gizmo_extents = 500.0
+
+[node name="AnimationPlayer" parent="." unique_id=667123828 groups=["pausables"] instance=ExtResource("15_5b6nn")]
+unique_name_in_owner = true
+
+[node name="Audio" type="Node" parent="." unique_id=327461689]
+process_mode = 3
+script = ExtResource("16_t7jn3")
+volumen_bus_void = 0.0
+
+[node name="Musica" type="Node" parent="Audio" unique_id=1296049975]
+
+[node name="EidolonsTalkThemeMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=687585178]
+stream = ExtResource("17_0wp5n")
+
+[node name="EidolonsTalkThemeMusic001" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1942250941]
+stream = ExtResource("18_ql5nl")
+
+[node name="IntroMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=283594305]
+stream = ExtResource("19_ymr0h")
+
+[node name="LoserThemeMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=472995627]
+stream = ExtResource("20_vipp3")
+
+[node name="RadiantLayerMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1135336550]
+stream = ExtResource("21_r6o5t")
+
+[node name="radiantLayer" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=618597520]
+stream = ExtResource("22_kwbfk")
+autoplay = true
+
+[node name="RadiantLoopSegMusic00" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1945044305]
+stream = ExtResource("23_5241x")
+
+[node name="RadiantLoopSegMusic001" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=2140988593]
+stream = ExtResource("24_5xgby")
+
+[node name="VoidiansAndRadiantsFullthemeMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=756479138]
+stream = ExtResource("25_g6hnb")
+
+[node name="VoidLayerMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1407608529]
+stream = ExtResource("26_5ceh4")
+
+[node name="voidLayer" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1323002824]
+stream = ExtResource("27_36rj8")
+autoplay = true
+
+[node name="VoidLoopSegMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=583736377]
+stream = ExtResource("28_laqwf")
+
+[node name="VoidLoopSegMusic001" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1881555695]
+stream = ExtResource("29_y0cxo")
+
+[node name="WinnerThemePart1NoloopMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=1449587054]
+stream = ExtResource("30_6lhjj")
+
+[node name="WinnerThemePart2LoopMusic000" type="AudioStreamPlayer" parent="Audio/Musica" unique_id=915652272]
+stream = ExtResource("31_7t27w")
+
+[node name="SFX" type="Node" parent="Audio" unique_id=1550052594]
+
+[node name="ArrowBlockSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1825271347]
+stream = ExtResource("32_u1f1o")
+
+[node name="ArrowImpactSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1086436323]
+stream = ExtResource("33_v71ek")
+
+[node name="ArrowShotSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1738739823]
+stream = ExtResource("34_w0atn")
+volume_db = 6.0
+
+[node name="BackMenuSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=151734470]
+stream = ExtResource("35_0tiq6")
+
+[node name="Bell" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=2032017052]
+stream = ExtResource("36_0dhrk")
+
+[node name="Bird1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=388465117]
+stream = ExtResource("37_a0vbm")
+
+[node name="BuidTowerInRadiantSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1201295320]
+stream = ExtResource("38_w7rsl")
+bus = &"SFX_radiant"
+
+[node name="BuildATower1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1249255878]
+stream = ExtResource("39_mrudy")
+
+[node name="BuildATower2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1417656528]
+stream = ExtResource("40_77i1g")
+
+[node name="BuildATowerVoid1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=287342690]
+stream = ExtResource("41_iw3su")
+volume_db = -15.0
+
+[node name="BuildATowerVoid2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1110625231]
+stream = ExtResource("42_rbga7")
+
+[node name="BuildATowerVoid3Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=539262123]
+stream = ExtResource("43_gwc77")
+
+[node name="BuildATowerVoid4Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=107032111]
+stream = ExtResource("44_ajnv2")
+
+[node name="BuildATowerVoid5Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=2097178286]
+stream = ExtResource("45_pqy1k")
+
+[node name="Cricket1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1590580889]
+stream = ExtResource("46_647n7")
+
+[node name="Cricket2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=358764521]
+stream = ExtResource("47_x3lwl")
+
+[node name="Cricket3Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1739673373]
+stream = ExtResource("48_rs83f")
+
+[node name="Cricket4Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1691312791]
+stream = ExtResource("49_kxeby")
+
+[node name="DownMenuSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=690255096]
+stream = ExtResource("50_i11id")
+
+[node name="DrawACard1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=947923802]
+stream = ExtResource("51_hx0it")
+
+[node name="DrawACard2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=292734395]
+stream = ExtResource("52_kwpyh")
+
+[node name="DrawACard3Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1981278273]
+stream = ExtResource("53_5orxb")
+
+[node name="DrawACard4Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1471653844]
+stream = ExtResource("54_s7fhr")
+
+[node name="EidolonVoiceRadiantSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1475771301]
+stream = ExtResource("55_1jfg3")
+
+[node name="EidolonVoiceVoidSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1677404750]
+stream = ExtResource("56_jdkpv")
+
+[node name="EidorolsIntrusionSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=361175108]
+stream = ExtResource("57_qy2wv")
+
+[node name="EnemyImpactSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=157483426]
+unique_name_in_owner = true
+stream = ExtResource("58_80sxq")
+
+[node name="EnemySpawn2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=726955179]
+stream = ExtResource("59_6hv14")
+volume_db = -39.857
+
+[node name="EnemySpawnLoopSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1576409472]
+stream = ExtResource("60_alggs")
+
+[node name="InMenuSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=641602366]
+stream = ExtResource("61_8x0ks")
+
+[node name="InvCrashSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=524621]
+stream = ExtResource("62_gl47w")
+
+[node name="Lava1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1499001661]
+stream = ExtResource("63_6d01d")
+
+[node name="Lava2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1841424730]
+stream = ExtResource("64_0ta0s")
+
+[node name="ManaRecoverSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=2139406606]
+stream = ExtResource("65_jscty")
+
+[node name="Owl1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1310051283]
+stream = ExtResource("66_m7o8l")
+
+[node name="Owl2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1688036751]
+stream = ExtResource("67_ih5as")
+
+[node name="PressStartMenuSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1202204757]
+stream = ExtResource("68_6o3ld")
+
+[node name="PutACard1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1951009563]
+stream = ExtResource("69_whxky")
+
+[node name="PutACard1Sfx001" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=27334734]
+stream = ExtResource("70_pdrki")
+
+[node name="PutACard2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1560565657]
+stream = ExtResource("71_0rcop")
+
+[node name="PutACard3Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=978226928]
+stream = ExtResource("72_nihvo")
+
+[node name="PutACard4Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1563462227]
+stream = ExtResource("73_4l6n0")
+
+[node name="PutOnACard1Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=250936212]
+stream = ExtResource("74_563op")
+
+[node name="PutOnACard2Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=651780144]
+stream = ExtResource("75_ugs84")
+
+[node name="PutOnACard3Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1567569307]
+unique_name_in_owner = true
+stream = ExtResource("76_8qu4x")
+
+[node name="PutOnACard4Sfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=2068276516]
+stream = ExtResource("77_nmf0k")
+
+[node name="RadiantInRadiantModeSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1494854084]
+stream = ExtResource("78_rrptm")
+bus = &"SFX_radiant"
+
+[node name="RadiantInVoidModeSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=2093812401]
+stream = ExtResource("79_huhlg")
+volume_db = -5.0
+pitch_scale = 3.0
+bus = &"SFX_void"
+
+[node name="RiverSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=886365412]
+stream = ExtResource("80_s6uyl")
+
+[node name="StartGameSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=950317245]
+stream = ExtResource("81_5a7kk")
+
+[node name="Step1Sfx" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1469870844]
+stream = ExtResource("82_p2asq")
+volume_db = -21.0
+pitch_scale = 0.69
+
+[node name="Step2Sfx" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=297724874]
+stream = ExtResource("83_bcdkj")
+volume_db = -21.0
+pitch_scale = 0.75
+
+[node name="Step3Sfx" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1572216466]
+stream = ExtResource("84_mlkce")
+volume_db = -23.5
+pitch_scale = 0.76
+
+[node name="Step4Sfx" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=389819673]
+stream = ExtResource("85_euk11")
+volume_db = -21.3
+pitch_scale = 0.82
+
+[node name="Step5Sfx" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=460407712]
+stream = ExtResource("94_g6hnb")
+volume_db = -14.757
+pitch_scale = 2.16
+
+[node name="SwipeADiaSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=598480152]
+stream = ExtResource("87_euvse")
+
+[node name="SwipeAnocheSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=892753903]
+stream = ExtResource("88_3jpnw")
+
+[node name="TransiciónADiaSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=1893429348]
+stream = ExtResource("89_r3xdb")
+
+[node name="TransiciónANocheSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=636212549]
+stream = ExtResource("90_ftorf")
+
+[node name="swipeSFX" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=667960709]
+stream = ExtResource("91_26ybo")
+volume_db = -19.0
+pitch_scale = 0.37
+
+[node name="UpMenuSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=338451295]
+stream = ExtResource("91_26ybo")
+
+[node name="BuildATowerRadFinalSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=2091428795]
+stream = ExtResource("98_5241x")
+volume_db = -15.0
+
+[node name="BlockPutTowerSfx000" type="AudioStreamPlayer" parent="Audio/SFX" unique_id=791945475]
+stream = ExtResource("101_5ceh4")
+volume_db = 6.5
+
+[connection signal="torre_count_updated" from="." to="SolidZone/EnemyManager" method="_on_torre_count_updated"]
+[connection signal="torre_agregada" from="Cartas" to="." method="_on_torre_instalada"]
+[connection signal="torre_destruida" from="Cartas" to="." method="_on_torre_desinstalada"]
+[connection signal="_on_recuerdo_1_quinto" from="RecuerdosManager" to="BDNRecuerdos" method="EstaNivelBasico"]
+[connection signal="_on_recuerdo_2_quinto" from="RecuerdosManager" to="BDNRecuerdos" method="EstaNivelMedioMedio"]
+[connection signal="_on_recuerdo_3_quinto" from="RecuerdosManager" to="BDNRecuerdos" method="EstaNivelMedio"]
+[connection signal="_on_recuerdo_4_quinto" from="RecuerdosManager" to="BDNRecuerdos" method="EstaNivelFullMedio"]
+[connection signal="_on_recuerdo_entero" from="RecuerdosManager" to="BDNRecuerdos" method="EstaNivelFull"]
+[connection signal="_on_game_over" from="SolidZone/TorreMadreTempleate2" to="." method="_on_game_over"]
+[connection signal="_on_risk_coherente" from="SolidZone/EnemyManager" to="BDNRisk" method="EstaNivelFullMedio"]
+[connection signal="_on_risk_malhumorado" from="SolidZone/EnemyManager" to="BDNRisk" method="EstaNivelMedioMedio"]
+[connection signal="_on_risk_mediocre" from="SolidZone/EnemyManager" to="BDNRisk" method="EstaNivelMedio"]
+[connection signal="_on_risk_noob" from="SolidZone/EnemyManager" to="BDNRisk" method="EstaNivelBasico"]
+[connection signal="_on_risk_top" from="SolidZone/EnemyManager" to="BDNRisk" method="EstaNivelFull"]
+[connection signal="timeout" from="SolidZone/EnemyManager/TTS" to="SolidZone/EnemyManager" method="spawnEnemy"]
+[connection signal="timeout" from="SolidZone/EnemyManager/TGS" to="SolidZone/EnemyManager" method="EnableSpawnEnemies"]
+[connection signal="timeout" from="SolidZone/EnemyManager/TTE" to="SolidZone/EnemyManager" method="_on_time_to_evaluate_timeout"]
+[connection signal="_in_radiance" from="Eidolon/ModoManager" to="SolidZone/EnemyManager" method="_on_modo_manager__in_radiance"]
+[connection signal="_in_radiance" from="Eidolon/ModoManager" to="Eidolon" method="_on_modo_manager__in_radiance"]
+[connection signal="_in_void" from="Eidolon/ModoManager" to="SolidZone/EnemyManager" method="_on_modo_manager__in_void"]
+[connection signal="_in_void" from="Eidolon/ModoManager" to="Eidolon" method="_on_modo_manager__in_void"]
+[connection signal="finished" from="Audio/Musica/radiantLayer" to="." method="_on_radiant_layer_finished"]
+[connection signal="finished" from="Audio/Musica/voidLayer" to="." method="_on_void_layer_finished"]

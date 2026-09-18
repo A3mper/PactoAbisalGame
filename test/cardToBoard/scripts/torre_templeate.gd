@@ -10,6 +10,7 @@ extends Node2D
 signal espacio_ocupado
 signal espacio_libre
 signal torre_borrada
+signal torre_colocada
 
 var IsPlaced : bool = false
 #var HasTarget : bool = false
@@ -36,15 +37,14 @@ func _ready():
 	TorrePlacement.monitoring = false
 	AreaDeEfecto.monitoring = false
 	PNGMania.self_modulate.a = 0.25
-	Fogonazo = LeBalaPS.instantiate()
-	SalidaBala.add_child(Fogonazo)
-	Fogonazo.hide()
+	
 
 func _on_tree_exited() -> void:
+	#torre_borrada.emit()
 	queue_free()
 
 func _on_plant() -> void:
-	
+	torre_colocada.emit()
 	IsPlaced = true
 	TorrePlacement.monitoring = true
 	AreaDeEfecto.monitoring = true
@@ -53,16 +53,18 @@ func _on_plant() -> void:
 
 func dispara():
 	if IsReadyShoot:
-		
+		get_node("/root/CardToScene/Audio/SFX/ArrowShotSfx000").play()
 		IsReadyShoot = false
-		
-		Fogonazo.show()
 		
 		rof.start()
 
-		duracion_fogonazo = rof.wait_time * 0.25
+		Fogonazo = LeBalaPS.instantiate()
+		SalidaBala.add_child(Fogonazo)
+		#Fogonazo.hide()
 
-		get_tree().create_timer(duracion_fogonazo).timeout.connect(_on_fogonazo_timeout)
+		#duracion_fogonazo = rof.wait_time * 0.25
+
+		#get_tree().create_timer(duracion_fogonazo).timeout.connect(_on_fogonazo_timeout)
 
 		if objetivoActual.has_method("has_been_shot"):
 			
@@ -103,21 +105,18 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		objetivosEnRango.append(_body)
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
-	#HasTarget = false
+	objetivosEnRango.erase(_body)
 	objetivoActual = null
-
 
 func _on_cad_de_fuego_timeout() -> void:
 	IsReadyShoot = true
 
-func _on_fogonazo_timeout():
-	if is_instance_valid(Fogonazo): 
-		Fogonazo.hide()
-
 func _on_espacio_ocupado(_area : Area2D)->void:
+	#print("Hola??")
 	espacio_ocupado.emit()
 
 func _on_espacio_libre(_area : Area2D)->void:
+	#print("Que tal??")
 	espacio_libre.emit()
 
 func GestionTorre() -> void:

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dhrg0235jc1io"]
+
+[ext_resource type="Script" uid="uid://ckyufdlpgdc80" path="res://test/cardToBoard/scenes/pausa.gd" id="1_b018v"]
+
+[node name="pausa" type="Node" unique_id=689808865]
+process_mode = 3
+script = ExtResource("1_b018v")

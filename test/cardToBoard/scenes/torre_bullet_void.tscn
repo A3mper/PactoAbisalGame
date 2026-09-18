@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://4b54dagqhmey" path="res://test/cardToBoard/scripts/torre_bullet.gd" id="1_78832"]
 [ext_resource type="Texture2D" uid="uid://fv3ne32qvfvs" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Torres/ProyectilVoid.png" id="2_i6rga"]
 
-[node name="TorreBullet" type="Node2D" unique_id=526954861]
+[node name="TorreBullet" type="Node2D" unique_id=526954861 node_paths=PackedStringArray("pngbala", "balaDur")]
+z_index = 3
 script = ExtResource("1_78832")
+pngbala = NodePath("ProyectilVoid")
+balaDur = NodePath("BulletDuration")
 
 [node name="ProyectilVoid" type="Sprite2D" parent="." unique_id=1560135400]
 texture = ExtResource("2_i6rga")
+
+[node name="BulletDuration" type="Timer" parent="." unique_id=1614335037]
+wait_time = 0.5

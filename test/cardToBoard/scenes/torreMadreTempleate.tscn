@@ -1,22 +1,42 @@
 [gd_scene format=3 uid="uid://coqf114s66o14"]
 
-[ext_resource type="Texture2D" uid="uid://c7wfvmobrc7r6" path="res://test/cardToBoard/assets/IMG_20250124_072357_693.jpg" id="1_1rd2o"]
 [ext_resource type="Script" uid="uid://dvoedtsuswupw" path="res://test/cardToBoard/scripts/torre_madre_templeate.gd" id="1_cb8u7"]
+[ext_resource type="Texture2D" uid="uid://cvcam0ts2wtta" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Torre de naipes.png" id="2_cb8u7"]
+[ext_resource type="Texture2D" uid="uid://cvm2ja32c72fw" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Torre de naipes 2.png" id="3_2jlpv"]
+[ext_resource type="Texture2D" uid="uid://cxysiag5smw61" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Torre de naipes 1.png" id="4_abx8o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rd2o"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cb8u7"]
+radius = 8.116885
+height = 18.88889
 
-[node name="TorreMadreTempleate" type="Area2D" unique_id=1554045754 node_paths=PackedStringArray("torreMadreSprite")]
+[node name="TorreMadreTempleate" type="Area2D" unique_id=1554045754 node_paths=PackedStringArray("TMSFullHealth", "TMSMidHealth", "TMSLowHealth")]
 collision_layer = 0
 collision_mask = 6
 script = ExtResource("1_cb8u7")
-torreMadreSprite = NodePath("houseDr")
+TMSFullHealth = NodePath("FullHealth")
+TMSMidHealth = NodePath("MidHealth")
+TMSLowHealth = NodePath("LowHealth")
+MaxHealth = 6
 
-[node name="houseDr" type="Sprite2D" parent="." unique_id=1994178944]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_1rd2o")
+[node name="FullHealth" type="Sprite2D" parent="." unique_id=1994178944]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_cb8u7")
+
+[node name="MidHealth" type="Sprite2D" parent="." unique_id=140454770]
+visible = false
+position = Vector2(0, 6)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("3_2jlpv")
+
+[node name="LowHealth" type="Sprite2D" parent="." unique_id=1282618169]
+visible = false
+position = Vector2(0, 12)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("4_abx8o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2114096792]
-scale = Vector2(3.6, 3.6)
-shape = SubResource("RectangleShape2D_1rd2o")
+position = Vector2(-4, -1)
+scale = Vector2(3.0799992, 3.6)
+shape = SubResource("CapsuleShape2D_cb8u7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

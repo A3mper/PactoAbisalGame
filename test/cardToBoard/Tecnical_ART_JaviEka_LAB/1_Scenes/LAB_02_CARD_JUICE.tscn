@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://m1ws7ki4tfnu"]
+
+[ext_resource type="Script" uid="uid://qng32tu54ebx" path="res://test/Tecnical ART_JaviEka - LAB/2_Scripts/Card.gd" id="1_83heq"]
+[ext_resource type="Texture2D" uid="uid://c6jj68av1ojsm" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Construccion de cartas/Visual spoiler card MARCO.png" id="2_eapoi"]
+[ext_resource type="Texture2D" uid="uid://dumvkefllqm4" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Construccion de cartas/TORRE Borde.png" id="3_u7iqn"]
+[ext_resource type="Texture2D" uid="uid://c13krao21qwv7" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Construccion de cartas/Torre logo.png" id="4_5h4ed"]
+[ext_resource type="Texture2D" uid="uid://edcgfqnyafuh" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Construccion de cartas/1 Rec UNO.png" id="5_as0k1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7iqn"]
+transparency = 1
+albedo_texture = ExtResource("2_eapoi")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5h4ed"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5h4ed"]
+transparency = 1
+albedo_texture = ExtResource("3_u7iqn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_as0k1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as0k1"]
+transparency = 1
+albedo_texture = ExtResource("4_5h4ed")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a7gek"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7gek"]
+transparency = 1
+albedo_texture = ExtResource("5_as0k1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jc1v7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lr2lr"]
+
+[node name="LAB_02_CARD_JUICE" type="Node3D" unique_id=1989758882]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=399999656]
+transform = Transform3D(1, 0, 0, 0, 0.9142681, -0.40510967, 0, 0.40510967, 0.9142681, 0, 1.3750277, 7.3777294)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1028301889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1601918)
+light_energy = 0.775
+light_bake_mode = 0
+
+[node name="Card" type="Node3D" parent="." unique_id=2054579539]
+script = ExtResource("1_83heq")
+
+[node name="Base color" type="MeshInstance3D" parent="Card" unique_id=1289565821]
+transform = Transform3D(1.7684582, 0, 0, 0, 2.3674192, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_u7iqn")
+mesh = SubResource("QuadMesh_5h4ed")
+
+[node name="Borde" type="Node3D" parent="Card" unique_id=1360969287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0052933693, 0)
+
+[node name="text" type="MeshInstance3D" parent="Card/Borde" unique_id=1779504285]
+transform = Transform3D(1.717074, 0, 0, 0, 2.3722248, 0, 0, 0, 1, 0, 0, 0.022272646)
+material_override = SubResource("StandardMaterial3D_5h4ed")
+mesh = SubResource("QuadMesh_as0k1")
+
+[node name="Logo" type="Node3D" parent="Card" unique_id=882996301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07948744, 0.01812005)
+
+[node name="text" type="MeshInstance3D" parent="Card/Logo" unique_id=1629493405]
+transform = Transform3D(1.41, 0, 0, 0, 1.63, 0, 0, 0, 1.42, 0, 0, 0.10965091)
+material_override = SubResource("StandardMaterial3D_as0k1")
+mesh = SubResource("QuadMesh_a7gek")
+
+[node name="Costo" type="Node3D" parent="Card" unique_id=81222173]
+
+[node name="text" type="MeshInstance3D" parent="Card/Costo" unique_id=463367909]
+transform = Transform3D(1.5160413, 0, 0, 0, 2.0484252, 0, 0, 0, 1, 0, 0, 0.09242147)
+material_override = SubResource("StandardMaterial3D_a7gek")
+mesh = SubResource("QuadMesh_jc1v7")
+
+[node name="Area3D" type="Area3D" parent="Card" unique_id=1434848827]
+transform = Transform3D(1.9224701, 0, 0, 0, 2.457651, 0, 0, 0, 0.10061318, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Card/Area3D" unique_id=2025676513]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_lr2lr")
+
+[connection signal="input_event" from="Card/Area3D" to="Card" method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Card/Area3D" to="Card" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Card/Area3D" to="Card" method="_on_area_3d_mouse_exited"]

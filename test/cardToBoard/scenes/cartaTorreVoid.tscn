@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c0cb2yv1sn6tn"]
+
+[ext_resource type="Script" uid="uid://bvtstb0dq40ka" path="res://test/cardToBoard/scripts/carta_a_torre_templeate.gd" id="1_abt26"]
+[ext_resource type="PackedScene" uid="uid://cptuxfixay5de" path="res://test/cardToBoard/scenes/torreVoid.tscn" id="2_abt26"]
+[ext_resource type="Texture2D" uid="uid://ddw6v3oj86sk7" path="res://test/cardToBoard/Tecnical_ART_JaviEka_LAB/4_Textures/Construccion_de_cartas/5_Rec_CINCO.png" id="4_5u76i"]
+[ext_resource type="Texture2D" uid="uid://c13krao21qwv7" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Construccion de cartas/Torre logo.png" id="4_i14i4"]
+[ext_resource type="Texture2D" uid="uid://c8kw1nein7jwd" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Construccion de cartas/VOID Borde.png" id="5_6uell"]
+[ext_resource type="Shader" uid="uid://igm2655jibib" path="res://test/cardToBoard/scenes/Voidcardshader.gdshader" id="5_al3u1"]
+[ext_resource type="AudioStream" uid="uid://carrb8um4j0xx" path="res://assets/Audio/SFX/PutOnACard3_SFX_000.wav" id="7_blwcq"]
+[ext_resource type="Texture2D" uid="uid://mgww7tgcsji7" path="res://test/Tecnical ART_JaviEka - LAB/4_Textures/Visual spoiler card MARCO.png" id="8_il2ua"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wota0"]
+shader = ExtResource("5_al3u1")
+shader_parameter/hover_enabled = false
+shader_parameter/hover_color = Color(0.9647059, 0, 0.8901961, 1)
+shader_parameter/color_strength = 1.0
+shader_parameter/glow_color = Color(0.42745098, 0.29803923, 0.7529412, 1)
+shader_parameter/glow_strength = 1.606000076285
+shader_parameter/glow_size = 0.0010000000475
+shader_parameter/flicker_speed = 3.84600017942512
+shader_parameter/flicker_min = 0.894000042465
+shader_parameter/flicker_max = 0.50000002375
+
+[node name="CartaVoid" type="Node2D" unique_id=476367395 node_paths=PackedStringArray("CardButton", "CardSprite") groups=["Cartas", "Void"]]
+z_index = 4
+script = ExtResource("1_abt26")
+TorreCorrespondiete = ExtResource("2_abt26")
+CardButton = NodePath("Button")
+IsRad = false
+CardSprite = NodePath("TorreLogo")
+
+[node name="PutOnACard3Sfx000" type="AudioStreamPlayer" parent="." unique_id=1634687440]
+unique_name_in_owner = true
+stream = ExtResource("7_blwcq")
+
+[node name="VoidBorde" type="Sprite2D" parent="." unique_id=1291072861]
+z_index = 4
+position = Vector2(127.99997, 106.49995)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("5_6uell")
+
+[node name="TorreLogo" type="Sprite2D" parent="." unique_id=1940712474]
+z_index = 4
+material = SubResource("ShaderMaterial_wota0")
+position = Vector2(127.999985, 106.49997)
+texture = ExtResource("4_i14i4")
+
+[node name="5RecCinco" type="Sprite2D" parent="." unique_id=2051539463]
+z_index = 4
+position = Vector2(335, 231.00003)
+texture = ExtResource("4_5u76i")
+
+[node name="VisualSpoilerCardMarco" type="Sprite2D" parent="." unique_id=754737758]
+z_index = 3
+position = Vector2(-245.99998, -415.99997)
+texture = ExtResource("8_il2ua")
+centered = false
+
+[node name="Button" type="Button" parent="." unique_id=1609764364]
+modulate = Color(1, 1, 1, 0)
+offset_left = -251.99998
+offset_top = -417.99997
+offset_right = 505.0
+offset_bottom = 640.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
